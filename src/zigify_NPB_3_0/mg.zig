@@ -1,0 +1,5448 @@
+const std = @import("std");
+
+
+const __root = @This();
+pub const __builtin = @import("std").zig.c_translation.builtins;
+pub const __helpers = @import("std").zig.c_translation.helpers;
+pub const ptrdiff_t = c_long;
+pub const wchar_t = c_int;
+pub const max_align_t = extern struct {
+    __aro_max_align_ll: c_longlong = 0,
+    __aro_max_align_ld: c_longdouble = 0,
+};
+pub const struct___va_list_tag_1 = extern struct {
+    unnamed_0: c_uint = 0,
+    unnamed_1: c_uint = 0,
+    unnamed_2: ?*anyopaque = null,
+    unnamed_3: ?*anyopaque = null,
+};
+pub const __builtin_va_list = [1]struct___va_list_tag_1;
+pub const va_list = __builtin_va_list;
+pub const __gnuc_va_list = __builtin_va_list;
+pub const __u_char = u8;
+pub const __u_short = c_ushort;
+pub const __u_int = c_uint;
+pub const __u_long = c_ulong;
+pub const __int8_t = i8;
+pub const __uint8_t = u8;
+pub const __int16_t = c_short;
+pub const __uint16_t = c_ushort;
+pub const __int32_t = c_int;
+pub const __uint32_t = c_uint;
+pub const __int64_t = c_long;
+pub const __uint64_t = c_ulong;
+pub const __int_least8_t = __int8_t;
+pub const __uint_least8_t = __uint8_t;
+pub const __int_least16_t = __int16_t;
+pub const __uint_least16_t = __uint16_t;
+pub const __int_least32_t = __int32_t;
+pub const __uint_least32_t = __uint32_t;
+pub const __int_least64_t = __int64_t;
+pub const __uint_least64_t = __uint64_t;
+pub const __quad_t = c_long;
+pub const __u_quad_t = c_ulong;
+pub const __intmax_t = c_long;
+pub const __uintmax_t = c_ulong;
+pub const __dev_t = c_ulong;
+pub const __uid_t = c_uint;
+pub const __gid_t = c_uint;
+pub const __ino_t = c_ulong;
+pub const __ino64_t = c_ulong;
+pub const __mode_t = c_uint;
+pub const __nlink_t = c_ulong;
+pub const __off_t = c_long;
+pub const __off64_t = c_long;
+pub const __pid_t = c_int;
+pub const __fsid_t = extern struct {
+    __val: [2]c_int = @import("std").mem.zeroes([2]c_int),
+};
+pub const __clock_t = c_long;
+pub const __rlim_t = c_ulong;
+pub const __rlim64_t = c_ulong;
+pub const __id_t = c_uint;
+pub const __time_t = c_long;
+pub const __useconds_t = c_uint;
+pub const __suseconds_t = c_long;
+pub const __suseconds64_t = c_long;
+pub const __daddr_t = c_int;
+pub const __key_t = c_int;
+pub const __clockid_t = c_int;
+pub const __timer_t = ?*anyopaque;
+pub const __blksize_t = c_long;
+pub const __blkcnt_t = c_long;
+pub const __blkcnt64_t = c_long;
+pub const __fsblkcnt_t = c_ulong;
+pub const __fsblkcnt64_t = c_ulong;
+pub const __fsfilcnt_t = c_ulong;
+pub const __fsfilcnt64_t = c_ulong;
+pub const __fsword_t = c_long;
+pub const __ssize_t = c_long;
+pub const __syscall_slong_t = c_long;
+pub const __syscall_ulong_t = c_ulong;
+pub const __loff_t = __off64_t;
+pub const __caddr_t = [*c]u8;
+pub const __intptr_t = c_long;
+pub const __socklen_t = c_uint;
+pub const __sig_atomic_t = c_int;
+const union_unnamed_2 = extern union {
+    __wch: c_uint,
+    __wchb: [4]u8,
+};
+pub const __mbstate_t = extern struct {
+    __count: c_int = 0,
+    __value: union_unnamed_2 = @import("std").mem.zeroes(union_unnamed_2),
+};
+pub const struct__G_fpos_t = extern struct {
+    __pos: __off_t = 0,
+    __state: __mbstate_t = @import("std").mem.zeroes(__mbstate_t),
+};
+pub const __fpos_t = struct__G_fpos_t;
+pub const struct__G_fpos64_t = extern struct {
+    __pos: __off64_t = 0,
+    __state: __mbstate_t = @import("std").mem.zeroes(__mbstate_t),
+};
+pub const __fpos64_t = struct__G_fpos64_t;
+pub const struct__IO_marker = opaque {}; // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/types/struct_FILE.h:75:7: warning: struct demoted to opaque type - has bitfield
+pub const struct__IO_FILE = opaque {
+    pub const fclose = __root.fclose;
+    pub const fflush = __root.fflush;
+    pub const fflush_unlocked = __root.fflush_unlocked;
+    pub const setbuf = __root.setbuf;
+    pub const setvbuf = __root.setvbuf;
+    pub const setbuffer = __root.setbuffer;
+    pub const setlinebuf = __root.setlinebuf;
+    pub const fprintf = __root.fprintf;
+    pub const vfprintf = __root.vfprintf;
+    pub const fscanf = __root.fscanf;
+    pub const vfscanf = __root.vfscanf;
+    pub const fgetc = __root.fgetc;
+    pub const getc = __root.getc;
+    pub const getc_unlocked = __root.getc_unlocked;
+    pub const fgetc_unlocked = __root.fgetc_unlocked;
+    pub const getw = __root.getw;
+    pub const fseek = __root.fseek;
+    pub const ftell = __root.ftell;
+    pub const rewind = __root.rewind;
+    pub const fseeko = __root.fseeko;
+    pub const ftello = __root.ftello;
+    pub const fgetpos = __root.fgetpos;
+    pub const fsetpos = __root.fsetpos;
+    pub const clearerr = __root.clearerr;
+    pub const feof = __root.feof;
+    pub const ferror = __root.ferror;
+    pub const clearerr_unlocked = __root.clearerr_unlocked;
+    pub const feof_unlocked = __root.feof_unlocked;
+    pub const ferror_unlocked = __root.ferror_unlocked;
+    pub const fileno = __root.fileno;
+    pub const fileno_unlocked = __root.fileno_unlocked;
+    pub const pclose = __root.pclose;
+    pub const flockfile = __root.flockfile;
+    pub const ftrylockfile = __root.ftrylockfile;
+    pub const funlockfile = __root.funlockfile;
+    pub const __uflow = __root.__uflow;
+    pub const __overflow = __root.__overflow;
+    pub const unlocked = __root.fflush_unlocked;
+    pub const uflow = __root.__uflow;
+    pub const overflow = __root.__overflow;
+};
+pub const __FILE = struct__IO_FILE;
+pub const FILE = struct__IO_FILE;
+pub const struct__IO_codecvt = opaque {};
+pub const struct__IO_wide_data = opaque {};
+pub const _IO_lock_t = anyopaque;
+pub const cookie_read_function_t = fn (__cookie: ?*anyopaque, __buf: [*c]u8, __nbytes: usize) callconv(.c) __ssize_t;
+pub const cookie_write_function_t = fn (__cookie: ?*anyopaque, __buf: [*c]const u8, __nbytes: usize) callconv(.c) __ssize_t;
+pub const cookie_seek_function_t = fn (__cookie: ?*anyopaque, __pos: [*c]__off64_t, __w: c_int) callconv(.c) c_int;
+pub const cookie_close_function_t = fn (__cookie: ?*anyopaque) callconv(.c) c_int;
+pub const struct__IO_cookie_io_functions_t = extern struct {
+    read: ?*const cookie_read_function_t = null,
+    write: ?*const cookie_write_function_t = null,
+    seek: ?*const cookie_seek_function_t = null,
+    close: ?*const cookie_close_function_t = null,
+};
+pub const cookie_io_functions_t = struct__IO_cookie_io_functions_t;
+pub const off_t = __off_t;
+pub const fpos_t = __fpos_t;
+pub extern var stdin: ?*FILE;
+pub extern var stdout: ?*FILE;
+pub extern var stderr: ?*FILE;
+pub extern fn remove(__filename: [*c]const u8) c_int;
+pub extern fn rename(__old: [*c]const u8, __new: [*c]const u8) c_int;
+pub extern fn renameat(__oldfd: c_int, __old: [*c]const u8, __newfd: c_int, __new: [*c]const u8) c_int;
+pub extern fn fclose(__stream: ?*FILE) c_int;
+pub extern fn tmpfile() ?*FILE;
+pub extern fn tmpnam([*c]u8) [*c]u8;
+pub extern fn tmpnam_r(__s: [*c]u8) [*c]u8;
+pub extern fn tempnam(__dir: [*c]const u8, __pfx: [*c]const u8) [*c]u8;
+pub extern fn fflush(__stream: ?*FILE) c_int;
+pub extern fn fflush_unlocked(__stream: ?*FILE) c_int;
+pub extern fn fopen(noalias __filename: [*c]const u8, noalias __modes: [*c]const u8) ?*FILE;
+pub extern fn freopen(noalias __filename: [*c]const u8, noalias __modes: [*c]const u8, noalias __stream: ?*FILE) ?*FILE;
+pub extern fn fdopen(__fd: c_int, __modes: [*c]const u8) ?*FILE;
+pub extern fn fopencookie(noalias __magic_cookie: ?*anyopaque, noalias __modes: [*c]const u8, __io_funcs: cookie_io_functions_t) ?*FILE;
+pub extern fn fmemopen(__s: ?*anyopaque, __len: usize, __modes: [*c]const u8) ?*FILE;
+pub extern fn open_memstream(__bufloc: [*c][*c]u8, __sizeloc: [*c]usize) ?*FILE;
+pub extern fn setbuf(noalias __stream: ?*FILE, noalias __buf: [*c]u8) void;
+pub extern fn setvbuf(noalias __stream: ?*FILE, noalias __buf: [*c]u8, __modes: c_int, __n: usize) c_int;
+pub extern fn setbuffer(noalias __stream: ?*FILE, noalias __buf: [*c]u8, __size: usize) void;
+pub extern fn setlinebuf(__stream: ?*FILE) void;
+pub extern fn fprintf(noalias __stream: ?*FILE, noalias __format: [*c]const u8, ...) c_int;
+pub extern fn printf(noalias __format: [*c]const u8, ...) c_int;
+pub extern fn sprintf(noalias __s: [*c]u8, noalias __format: [*c]const u8, ...) c_int;
+pub extern fn vfprintf(noalias __s: ?*FILE, noalias __format: [*c]const u8, __arg: [*c]struct___va_list_tag_1) c_int;
+pub extern fn vprintf(noalias __format: [*c]const u8, __arg: [*c]struct___va_list_tag_1) c_int;
+pub extern fn vsprintf(noalias __s: [*c]u8, noalias __format: [*c]const u8, __arg: [*c]struct___va_list_tag_1) c_int;
+pub extern fn snprintf(noalias __s: [*c]u8, __maxlen: usize, noalias __format: [*c]const u8, ...) c_int;
+pub extern fn vsnprintf(noalias __s: [*c]u8, __maxlen: usize, noalias __format: [*c]const u8, __arg: [*c]struct___va_list_tag_1) c_int;
+pub extern fn vasprintf(noalias __ptr: [*c][*c]u8, noalias __f: [*c]const u8, __arg: [*c]struct___va_list_tag_1) c_int;
+pub extern fn __asprintf(noalias __ptr: [*c][*c]u8, noalias __fmt: [*c]const u8, ...) c_int;
+pub extern fn asprintf(noalias __ptr: [*c][*c]u8, noalias __fmt: [*c]const u8, ...) c_int;
+pub extern fn vdprintf(__fd: c_int, noalias __fmt: [*c]const u8, __arg: [*c]struct___va_list_tag_1) c_int;
+pub extern fn dprintf(__fd: c_int, noalias __fmt: [*c]const u8, ...) c_int;
+pub extern fn fscanf(noalias __stream: ?*FILE, noalias __format: [*c]const u8, ...) c_int;
+pub extern fn scanf(noalias __format: [*c]const u8, ...) c_int;
+pub extern fn sscanf(noalias __s: [*c]const u8, noalias __format: [*c]const u8, ...) c_int;
+pub extern fn vfscanf(noalias __s: ?*FILE, noalias __format: [*c]const u8, __arg: [*c]struct___va_list_tag_1) c_int;
+pub extern fn vscanf(noalias __format: [*c]const u8, __arg: [*c]struct___va_list_tag_1) c_int;
+pub extern fn vsscanf(noalias __s: [*c]const u8, noalias __format: [*c]const u8, __arg: [*c]struct___va_list_tag_1) c_int;
+pub extern fn fgetc(__stream: ?*FILE) c_int;
+pub extern fn getc(__stream: ?*FILE) c_int;
+pub extern fn getchar() c_int;
+pub extern fn getc_unlocked(__stream: ?*FILE) c_int;
+pub extern fn getchar_unlocked() c_int;
+pub extern fn fgetc_unlocked(__stream: ?*FILE) c_int;
+pub extern fn fputc(__c: c_int, __stream: ?*FILE) c_int;
+pub extern fn putc(__c: c_int, __stream: ?*FILE) c_int;
+pub extern fn putchar(__c: c_int) c_int;
+pub extern fn fputc_unlocked(__c: c_int, __stream: ?*FILE) c_int;
+pub extern fn putc_unlocked(__c: c_int, __stream: ?*FILE) c_int;
+pub extern fn putchar_unlocked(__c: c_int) c_int;
+pub extern fn getw(__stream: ?*FILE) c_int;
+pub extern fn putw(__w: c_int, __stream: ?*FILE) c_int;
+pub extern fn fgets(noalias __s: [*c]u8, __n: c_int, noalias __stream: ?*FILE) [*c]u8;
+pub extern fn __getdelim(noalias __lineptr: [*c][*c]u8, noalias __n: [*c]usize, __delimiter: c_int, noalias __stream: ?*FILE) __ssize_t;
+pub extern fn getdelim(noalias __lineptr: [*c][*c]u8, noalias __n: [*c]usize, __delimiter: c_int, noalias __stream: ?*FILE) __ssize_t;
+pub extern fn getline(noalias __lineptr: [*c][*c]u8, noalias __n: [*c]usize, noalias __stream: ?*FILE) __ssize_t;
+pub extern fn fputs(noalias __s: [*c]const u8, noalias __stream: ?*FILE) c_int;
+pub extern fn puts(__s: [*c]const u8) c_int;
+pub extern fn ungetc(__c: c_int, __stream: ?*FILE) c_int;
+pub extern fn fread(noalias __ptr: ?*anyopaque, __size: usize, __n: usize, noalias __stream: ?*FILE) usize;
+pub extern fn fwrite(noalias __ptr: ?*const anyopaque, __size: usize, __n: usize, noalias __s: ?*FILE) usize;
+pub extern fn fread_unlocked(noalias __ptr: ?*anyopaque, __size: usize, __n: usize, noalias __stream: ?*FILE) usize;
+pub extern fn fwrite_unlocked(noalias __ptr: ?*const anyopaque, __size: usize, __n: usize, noalias __stream: ?*FILE) usize;
+pub extern fn fseek(__stream: ?*FILE, __off: c_long, __whence: c_int) c_int;
+pub extern fn ftell(__stream: ?*FILE) c_long;
+pub extern fn rewind(__stream: ?*FILE) void;
+pub extern fn fseeko(__stream: ?*FILE, __off: __off_t, __whence: c_int) c_int;
+pub extern fn ftello(__stream: ?*FILE) __off_t;
+pub extern fn fgetpos(noalias __stream: ?*FILE, noalias __pos: [*c]fpos_t) c_int;
+pub extern fn fsetpos(__stream: ?*FILE, __pos: [*c]const fpos_t) c_int;
+pub extern fn clearerr(__stream: ?*FILE) void;
+pub extern fn feof(__stream: ?*FILE) c_int;
+pub extern fn ferror(__stream: ?*FILE) c_int;
+pub extern fn clearerr_unlocked(__stream: ?*FILE) void;
+pub extern fn feof_unlocked(__stream: ?*FILE) c_int;
+pub extern fn ferror_unlocked(__stream: ?*FILE) c_int;
+pub extern fn perror(__s: [*c]const u8) void;
+pub extern fn fileno(__stream: ?*FILE) c_int;
+pub extern fn fileno_unlocked(__stream: ?*FILE) c_int;
+pub extern fn pclose(__stream: ?*FILE) c_int;
+pub extern fn popen(__command: [*c]const u8, __modes: [*c]const u8) ?*FILE;
+pub extern fn ctermid(__s: [*c]u8) [*c]u8;
+pub extern fn flockfile(__stream: ?*FILE) void;
+pub extern fn ftrylockfile(__stream: ?*FILE) c_int;
+pub extern fn funlockfile(__stream: ?*FILE) void;
+pub extern fn __uflow(?*FILE) c_int;
+pub extern fn __overflow(?*FILE, c_int) c_int;
+pub const div_t = extern struct {
+    quot: c_int = 0,
+    rem: c_int = 0,
+};
+pub const ldiv_t = extern struct {
+    quot: c_long = 0,
+    rem: c_long = 0,
+};
+pub const lldiv_t = extern struct {
+    quot: c_longlong = 0,
+    rem: c_longlong = 0,
+};
+pub extern fn __ctype_get_mb_cur_max() usize;
+pub extern fn atof(__nptr: [*c]const u8) f64;
+pub extern fn atoi(__nptr: [*c]const u8) c_int;
+pub extern fn atol(__nptr: [*c]const u8) c_long;
+pub extern fn atoll(__nptr: [*c]const u8) c_longlong;
+pub extern fn strtod(noalias __nptr: [*c]const u8, noalias __endptr: [*c][*c]u8) f64;
+pub extern fn strtof(noalias __nptr: [*c]const u8, noalias __endptr: [*c][*c]u8) f32;
+pub extern fn strtold(noalias __nptr: [*c]const u8, noalias __endptr: [*c][*c]u8) c_longdouble;
+pub extern fn strtol(noalias __nptr: [*c]const u8, noalias __endptr: [*c][*c]u8, __base: c_int) c_long;
+pub extern fn strtoul(noalias __nptr: [*c]const u8, noalias __endptr: [*c][*c]u8, __base: c_int) c_ulong;
+pub extern fn strtoq(noalias __nptr: [*c]const u8, noalias __endptr: [*c][*c]u8, __base: c_int) c_longlong;
+pub extern fn strtouq(noalias __nptr: [*c]const u8, noalias __endptr: [*c][*c]u8, __base: c_int) c_ulonglong;
+pub extern fn strtoll(noalias __nptr: [*c]const u8, noalias __endptr: [*c][*c]u8, __base: c_int) c_longlong;
+pub extern fn strtoull(noalias __nptr: [*c]const u8, noalias __endptr: [*c][*c]u8, __base: c_int) c_ulonglong;
+pub extern fn l64a(__n: c_long) [*c]u8;
+pub extern fn a64l(__s: [*c]const u8) c_long;
+pub const u_char = __u_char;
+pub const u_short = __u_short;
+pub const u_int = __u_int;
+pub const u_long = __u_long;
+pub const quad_t = __quad_t;
+pub const u_quad_t = __u_quad_t;
+pub const fsid_t = __fsid_t;
+pub const loff_t = __loff_t;
+pub const ino_t = __ino_t;
+pub const dev_t = __dev_t;
+pub const gid_t = __gid_t;
+pub const mode_t = __mode_t;
+pub const nlink_t = __nlink_t;
+pub const uid_t = __uid_t;
+pub const pid_t = __pid_t;
+pub const id_t = __id_t;
+pub const daddr_t = __daddr_t;
+pub const caddr_t = __caddr_t;
+pub const key_t = __key_t;
+pub const clock_t = __clock_t;
+pub const clockid_t = __clockid_t;
+pub const time_t = __time_t;
+pub const timer_t = __timer_t;
+pub const ulong = c_ulong;
+pub const ushort = c_ushort;
+pub const uint = c_uint;
+pub const u_int8_t = __uint8_t;
+pub const u_int16_t = __uint16_t;
+pub const u_int32_t = __uint32_t;
+pub const u_int64_t = __uint64_t;
+pub const register_t = c_int;
+pub fn __bswap_16(arg___bsx: __uint16_t) callconv(.c) __uint16_t {
+    var __bsx = arg___bsx;
+    _ = &__bsx;
+    return @byteSwap(@as(__uint16_t, __bsx));
+}
+pub fn __bswap_32(arg___bsx: __uint32_t) callconv(.c) __uint32_t {
+    var __bsx = arg___bsx;
+    _ = &__bsx;
+    return @bitCast(@as(c_int, @byteSwap(@as(c_int, @bitCast(@as(c_uint, @truncate(__bsx)))))));
+}
+pub fn __bswap_64(arg___bsx: __uint64_t) callconv(.c) __uint64_t {
+    var __bsx = arg___bsx;
+    _ = &__bsx;
+    return @bitCast(@as(c_long, @byteSwap(@as(c_long, @bitCast(@as(c_ulong, @truncate(__bsx)))))));
+}
+pub fn __uint16_identity(arg___x: __uint16_t) callconv(.c) __uint16_t {
+    var __x = arg___x;
+    _ = &__x;
+    return __x;
+}
+pub fn __uint32_identity(arg___x: __uint32_t) callconv(.c) __uint32_t {
+    var __x = arg___x;
+    _ = &__x;
+    return __x;
+}
+pub fn __uint64_identity(arg___x: __uint64_t) callconv(.c) __uint64_t {
+    var __x = arg___x;
+    _ = &__x;
+    return __x;
+}
+pub const __sigset_t = extern struct {
+    __val: [16]c_ulong = @import("std").mem.zeroes([16]c_ulong),
+};
+pub const sigset_t = __sigset_t;
+pub const struct_timeval = extern struct {
+    tv_sec: __time_t = 0,
+    tv_usec: __suseconds_t = 0,
+    pub const gettimeofday = __root.gettimeofday;
+    pub const settimeofday = __root.settimeofday;
+    pub const adjtime = __root.adjtime;
+};
+pub const struct_timespec = extern struct {
+    tv_sec: __time_t = 0,
+    tv_nsec: __syscall_slong_t = 0,
+};
+pub const suseconds_t = __suseconds_t;
+pub const __fd_mask = c_long;
+pub const fd_set = extern struct {
+    __fds_bits: [16]__fd_mask = @import("std").mem.zeroes([16]__fd_mask),
+};
+pub const fd_mask = __fd_mask;
+pub extern fn select(__nfds: c_int, noalias __readfds: [*c]fd_set, noalias __writefds: [*c]fd_set, noalias __exceptfds: [*c]fd_set, noalias __timeout: [*c]struct_timeval) c_int;
+pub extern fn pselect(__nfds: c_int, noalias __readfds: [*c]fd_set, noalias __writefds: [*c]fd_set, noalias __exceptfds: [*c]fd_set, noalias __timeout: [*c]const struct_timespec, noalias __sigmask: [*c]const __sigset_t) c_int;
+pub const blksize_t = __blksize_t;
+pub const blkcnt_t = __blkcnt_t;
+pub const fsblkcnt_t = __fsblkcnt_t;
+pub const fsfilcnt_t = __fsfilcnt_t;
+const struct_unnamed_3 = extern struct {
+    __low: c_uint = 0,
+    __high: c_uint = 0,
+};
+pub const __atomic_wide_counter = extern union {
+    __value64: c_ulonglong,
+    __value32: struct_unnamed_3,
+};
+pub const struct___pthread_internal_list = extern struct {
+    __prev: [*c]struct___pthread_internal_list = null,
+    __next: [*c]struct___pthread_internal_list = null,
+};
+pub const __pthread_list_t = struct___pthread_internal_list;
+pub const struct___pthread_internal_slist = extern struct {
+    __next: [*c]struct___pthread_internal_slist = null,
+};
+pub const __pthread_slist_t = struct___pthread_internal_slist;
+pub const struct___pthread_mutex_s = extern struct {
+    __lock: c_int = 0,
+    __count: c_uint = 0,
+    __owner: c_int = 0,
+    __nusers: c_uint = 0,
+    __kind: c_int = 0,
+    __spins: c_short = 0,
+    __elision: c_short = 0,
+    __list: __pthread_list_t = @import("std").mem.zeroes(__pthread_list_t),
+};
+pub const struct___pthread_rwlock_arch_t = extern struct {
+    __readers: c_uint = 0,
+    __writers: c_uint = 0,
+    __wrphase_futex: c_uint = 0,
+    __writers_futex: c_uint = 0,
+    __pad3: c_uint = 0,
+    __pad4: c_uint = 0,
+    __cur_writer: c_int = 0,
+    __shared: c_int = 0,
+    __rwelision: i8 = 0,
+    __pad1: [7]u8 = @import("std").mem.zeroes([7]u8),
+    __pad2: c_ulong = 0,
+    __flags: c_uint = 0,
+};
+pub const struct___pthread_cond_s = extern struct {
+    __wseq: __atomic_wide_counter = @import("std").mem.zeroes(__atomic_wide_counter),
+    __g1_start: __atomic_wide_counter = @import("std").mem.zeroes(__atomic_wide_counter),
+    __g_size: [2]c_uint = @import("std").mem.zeroes([2]c_uint),
+    __g1_orig_size: c_uint = 0,
+    __wrefs: c_uint = 0,
+    __g_signals: [2]c_uint = @import("std").mem.zeroes([2]c_uint),
+    __unused_initialized_1: c_uint = 0,
+    __unused_initialized_2: c_uint = 0,
+};
+pub const __tss_t = c_uint;
+pub const __thrd_t = c_ulong;
+pub const __once_flag = extern struct {
+    __data: c_int = 0,
+};
+pub const pthread_t = c_ulong;
+pub const pthread_mutexattr_t = extern union {
+    __size: [4]u8,
+    __align: c_int,
+};
+pub const pthread_condattr_t = extern union {
+    __size: [4]u8,
+    __align: c_int,
+};
+pub const pthread_key_t = c_uint;
+pub const pthread_once_t = c_int;
+pub const union_pthread_attr_t = extern union {
+    __size: [56]u8,
+    __align: c_long,
+};
+pub const pthread_attr_t = union_pthread_attr_t;
+pub const pthread_mutex_t = extern union {
+    __data: struct___pthread_mutex_s,
+    __size: [40]u8,
+    __align: c_long,
+};
+pub const pthread_cond_t = extern union {
+    __data: struct___pthread_cond_s,
+    __size: [48]u8,
+    __align: c_longlong,
+};
+pub const pthread_rwlock_t = extern union {
+    __data: struct___pthread_rwlock_arch_t,
+    __size: [56]u8,
+    __align: c_long,
+};
+pub const pthread_rwlockattr_t = extern union {
+    __size: [8]u8,
+    __align: c_long,
+};
+pub const pthread_spinlock_t = c_int;
+pub const pthread_barrier_t = extern union {
+    __size: [32]u8,
+    __align: c_long,
+};
+pub const pthread_barrierattr_t = extern union {
+    __size: [4]u8,
+    __align: c_int,
+};
+pub extern fn random() c_long;
+pub extern fn srandom(__seed: c_uint) void;
+pub extern fn initstate(__seed: c_uint, __statebuf: [*c]u8, __statelen: usize) [*c]u8;
+pub extern fn setstate(__statebuf: [*c]u8) [*c]u8;
+pub const struct_random_data = extern struct {
+    fptr: [*c]i32 = null,
+    rptr: [*c]i32 = null,
+    state: [*c]i32 = null,
+    rand_type: c_int = 0,
+    rand_deg: c_int = 0,
+    rand_sep: c_int = 0,
+    end_ptr: [*c]i32 = null,
+    pub const random_r = __root.random_r;
+    pub const r = __root.random_r;
+};
+pub extern fn random_r(noalias __buf: [*c]struct_random_data, noalias __result: [*c]i32) c_int;
+pub extern fn srandom_r(__seed: c_uint, __buf: [*c]struct_random_data) c_int;
+pub extern fn initstate_r(__seed: c_uint, noalias __statebuf: [*c]u8, __statelen: usize, noalias __buf: [*c]struct_random_data) c_int;
+pub extern fn setstate_r(noalias __statebuf: [*c]u8, noalias __buf: [*c]struct_random_data) c_int;
+pub extern fn rand() c_int;
+pub extern fn srand(__seed: c_uint) void;
+pub extern fn rand_r(__seed: [*c]c_uint) c_int;
+pub extern fn drand48() f64;
+pub extern fn erand48(__xsubi: [*c]c_ushort) f64;
+pub extern fn lrand48() c_long;
+pub extern fn nrand48(__xsubi: [*c]c_ushort) c_long;
+pub extern fn mrand48() c_long;
+pub extern fn jrand48(__xsubi: [*c]c_ushort) c_long;
+pub extern fn srand48(__seedval: c_long) void;
+pub extern fn seed48(__seed16v: [*c]c_ushort) [*c]c_ushort;
+pub extern fn lcong48(__param: [*c]c_ushort) void;
+pub const struct_drand48_data = extern struct {
+    __x: [3]c_ushort = @import("std").mem.zeroes([3]c_ushort),
+    __old_x: [3]c_ushort = @import("std").mem.zeroes([3]c_ushort),
+    __c: c_ushort = 0,
+    __init: c_ushort = 0,
+    __a: c_ulonglong = 0,
+    pub const drand48_r = __root.drand48_r;
+    pub const lrand48_r = __root.lrand48_r;
+    pub const mrand48_r = __root.mrand48_r;
+    pub const r = __root.drand48_r;
+};
+pub extern fn drand48_r(noalias __buffer: [*c]struct_drand48_data, noalias __result: [*c]f64) c_int;
+pub extern fn erand48_r(__xsubi: [*c]c_ushort, noalias __buffer: [*c]struct_drand48_data, noalias __result: [*c]f64) c_int;
+pub extern fn lrand48_r(noalias __buffer: [*c]struct_drand48_data, noalias __result: [*c]c_long) c_int;
+pub extern fn nrand48_r(__xsubi: [*c]c_ushort, noalias __buffer: [*c]struct_drand48_data, noalias __result: [*c]c_long) c_int;
+pub extern fn mrand48_r(noalias __buffer: [*c]struct_drand48_data, noalias __result: [*c]c_long) c_int;
+pub extern fn jrand48_r(__xsubi: [*c]c_ushort, noalias __buffer: [*c]struct_drand48_data, noalias __result: [*c]c_long) c_int;
+pub extern fn srand48_r(__seedval: c_long, __buffer: [*c]struct_drand48_data) c_int;
+pub extern fn seed48_r(__seed16v: [*c]c_ushort, __buffer: [*c]struct_drand48_data) c_int;
+pub extern fn lcong48_r(__param: [*c]c_ushort, __buffer: [*c]struct_drand48_data) c_int;
+pub extern fn arc4random() __uint32_t;
+pub extern fn arc4random_buf(__buf: ?*anyopaque, __size: usize) void;
+pub extern fn arc4random_uniform(__upper_bound: __uint32_t) __uint32_t;
+pub extern fn malloc(__size: usize) ?*anyopaque;
+pub extern fn calloc(__nmemb: usize, __size: usize) ?*anyopaque;
+pub extern fn realloc(__ptr: ?*anyopaque, __size: usize) ?*anyopaque;
+pub extern fn free(__ptr: ?*anyopaque) void;
+pub extern fn reallocarray(__ptr: ?*anyopaque, __nmemb: usize, __size: usize) ?*anyopaque;
+pub extern fn alloca(__size: usize) ?*anyopaque;
+pub extern fn valloc(__size: usize) ?*anyopaque;
+pub extern fn posix_memalign(__memptr: [*c]?*anyopaque, __alignment: usize, __size: usize) c_int;
+pub extern fn aligned_alloc(__alignment: usize, __size: usize) ?*anyopaque;
+pub extern fn abort() noreturn;
+pub extern fn atexit(__func: ?*const fn () callconv(.c) void) c_int;
+pub extern fn at_quick_exit(__func: ?*const fn () callconv(.c) void) c_int;
+pub extern fn on_exit(__func: ?*const fn (__status: c_int, __arg: ?*anyopaque) callconv(.c) void, __arg: ?*anyopaque) c_int;
+pub extern fn exit(__status: c_int) noreturn;
+pub extern fn quick_exit(__status: c_int) noreturn;
+pub extern fn _Exit(__status: c_int) noreturn;
+pub extern fn getenv(__name: [*c]const u8) [*c]u8;
+pub extern fn putenv(__string: [*c]u8) c_int;
+pub extern fn setenv(__name: [*c]const u8, __value: [*c]const u8, __replace: c_int) c_int;
+pub extern fn unsetenv(__name: [*c]const u8) c_int;
+pub extern fn clearenv() c_int;
+pub extern fn mktemp(__template: [*c]u8) [*c]u8;
+pub extern fn mkstemp(__template: [*c]u8) c_int;
+pub extern fn mkstemps(__template: [*c]u8, __suffixlen: c_int) c_int;
+pub extern fn mkdtemp(__template: [*c]u8) [*c]u8;
+pub extern fn system(__command: [*c]const u8) c_int;
+pub extern fn realpath(noalias __name: [*c]const u8, noalias __resolved: [*c]u8) [*c]u8;
+pub const __compar_fn_t = ?*const fn (?*const anyopaque, ?*const anyopaque) callconv(.c) c_int;
+pub extern fn bsearch(__key: ?*const anyopaque, __base: ?*const anyopaque, __nmemb: usize, __size: usize, __compar: __compar_fn_t) ?*anyopaque;
+pub extern fn qsort(__base: ?*anyopaque, __nmemb: usize, __size: usize, __compar: __compar_fn_t) void;
+pub extern fn abs(__x: c_int) c_int;
+pub extern fn labs(__x: c_long) c_long;
+pub extern fn llabs(__x: c_longlong) c_longlong;
+pub extern fn div(__numer: c_int, __denom: c_int) div_t;
+pub extern fn ldiv(__numer: c_long, __denom: c_long) ldiv_t;
+pub extern fn lldiv(__numer: c_longlong, __denom: c_longlong) lldiv_t;
+pub extern fn ecvt(__value: f64, __ndigit: c_int, noalias __decpt: [*c]c_int, noalias __sign: [*c]c_int) [*c]u8;
+pub extern fn fcvt(__value: f64, __ndigit: c_int, noalias __decpt: [*c]c_int, noalias __sign: [*c]c_int) [*c]u8;
+pub extern fn gcvt(__value: f64, __ndigit: c_int, __buf: [*c]u8) [*c]u8;
+pub extern fn qecvt(__value: c_longdouble, __ndigit: c_int, noalias __decpt: [*c]c_int, noalias __sign: [*c]c_int) [*c]u8;
+pub extern fn qfcvt(__value: c_longdouble, __ndigit: c_int, noalias __decpt: [*c]c_int, noalias __sign: [*c]c_int) [*c]u8;
+pub extern fn qgcvt(__value: c_longdouble, __ndigit: c_int, __buf: [*c]u8) [*c]u8;
+pub extern fn ecvt_r(__value: f64, __ndigit: c_int, noalias __decpt: [*c]c_int, noalias __sign: [*c]c_int, noalias __buf: [*c]u8, __len: usize) c_int;
+pub extern fn fcvt_r(__value: f64, __ndigit: c_int, noalias __decpt: [*c]c_int, noalias __sign: [*c]c_int, noalias __buf: [*c]u8, __len: usize) c_int;
+pub extern fn qecvt_r(__value: c_longdouble, __ndigit: c_int, noalias __decpt: [*c]c_int, noalias __sign: [*c]c_int, noalias __buf: [*c]u8, __len: usize) c_int;
+pub extern fn qfcvt_r(__value: c_longdouble, __ndigit: c_int, noalias __decpt: [*c]c_int, noalias __sign: [*c]c_int, noalias __buf: [*c]u8, __len: usize) c_int;
+pub extern fn mblen(__s: [*c]const u8, __n: usize) c_int;
+pub extern fn mbtowc(noalias __pwc: [*c]wchar_t, noalias __s: [*c]const u8, __n: usize) c_int;
+pub extern fn wctomb(__s: [*c]u8, __wchar: wchar_t) c_int;
+pub extern fn mbstowcs(noalias __pwcs: [*c]wchar_t, noalias __s: [*c]const u8, __n: usize) usize;
+pub extern fn wcstombs(noalias __s: [*c]u8, noalias __pwcs: [*c]const wchar_t, __n: usize) usize;
+pub extern fn rpmatch(__response: [*c]const u8) c_int;
+pub extern fn getsubopt(noalias __optionp: [*c][*c]u8, noalias __tokens: [*c]const [*c]u8, noalias __valuep: [*c][*c]u8) c_int;
+pub extern fn getloadavg(__loadavg: [*c]f64, __nelem: c_int) c_int;
+pub const float_t = f32;
+pub const double_t = f64;
+pub extern fn __fpclassify(__value: f64) c_int;
+pub extern fn __signbit(__value: f64) c_int;
+pub extern fn __isinf(__value: f64) c_int;
+pub extern fn __finite(__value: f64) c_int;
+pub extern fn __isnan(__value: f64) c_int;
+pub extern fn __iseqsig(__x: f64, __y: f64) c_int;
+pub extern fn __issignaling(__value: f64) c_int;
+pub extern fn acos(__x: f64) f64;
+pub extern fn __acos(__x: f64) f64;
+pub extern fn asin(__x: f64) f64;
+pub extern fn __asin(__x: f64) f64;
+pub extern fn atan(__x: f64) f64;
+pub extern fn __atan(__x: f64) f64;
+pub extern fn atan2(__y: f64, __x: f64) f64;
+pub extern fn __atan2(__y: f64, __x: f64) f64;
+pub extern fn cos(__x: f64) f64;
+pub extern fn __cos(__x: f64) f64;
+pub extern fn sin(__x: f64) f64;
+pub extern fn __sin(__x: f64) f64;
+pub extern fn tan(__x: f64) f64;
+pub extern fn __tan(__x: f64) f64;
+pub extern fn cosh(__x: f64) f64;
+pub extern fn __cosh(__x: f64) f64;
+pub extern fn sinh(__x: f64) f64;
+pub extern fn __sinh(__x: f64) f64;
+pub extern fn tanh(__x: f64) f64;
+pub extern fn __tanh(__x: f64) f64;
+pub extern fn acosh(__x: f64) f64;
+pub extern fn __acosh(__x: f64) f64;
+pub extern fn asinh(__x: f64) f64;
+pub extern fn __asinh(__x: f64) f64;
+pub extern fn atanh(__x: f64) f64;
+pub extern fn __atanh(__x: f64) f64;
+pub extern fn exp(__x: f64) f64;
+pub extern fn __exp(__x: f64) f64;
+pub extern fn frexp(__x: f64, __exponent: [*c]c_int) f64;
+pub extern fn __frexp(__x: f64, __exponent: [*c]c_int) f64;
+pub extern fn ldexp(__x: f64, __exponent: c_int) f64;
+pub extern fn __ldexp(__x: f64, __exponent: c_int) f64;
+pub extern fn log(__x: f64) f64;
+pub extern fn __log(__x: f64) f64;
+pub extern fn log10(__x: f64) f64;
+pub extern fn __log10(__x: f64) f64;
+pub extern fn modf(__x: f64, __iptr: [*c]f64) f64;
+pub extern fn __modf(__x: f64, __iptr: [*c]f64) f64;
+pub extern fn expm1(__x: f64) f64;
+pub extern fn __expm1(__x: f64) f64;
+pub extern fn log1p(__x: f64) f64;
+pub extern fn __log1p(__x: f64) f64;
+pub extern fn logb(__x: f64) f64;
+pub extern fn __logb(__x: f64) f64;
+pub extern fn exp2(__x: f64) f64;
+pub extern fn __exp2(__x: f64) f64;
+pub extern fn log2(__x: f64) f64;
+pub extern fn __log2(__x: f64) f64;
+pub extern fn pow(__x: f64, __y: f64) f64;
+pub extern fn __pow(__x: f64, __y: f64) f64;
+pub extern fn sqrt(__x: f64) f64;
+pub extern fn __sqrt(__x: f64) f64;
+pub extern fn hypot(__x: f64, __y: f64) f64;
+pub extern fn __hypot(__x: f64, __y: f64) f64;
+pub extern fn cbrt(__x: f64) f64;
+pub extern fn __cbrt(__x: f64) f64;
+pub extern fn ceil(__x: f64) f64;
+pub extern fn fabs(__x: f64) f64;
+pub extern fn floor(__x: f64) f64;
+pub extern fn fmod(__x: f64, __y: f64) f64;
+pub extern fn __fmod(__x: f64, __y: f64) f64;
+pub extern fn isinf(__value: f64) c_int;
+pub extern fn finite(__value: f64) c_int;
+pub extern fn drem(__x: f64, __y: f64) f64;
+pub extern fn __drem(__x: f64, __y: f64) f64;
+pub extern fn significand(__x: f64) f64;
+pub extern fn __significand(__x: f64) f64;
+pub extern fn copysign(__x: f64, __y: f64) f64;
+pub extern fn nan(__tagb: [*c]const u8) f64;
+pub extern fn __nan(__tagb: [*c]const u8) f64;
+pub extern fn isnan(__value: f64) c_int;
+pub extern fn j0(f64) f64;
+pub extern fn __j0(f64) f64;
+pub extern fn j1(f64) f64;
+pub extern fn __j1(f64) f64;
+pub extern fn jn(c_int, f64) f64;
+pub extern fn __jn(c_int, f64) f64;
+pub extern fn y0(f64) f64;
+pub extern fn __y0(f64) f64;
+pub extern fn y1(f64) f64;
+pub extern fn __y1(f64) f64;
+pub extern fn yn(c_int, f64) f64;
+pub extern fn __yn(c_int, f64) f64;
+pub extern fn erf(f64) f64;
+pub extern fn __erf(f64) f64;
+pub extern fn erfc(f64) f64;
+pub extern fn __erfc(f64) f64;
+pub extern fn lgamma(f64) f64;
+pub extern fn __lgamma(f64) f64;
+pub extern fn tgamma(f64) f64;
+pub extern fn __tgamma(f64) f64;
+pub extern fn gamma(f64) f64;
+pub extern fn __gamma(f64) f64;
+pub extern fn lgamma_r(f64, __signgamp: [*c]c_int) f64;
+pub extern fn __lgamma_r(f64, __signgamp: [*c]c_int) f64;
+pub extern fn rint(__x: f64) f64;
+pub extern fn __rint(__x: f64) f64;
+pub extern fn nextafter(__x: f64, __y: f64) f64;
+pub extern fn __nextafter(__x: f64, __y: f64) f64;
+pub extern fn nexttoward(__x: f64, __y: c_longdouble) f64;
+pub extern fn __nexttoward(__x: f64, __y: c_longdouble) f64;
+pub extern fn remainder(__x: f64, __y: f64) f64;
+pub extern fn __remainder(__x: f64, __y: f64) f64;
+pub extern fn scalbn(__x: f64, __n: c_int) f64;
+pub extern fn __scalbn(__x: f64, __n: c_int) f64;
+pub extern fn ilogb(__x: f64) c_int;
+pub extern fn __ilogb(__x: f64) c_int;
+pub extern fn scalbln(__x: f64, __n: c_long) f64;
+pub extern fn __scalbln(__x: f64, __n: c_long) f64;
+pub extern fn nearbyint(__x: f64) f64;
+pub extern fn __nearbyint(__x: f64) f64;
+pub extern fn round(__x: f64) f64;
+pub extern fn trunc(__x: f64) f64;
+pub extern fn remquo(__x: f64, __y: f64, __quo: [*c]c_int) f64;
+pub extern fn __remquo(__x: f64, __y: f64, __quo: [*c]c_int) f64;
+pub extern fn lrint(__x: f64) c_long;
+pub extern fn __lrint(__x: f64) c_long;
+pub extern fn llrint(__x: f64) c_longlong;
+pub extern fn __llrint(__x: f64) c_longlong;
+pub extern fn lround(__x: f64) c_long;
+pub extern fn __lround(__x: f64) c_long;
+pub extern fn llround(__x: f64) c_longlong;
+pub extern fn __llround(__x: f64) c_longlong;
+pub extern fn fdim(__x: f64, __y: f64) f64;
+pub extern fn __fdim(__x: f64, __y: f64) f64;
+pub extern fn fmax(__x: f64, __y: f64) f64;
+pub extern fn fmin(__x: f64, __y: f64) f64;
+pub extern fn fma(__x: f64, __y: f64, __z: f64) f64;
+pub extern fn __fma(__x: f64, __y: f64, __z: f64) f64;
+pub extern fn scalb(__x: f64, __n: f64) f64;
+pub extern fn __scalb(__x: f64, __n: f64) f64;
+pub extern fn __fpclassifyf(__value: f32) c_int;
+pub extern fn __signbitf(__value: f32) c_int;
+pub extern fn __isinff(__value: f32) c_int;
+pub extern fn __finitef(__value: f32) c_int;
+pub extern fn __isnanf(__value: f32) c_int;
+pub extern fn __iseqsigf(__x: f32, __y: f32) c_int;
+pub extern fn __issignalingf(__value: f32) c_int;
+pub extern fn acosf(__x: f32) f32;
+pub extern fn __acosf(__x: f32) f32;
+pub extern fn asinf(__x: f32) f32;
+pub extern fn __asinf(__x: f32) f32;
+pub extern fn atanf(__x: f32) f32;
+pub extern fn __atanf(__x: f32) f32;
+pub extern fn atan2f(__y: f32, __x: f32) f32;
+pub extern fn __atan2f(__y: f32, __x: f32) f32;
+pub extern fn cosf(__x: f32) f32;
+pub extern fn __cosf(__x: f32) f32;
+pub extern fn sinf(__x: f32) f32;
+pub extern fn __sinf(__x: f32) f32;
+pub extern fn tanf(__x: f32) f32;
+pub extern fn __tanf(__x: f32) f32;
+pub extern fn coshf(__x: f32) f32;
+pub extern fn __coshf(__x: f32) f32;
+pub extern fn sinhf(__x: f32) f32;
+pub extern fn __sinhf(__x: f32) f32;
+pub extern fn tanhf(__x: f32) f32;
+pub extern fn __tanhf(__x: f32) f32;
+pub extern fn acoshf(__x: f32) f32;
+pub extern fn __acoshf(__x: f32) f32;
+pub extern fn asinhf(__x: f32) f32;
+pub extern fn __asinhf(__x: f32) f32;
+pub extern fn atanhf(__x: f32) f32;
+pub extern fn __atanhf(__x: f32) f32;
+pub extern fn expf(__x: f32) f32;
+pub extern fn __expf(__x: f32) f32;
+pub extern fn frexpf(__x: f32, __exponent: [*c]c_int) f32;
+pub extern fn __frexpf(__x: f32, __exponent: [*c]c_int) f32;
+pub extern fn ldexpf(__x: f32, __exponent: c_int) f32;
+pub extern fn __ldexpf(__x: f32, __exponent: c_int) f32;
+pub extern fn logf(__x: f32) f32;
+pub extern fn __logf(__x: f32) f32;
+pub extern fn log10f(__x: f32) f32;
+pub extern fn __log10f(__x: f32) f32;
+pub extern fn modff(__x: f32, __iptr: [*c]f32) f32;
+pub extern fn __modff(__x: f32, __iptr: [*c]f32) f32;
+pub extern fn expm1f(__x: f32) f32;
+pub extern fn __expm1f(__x: f32) f32;
+pub extern fn log1pf(__x: f32) f32;
+pub extern fn __log1pf(__x: f32) f32;
+pub extern fn logbf(__x: f32) f32;
+pub extern fn __logbf(__x: f32) f32;
+pub extern fn exp2f(__x: f32) f32;
+pub extern fn __exp2f(__x: f32) f32;
+pub extern fn log2f(__x: f32) f32;
+pub extern fn __log2f(__x: f32) f32;
+pub extern fn powf(__x: f32, __y: f32) f32;
+pub extern fn __powf(__x: f32, __y: f32) f32;
+pub extern fn sqrtf(__x: f32) f32;
+pub extern fn __sqrtf(__x: f32) f32;
+pub extern fn hypotf(__x: f32, __y: f32) f32;
+pub extern fn __hypotf(__x: f32, __y: f32) f32;
+pub extern fn cbrtf(__x: f32) f32;
+pub extern fn __cbrtf(__x: f32) f32;
+pub extern fn ceilf(__x: f32) f32;
+pub extern fn fabsf(__x: f32) f32;
+pub extern fn floorf(__x: f32) f32;
+pub extern fn fmodf(__x: f32, __y: f32) f32;
+pub extern fn __fmodf(__x: f32, __y: f32) f32;
+pub extern fn isinff(__value: f32) c_int;
+pub extern fn finitef(__value: f32) c_int;
+pub extern fn dremf(__x: f32, __y: f32) f32;
+pub extern fn __dremf(__x: f32, __y: f32) f32;
+pub extern fn significandf(__x: f32) f32;
+pub extern fn __significandf(__x: f32) f32;
+pub extern fn copysignf(__x: f32, __y: f32) f32;
+pub extern fn nanf(__tagb: [*c]const u8) f32;
+pub extern fn __nanf(__tagb: [*c]const u8) f32;
+pub extern fn isnanf(__value: f32) c_int;
+pub extern fn j0f(f32) f32;
+pub extern fn __j0f(f32) f32;
+pub extern fn j1f(f32) f32;
+pub extern fn __j1f(f32) f32;
+pub extern fn jnf(c_int, f32) f32;
+pub extern fn __jnf(c_int, f32) f32;
+pub extern fn y0f(f32) f32;
+pub extern fn __y0f(f32) f32;
+pub extern fn y1f(f32) f32;
+pub extern fn __y1f(f32) f32;
+pub extern fn ynf(c_int, f32) f32;
+pub extern fn __ynf(c_int, f32) f32;
+pub extern fn erff(f32) f32;
+pub extern fn __erff(f32) f32;
+pub extern fn erfcf(f32) f32;
+pub extern fn __erfcf(f32) f32;
+pub extern fn lgammaf(f32) f32;
+pub extern fn __lgammaf(f32) f32;
+pub extern fn tgammaf(f32) f32;
+pub extern fn __tgammaf(f32) f32;
+pub extern fn gammaf(f32) f32;
+pub extern fn __gammaf(f32) f32;
+pub extern fn lgammaf_r(f32, __signgamp: [*c]c_int) f32;
+pub extern fn __lgammaf_r(f32, __signgamp: [*c]c_int) f32;
+pub extern fn rintf(__x: f32) f32;
+pub extern fn __rintf(__x: f32) f32;
+pub extern fn nextafterf(__x: f32, __y: f32) f32;
+pub extern fn __nextafterf(__x: f32, __y: f32) f32;
+pub extern fn nexttowardf(__x: f32, __y: c_longdouble) f32;
+pub extern fn __nexttowardf(__x: f32, __y: c_longdouble) f32;
+pub extern fn remainderf(__x: f32, __y: f32) f32;
+pub extern fn __remainderf(__x: f32, __y: f32) f32;
+pub extern fn scalbnf(__x: f32, __n: c_int) f32;
+pub extern fn __scalbnf(__x: f32, __n: c_int) f32;
+pub extern fn ilogbf(__x: f32) c_int;
+pub extern fn __ilogbf(__x: f32) c_int;
+pub extern fn scalblnf(__x: f32, __n: c_long) f32;
+pub extern fn __scalblnf(__x: f32, __n: c_long) f32;
+pub extern fn nearbyintf(__x: f32) f32;
+pub extern fn __nearbyintf(__x: f32) f32;
+pub extern fn roundf(__x: f32) f32;
+pub extern fn truncf(__x: f32) f32;
+pub extern fn remquof(__x: f32, __y: f32, __quo: [*c]c_int) f32;
+pub extern fn __remquof(__x: f32, __y: f32, __quo: [*c]c_int) f32;
+pub extern fn lrintf(__x: f32) c_long;
+pub extern fn __lrintf(__x: f32) c_long;
+pub extern fn llrintf(__x: f32) c_longlong;
+pub extern fn __llrintf(__x: f32) c_longlong;
+pub extern fn lroundf(__x: f32) c_long;
+pub extern fn __lroundf(__x: f32) c_long;
+pub extern fn llroundf(__x: f32) c_longlong;
+pub extern fn __llroundf(__x: f32) c_longlong;
+pub extern fn fdimf(__x: f32, __y: f32) f32;
+pub extern fn __fdimf(__x: f32, __y: f32) f32;
+pub extern fn fmaxf(__x: f32, __y: f32) f32;
+pub extern fn fminf(__x: f32, __y: f32) f32;
+pub extern fn fmaf(__x: f32, __y: f32, __z: f32) f32;
+pub extern fn __fmaf(__x: f32, __y: f32, __z: f32) f32;
+pub extern fn scalbf(__x: f32, __n: f32) f32;
+pub extern fn __scalbf(__x: f32, __n: f32) f32;
+pub extern fn __fpclassifyl(__value: c_longdouble) c_int;
+pub extern fn __signbitl(__value: c_longdouble) c_int;
+pub extern fn __isinfl(__value: c_longdouble) c_int;
+pub extern fn __finitel(__value: c_longdouble) c_int;
+pub extern fn __isnanl(__value: c_longdouble) c_int;
+pub extern fn __iseqsigl(__x: c_longdouble, __y: c_longdouble) c_int;
+pub extern fn __issignalingl(__value: c_longdouble) c_int;
+pub extern fn acosl(__x: c_longdouble) c_longdouble;
+pub extern fn __acosl(__x: c_longdouble) c_longdouble;
+pub extern fn asinl(__x: c_longdouble) c_longdouble;
+pub extern fn __asinl(__x: c_longdouble) c_longdouble;
+pub extern fn atanl(__x: c_longdouble) c_longdouble;
+pub extern fn __atanl(__x: c_longdouble) c_longdouble;
+pub extern fn atan2l(__y: c_longdouble, __x: c_longdouble) c_longdouble;
+pub extern fn __atan2l(__y: c_longdouble, __x: c_longdouble) c_longdouble;
+pub extern fn cosl(__x: c_longdouble) c_longdouble;
+pub extern fn __cosl(__x: c_longdouble) c_longdouble;
+pub extern fn sinl(__x: c_longdouble) c_longdouble;
+pub extern fn __sinl(__x: c_longdouble) c_longdouble;
+pub extern fn tanl(__x: c_longdouble) c_longdouble;
+pub extern fn __tanl(__x: c_longdouble) c_longdouble;
+pub extern fn coshl(__x: c_longdouble) c_longdouble;
+pub extern fn __coshl(__x: c_longdouble) c_longdouble;
+pub extern fn sinhl(__x: c_longdouble) c_longdouble;
+pub extern fn __sinhl(__x: c_longdouble) c_longdouble;
+pub extern fn tanhl(__x: c_longdouble) c_longdouble;
+pub extern fn __tanhl(__x: c_longdouble) c_longdouble;
+pub extern fn acoshl(__x: c_longdouble) c_longdouble;
+pub extern fn __acoshl(__x: c_longdouble) c_longdouble;
+pub extern fn asinhl(__x: c_longdouble) c_longdouble;
+pub extern fn __asinhl(__x: c_longdouble) c_longdouble;
+pub extern fn atanhl(__x: c_longdouble) c_longdouble;
+pub extern fn __atanhl(__x: c_longdouble) c_longdouble;
+pub extern fn expl(__x: c_longdouble) c_longdouble;
+pub extern fn __expl(__x: c_longdouble) c_longdouble;
+pub extern fn frexpl(__x: c_longdouble, __exponent: [*c]c_int) c_longdouble;
+pub extern fn __frexpl(__x: c_longdouble, __exponent: [*c]c_int) c_longdouble;
+pub extern fn ldexpl(__x: c_longdouble, __exponent: c_int) c_longdouble;
+pub extern fn __ldexpl(__x: c_longdouble, __exponent: c_int) c_longdouble;
+pub extern fn logl(__x: c_longdouble) c_longdouble;
+pub extern fn __logl(__x: c_longdouble) c_longdouble;
+pub extern fn log10l(__x: c_longdouble) c_longdouble;
+pub extern fn __log10l(__x: c_longdouble) c_longdouble;
+pub extern fn modfl(__x: c_longdouble, __iptr: [*c]c_longdouble) c_longdouble;
+pub extern fn __modfl(__x: c_longdouble, __iptr: [*c]c_longdouble) c_longdouble;
+pub extern fn expm1l(__x: c_longdouble) c_longdouble;
+pub extern fn __expm1l(__x: c_longdouble) c_longdouble;
+pub extern fn log1pl(__x: c_longdouble) c_longdouble;
+pub extern fn __log1pl(__x: c_longdouble) c_longdouble;
+pub extern fn logbl(__x: c_longdouble) c_longdouble;
+pub extern fn __logbl(__x: c_longdouble) c_longdouble;
+pub extern fn exp2l(__x: c_longdouble) c_longdouble;
+pub extern fn __exp2l(__x: c_longdouble) c_longdouble;
+pub extern fn log2l(__x: c_longdouble) c_longdouble;
+pub extern fn __log2l(__x: c_longdouble) c_longdouble;
+pub extern fn powl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn __powl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn sqrtl(__x: c_longdouble) c_longdouble;
+pub extern fn __sqrtl(__x: c_longdouble) c_longdouble;
+pub extern fn hypotl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn __hypotl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn cbrtl(__x: c_longdouble) c_longdouble;
+pub extern fn __cbrtl(__x: c_longdouble) c_longdouble;
+pub extern fn ceill(__x: c_longdouble) c_longdouble;
+pub extern fn fabsl(__x: c_longdouble) c_longdouble;
+pub extern fn floorl(__x: c_longdouble) c_longdouble;
+pub extern fn fmodl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn __fmodl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn isinfl(__value: c_longdouble) c_int;
+pub extern fn finitel(__value: c_longdouble) c_int;
+pub extern fn dreml(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn __dreml(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn significandl(__x: c_longdouble) c_longdouble;
+pub extern fn __significandl(__x: c_longdouble) c_longdouble;
+pub extern fn copysignl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn nanl(__tagb: [*c]const u8) c_longdouble;
+pub extern fn __nanl(__tagb: [*c]const u8) c_longdouble;
+pub extern fn isnanl(__value: c_longdouble) c_int;
+pub extern fn j0l(c_longdouble) c_longdouble;
+pub extern fn __j0l(c_longdouble) c_longdouble;
+pub extern fn j1l(c_longdouble) c_longdouble;
+pub extern fn __j1l(c_longdouble) c_longdouble;
+pub extern fn jnl(c_int, c_longdouble) c_longdouble;
+pub extern fn __jnl(c_int, c_longdouble) c_longdouble;
+pub extern fn y0l(c_longdouble) c_longdouble;
+pub extern fn __y0l(c_longdouble) c_longdouble;
+pub extern fn y1l(c_longdouble) c_longdouble;
+pub extern fn __y1l(c_longdouble) c_longdouble;
+pub extern fn ynl(c_int, c_longdouble) c_longdouble;
+pub extern fn __ynl(c_int, c_longdouble) c_longdouble;
+pub extern fn erfl(c_longdouble) c_longdouble;
+pub extern fn __erfl(c_longdouble) c_longdouble;
+pub extern fn erfcl(c_longdouble) c_longdouble;
+pub extern fn __erfcl(c_longdouble) c_longdouble;
+pub extern fn lgammal(c_longdouble) c_longdouble;
+pub extern fn __lgammal(c_longdouble) c_longdouble;
+pub extern fn tgammal(c_longdouble) c_longdouble;
+pub extern fn __tgammal(c_longdouble) c_longdouble;
+pub extern fn gammal(c_longdouble) c_longdouble;
+pub extern fn __gammal(c_longdouble) c_longdouble;
+pub extern fn lgammal_r(c_longdouble, __signgamp: [*c]c_int) c_longdouble;
+pub extern fn __lgammal_r(c_longdouble, __signgamp: [*c]c_int) c_longdouble;
+pub extern fn rintl(__x: c_longdouble) c_longdouble;
+pub extern fn __rintl(__x: c_longdouble) c_longdouble;
+pub extern fn nextafterl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn __nextafterl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn nexttowardl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn __nexttowardl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn remainderl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn __remainderl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn scalbnl(__x: c_longdouble, __n: c_int) c_longdouble;
+pub extern fn __scalbnl(__x: c_longdouble, __n: c_int) c_longdouble;
+pub extern fn ilogbl(__x: c_longdouble) c_int;
+pub extern fn __ilogbl(__x: c_longdouble) c_int;
+pub extern fn scalblnl(__x: c_longdouble, __n: c_long) c_longdouble;
+pub extern fn __scalblnl(__x: c_longdouble, __n: c_long) c_longdouble;
+pub extern fn nearbyintl(__x: c_longdouble) c_longdouble;
+pub extern fn __nearbyintl(__x: c_longdouble) c_longdouble;
+pub extern fn roundl(__x: c_longdouble) c_longdouble;
+pub extern fn truncl(__x: c_longdouble) c_longdouble;
+pub extern fn remquol(__x: c_longdouble, __y: c_longdouble, __quo: [*c]c_int) c_longdouble;
+pub extern fn __remquol(__x: c_longdouble, __y: c_longdouble, __quo: [*c]c_int) c_longdouble;
+pub extern fn lrintl(__x: c_longdouble) c_long;
+pub extern fn __lrintl(__x: c_longdouble) c_long;
+pub extern fn llrintl(__x: c_longdouble) c_longlong;
+pub extern fn __llrintl(__x: c_longdouble) c_longlong;
+pub extern fn lroundl(__x: c_longdouble) c_long;
+pub extern fn __lroundl(__x: c_longdouble) c_long;
+pub extern fn llroundl(__x: c_longdouble) c_longlong;
+pub extern fn __llroundl(__x: c_longdouble) c_longlong;
+pub extern fn fdiml(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn __fdiml(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn fmaxl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn fminl(__x: c_longdouble, __y: c_longdouble) c_longdouble;
+pub extern fn fmal(__x: c_longdouble, __y: c_longdouble, __z: c_longdouble) c_longdouble;
+pub extern fn __fmal(__x: c_longdouble, __y: c_longdouble, __z: c_longdouble) c_longdouble;
+pub extern fn scalbl(__x: c_longdouble, __n: c_longdouble) c_longdouble;
+pub extern fn __scalbl(__x: c_longdouble, __n: c_longdouble) c_longdouble;
+pub extern fn __fpclassifyf128(__value: f128) c_int;
+pub extern fn __signbitf128(__value: f128) c_int;
+pub extern fn __isinff128(__value: f128) c_int;
+pub extern fn __finitef128(__value: f128) c_int;
+pub extern fn __isnanf128(__value: f128) c_int;
+pub extern fn __iseqsigf128(__x: f128, __y: f128) c_int;
+pub extern fn __issignalingf128(__value: f128) c_int;
+pub extern var signgam: c_int;
+pub const FP_NAN: c_int = 0;
+pub const FP_INFINITE: c_int = 1;
+pub const FP_ZERO: c_int = 2;
+pub const FP_SUBNORMAL: c_int = 3;
+pub const FP_NORMAL: c_int = 4;
+const enum_unnamed_4 = c_uint;
+pub const boolean = c_int;
+pub const dcomplex = extern struct {
+    real: f64 = 0,
+    imag: f64 = 0,
+};
+pub export fn c_print_results(arg_name: [*c]u8, arg_class: u8, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_niter: c_int, arg_nthreads: c_int, arg_t: f64, arg_mops: f64, arg_optype: [*c]u8, arg_passed_verification: c_int, arg_npbversion: [*c]u8, arg_compiletime: [*c]u8, arg_cc: [*c]u8, arg_clink: [*c]u8, arg_c_lib: [*c]u8, arg_c_inc: [*c]u8, arg_cflags: [*c]u8, arg_clinkflags: [*c]u8, arg_rand_1: [*c]u8) void {
+    var name = arg_name;
+    _ = &name;
+    var class = arg_class;
+    _ = &class;
+    var n1 = arg_n1;
+    _ = &n1;
+    var n2 = arg_n2;
+    _ = &n2;
+    var n3 = arg_n3;
+    _ = &n3;
+    var niter = arg_niter;
+    _ = &niter;
+    var nthreads = arg_nthreads;
+    _ = &nthreads;
+    var t = arg_t;
+    _ = &t;
+    var mops = arg_mops;
+    _ = &mops;
+    var optype = arg_optype;
+    _ = &optype;
+    var passed_verification = arg_passed_verification;
+    _ = &passed_verification;
+    var npbversion = arg_npbversion;
+    _ = &npbversion;
+    var compiletime = arg_compiletime;
+    _ = &compiletime;
+    var cc = arg_cc;
+    _ = &cc;
+    var clink = arg_clink;
+    _ = &clink;
+    var c_lib = arg_c_lib;
+    _ = &c_lib;
+    var c_inc = arg_c_inc;
+    _ = &c_inc;
+    var cflags = arg_cflags;
+    _ = &cflags;
+    var clinkflags = arg_clinkflags;
+    _ = &clinkflags;
+    var rand_1 = arg_rand_1;
+    _ = &rand_1;
+    var evalue: [*c]u8 = @constCast("1000");
+    _ = &evalue;
+    _ = printf("\n\n %s Benchmark Completed\n", name);
+    _ = printf(" Class           =                        %c\n", class);
+    if ((n2 == @as(c_int, 0)) and (n3 == @as(c_int, 0))) {
+        _ = printf(" Size            =             %12d\n", n1);
+    } else {
+        _ = printf(" Size            =              %3dx%3dx%3d\n", n1, n2, n3);
+    }
+    _ = printf(" Iterations      =             %12d\n", niter);
+    _ = printf(" Threads         =             %12d\n", nthreads);
+    _ = printf(" Time in seconds =             %12.2f\n", t);
+    _ = printf(" Mop/s total     =             %12.2f\n", mops);
+    _ = printf(" Operation type  = %24s\n", optype);
+    if (passed_verification != 0) {
+        _ = printf(" Verification    =               SUCCESSFUL\n");
+    } else {
+        _ = printf(" Verification    =             UNSUCCESSFUL\n");
+    }
+    _ = printf(" Version         =           %12s\n", npbversion);
+    _ = printf(" Compile date    =             %12s\n", compiletime);
+    _ = printf("\n Compile options:\n");
+    _ = printf("    CC           = %s\n", cc);
+    _ = printf("    CLINK        = %s\n", clink);
+    _ = printf("    C_LIB        = %s\n", c_lib);
+    _ = printf("    C_INC        = %s\n", c_inc);
+    _ = printf("    CFLAGS       = %s\n", cflags);
+    _ = printf("    CLINKFLAGS   = %s\n", clinkflags);
+    _ = printf("    RAND         = %s\n", rand_1);
+}
+pub export fn wtime_(arg_t: [*c]f64) void {
+    var t = arg_t;
+    _ = &t;
+    const static_local_sec = struct {
+        var sec: c_int = -@as(c_int, 1);
+    };
+    _ = &static_local_sec;
+    var tv: struct_timeval = undefined;
+    _ = &tv;
+    const extern_local_gettimeofday = struct {
+        extern fn gettimeofday(noalias __tv: [*c]struct_timeval, noalias __tz: ?*anyopaque) c_int;
+    };
+    _ = &extern_local_gettimeofday;
+    _ = gettimeofday(&tv, null);
+    if (static_local_sec.sec < @as(c_int, 0)) {
+        static_local_sec.sec = @truncate(tv.tv_sec);
+    }
+    t.* = @as(f64, @floatFromInt(tv.tv_sec - @as(__time_t, static_local_sec.sec))) + (@as(f64, 0.000001) * @as(f64, @floatFromInt(tv.tv_usec)));
+}
+pub export fn elapsed_time() f64 {
+    var t: f64 = undefined;
+    _ = &t;
+    wtime_(&t);
+    return t;
+}
+pub export var start: [64]f64 = @import("std").mem.zeroes([64]f64);
+pub export var elapsed: [64]f64 = @import("std").mem.zeroes([64]f64);
+pub export fn timer_clear(arg_n: c_int) void {
+    var n = arg_n;
+    _ = &n;
+    elapsed[@bitCast(@as(isize, @intCast(n)))] = 0.0;
+}
+pub export fn timer_start(arg_n: c_int) void {
+    var n = arg_n;
+    _ = &n;
+    start[@bitCast(@as(isize, @intCast(n)))] = elapsed_time();
+}
+pub export fn timer_stop(arg_n: c_int) void {
+    var n = arg_n;
+    _ = &n;
+    var t: f64 = undefined;
+    _ = &t;
+    var now: f64 = undefined;
+    _ = &now;
+    now = elapsed_time();
+    t = now - start[@bitCast(@as(isize, @intCast(n)))];
+    elapsed[@bitCast(@as(isize, @intCast(n)))] += t;
+}
+pub export fn timer_read(arg_n: c_int) f64 {
+    var n = arg_n;
+    _ = &n;
+    return elapsed[@bitCast(@as(isize, @intCast(n)))];
+}
+pub export fn randlc(arg_x: [*c]f64, arg_a: f64) f64 {
+    var x = arg_x;
+    _ = &x;
+    var a = arg_a;
+    _ = &a;
+    var t1: f64 = undefined;
+    _ = &t1;
+    var t2: f64 = undefined;
+    _ = &t2;
+    var t3: f64 = undefined;
+    _ = &t3;
+    var t4: f64 = undefined;
+    _ = &t4;
+    var a1: f64 = undefined;
+    _ = &a1;
+    var a2: f64 = undefined;
+    _ = &a2;
+    var x1: f64 = undefined;
+    _ = &x1;
+    var x2: f64 = undefined;
+    _ = &x2;
+    var z: f64 = undefined;
+    _ = &z;
+    t1 = ((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * a;
+    a1 = @floatFromInt(@as(c_int, @intFromFloat(t1)));
+    a2 = a - (((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * a1);
+    t1 = ((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * x.*;
+    x1 = @floatFromInt(@as(c_int, @intFromFloat(t1)));
+    x2 = x.* - (((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * x1);
+    t1 = (a1 * x2) + (a2 * x1);
+    t2 = @floatFromInt(@as(c_int, @intFromFloat(((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * t1)));
+    z = t1 - (((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * t2);
+    t3 = (((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * z) + (a2 * x2);
+    t4 = @floatFromInt(@as(c_int, @intFromFloat((((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * ((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5))) * t3)));
+    x.* = t3 - ((((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * ((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0))) * t4);
+    return (((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * ((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5))) * x.*;
+}
+pub export fn vranlc(arg_n: c_int, arg_x_seed: [*c]f64, arg_a: f64, arg_y: [*c]f64) void {
+    var n = arg_n;
+    _ = &n;
+    var x_seed = arg_x_seed;
+    _ = &x_seed;
+    var a = arg_a;
+    _ = &a;
+    var y = arg_y;
+    _ = &y;
+    var i: c_int = undefined;
+    _ = &i;
+    var x: f64 = undefined;
+    _ = &x;
+    var t1: f64 = undefined;
+    _ = &t1;
+    var t2: f64 = undefined;
+    _ = &t2;
+    var t3: f64 = undefined;
+    _ = &t3;
+    var t4: f64 = undefined;
+    _ = &t4;
+    var a1: f64 = undefined;
+    _ = &a1;
+    var a2: f64 = undefined;
+    _ = &a2;
+    var x1: f64 = undefined;
+    _ = &x1;
+    var x2: f64 = undefined;
+    _ = &x2;
+    var z: f64 = undefined;
+    _ = &z;
+    t1 = ((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * a;
+    a1 = @floatFromInt(@as(c_int, @intFromFloat(t1)));
+    a2 = a - (((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * a1);
+    x = x_seed.*;
+    {
+        i = 1;
+        while (i <= n) : (i += 1) {
+            t1 = ((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * x;
+            x1 = @floatFromInt(@as(c_int, @intFromFloat(t1)));
+            x2 = x - (((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * x1);
+            t1 = (a1 * x2) + (a2 * x1);
+            t2 = @floatFromInt(@as(c_int, @intFromFloat(((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * t1)));
+            z = t1 - (((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * t2);
+            t3 = (((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * z) + (a2 * x2);
+            t4 = @floatFromInt(@as(c_int, @intFromFloat((((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * ((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5))) * t3)));
+            x = t3 - ((((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * ((((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0))) * t4);
+            y[@bitCast(@as(isize, @intCast(i)))] = (((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * ((((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5))) * x;
+        }
+    }
+    x_seed.* = x;
+}
+pub const struct_timezone = extern struct {
+    tz_minuteswest: c_int = 0,
+    tz_dsttime: c_int = 0,
+};
+pub extern fn gettimeofday(noalias __tv: [*c]struct_timeval, noalias __tz: ?*anyopaque) c_int;
+pub extern fn settimeofday(__tv: [*c]const struct_timeval, __tz: [*c]const struct_timezone) c_int;
+pub extern fn adjtime(__delta: [*c]const struct_timeval, __olddelta: [*c]struct_timeval) c_int;
+pub const ITIMER_REAL: c_int = 0;
+pub const ITIMER_VIRTUAL: c_int = 1;
+pub const ITIMER_PROF: c_int = 2;
+pub const enum___itimer_which = c_uint;
+pub const struct_itimerval = extern struct {
+    it_interval: struct_timeval = @import("std").mem.zeroes(struct_timeval),
+    it_value: struct_timeval = @import("std").mem.zeroes(struct_timeval),
+};
+pub const __itimer_which_t = c_int;
+pub extern fn getitimer(__which: __itimer_which_t, __value: [*c]struct_itimerval) c_int;
+pub extern fn setitimer(__which: __itimer_which_t, noalias __new: [*c]const struct_itimerval, noalias __old: [*c]struct_itimerval) c_int;
+pub extern fn utimes(__file: [*c]const u8, __tvp: [*c]const struct_timeval) c_int;
+pub extern fn lutimes(__file: [*c]const u8, __tvp: [*c]const struct_timeval) c_int;
+pub extern fn futimes(__fd: c_int, __tvp: [*c]const struct_timeval) c_int;
+pub var nx: [12]c_int = @import("std").mem.zeroes([12]c_int);
+pub var ny: [12]c_int = @import("std").mem.zeroes([12]c_int);
+pub var nz: [12]c_int = @import("std").mem.zeroes([12]c_int);
+pub var Class: u8 = 0;
+pub var debug_vec: [8]c_int = @import("std").mem.zeroes([8]c_int);
+pub var m1: [12]c_int = @import("std").mem.zeroes([12]c_int);
+pub var m2: [12]c_int = @import("std").mem.zeroes([12]c_int);
+pub var m3: [12]c_int = @import("std").mem.zeroes([12]c_int);
+pub var lt: c_int = 0;
+pub var lb: c_int = 0;
+pub var is1: c_int = 0;
+pub var is2: c_int = 0;
+pub var is3: c_int = 0;
+pub var ie1: c_int = 0;
+pub var ie2: c_int = 0;
+pub var ie3: c_int = 0;
+pub fn setup(arg_n1: [*c]c_int, arg_n2: [*c]c_int, arg_n3: [*c]c_int, arg_lt_1: c_int) callconv(.c) void {
+    var n1 = arg_n1;
+    _ = &n1;
+    var n2 = arg_n2;
+    _ = &n2;
+    var n3 = arg_n3;
+    _ = &n3;
+    var lt_1 = arg_lt_1;
+    _ = &lt_1;
+    var k: c_int = undefined;
+    _ = &k;
+    {
+        k = lt_1 - @as(c_int, 1);
+        while (k >= @as(c_int, 1)) : (k -= 1) {
+            nx[@bitCast(@as(isize, @intCast(k)))] = @divTrunc(nx[@bitCast(@as(isize, @intCast(k + @as(c_int, 1))))], @as(c_int, 2));
+            ny[@bitCast(@as(isize, @intCast(k)))] = @divTrunc(ny[@bitCast(@as(isize, @intCast(k + @as(c_int, 1))))], @as(c_int, 2));
+            nz[@bitCast(@as(isize, @intCast(k)))] = @divTrunc(nz[@bitCast(@as(isize, @intCast(k + @as(c_int, 1))))], @as(c_int, 2));
+        }
+    }
+    {
+        k = 1;
+        while (k <= lt_1) : (k += 1) {
+            m1[@bitCast(@as(isize, @intCast(k)))] = nx[@bitCast(@as(isize, @intCast(k)))] + @as(c_int, 2);
+            m2[@bitCast(@as(isize, @intCast(k)))] = nz[@bitCast(@as(isize, @intCast(k)))] + @as(c_int, 2);
+            m3[@bitCast(@as(isize, @intCast(k)))] = ny[@bitCast(@as(isize, @intCast(k)))] + @as(c_int, 2);
+        }
+    }
+    is1 = 1;
+    ie1 = nx[@bitCast(@as(isize, @intCast(lt_1)))];
+    n1.* = nx[@bitCast(@as(isize, @intCast(lt_1)))] + @as(c_int, 2);
+    is2 = 1;
+    ie2 = ny[@bitCast(@as(isize, @intCast(lt_1)))];
+    n2.* = ny[@bitCast(@as(isize, @intCast(lt_1)))] + @as(c_int, 2);
+    is3 = 1;
+    ie3 = nz[@bitCast(@as(isize, @intCast(lt_1)))];
+    n3.* = nz[@bitCast(@as(isize, @intCast(lt_1)))] + @as(c_int, 2);
+    if (debug_vec[@as(c_int, 1)] >= @as(c_int, 1)) {
+        _ = printf(" in setup, \n");
+        _ = printf("  lt  nx  ny  nz  n1  n2  n3 is1 is2 is3 ie1 ie2 ie3\n");
+        _ = printf("%4d%4d%4d%4d%4d%4d%4d%4d%4d%4d%4d%4d%4d\n", lt_1, nx[@bitCast(@as(isize, @intCast(lt_1)))], ny[@bitCast(@as(isize, @intCast(lt_1)))], nz[@bitCast(@as(isize, @intCast(lt_1)))], n1.*, n2.*, n3.*, is1, is2, is3, ie1, ie2, ie3);
+    }
+}
+pub fn mg3P(arg_u: [*c][*c][*c][*c]f64, arg_v: [*c][*c][*c]f64, arg_r: [*c][*c][*c][*c]f64, arg_a: [*c]f64, arg_c: [*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_k: c_int) callconv(.c) void {
+    var u = arg_u;
+    _ = &u;
+    var v = arg_v;
+    _ = &v;
+    var r = arg_r;
+    _ = &r;
+    var a = arg_a;
+    _ = &a;
+    var c = arg_c;
+    _ = &c;
+    var n1 = arg_n1;
+    _ = &n1;
+    var n2 = arg_n2;
+    _ = &n2;
+    var n3 = arg_n3;
+    _ = &n3;
+    var k = arg_k;
+    _ = &k;
+    var j: c_int = undefined;
+    _ = &j;
+    {
+        k = lt;
+        while (k >= (lb + @as(c_int, 1))) : (k -= 1) {
+            j = k - @as(c_int, 1);
+            rprj3(r[@bitCast(@as(isize, @intCast(k)))], m1[@bitCast(@as(isize, @intCast(k)))], m2[@bitCast(@as(isize, @intCast(k)))], m3[@bitCast(@as(isize, @intCast(k)))], r[@bitCast(@as(isize, @intCast(j)))], m1[@bitCast(@as(isize, @intCast(j)))], m2[@bitCast(@as(isize, @intCast(j)))], m3[@bitCast(@as(isize, @intCast(j)))], k);
+        }
+    }
+    k = lb;
+    zero3(u[@bitCast(@as(isize, @intCast(k)))], m1[@bitCast(@as(isize, @intCast(k)))], m2[@bitCast(@as(isize, @intCast(k)))], m3[@bitCast(@as(isize, @intCast(k)))]);
+    psinv(r[@bitCast(@as(isize, @intCast(k)))], u[@bitCast(@as(isize, @intCast(k)))], m1[@bitCast(@as(isize, @intCast(k)))], m2[@bitCast(@as(isize, @intCast(k)))], m3[@bitCast(@as(isize, @intCast(k)))], c, k);
+    {
+        k = lb + @as(c_int, 1);
+        while (k <= (lt - @as(c_int, 1))) : (k += 1) {
+            j = k - @as(c_int, 1);
+            zero3(u[@bitCast(@as(isize, @intCast(k)))], m1[@bitCast(@as(isize, @intCast(k)))], m2[@bitCast(@as(isize, @intCast(k)))], m3[@bitCast(@as(isize, @intCast(k)))]);
+            interp(u[@bitCast(@as(isize, @intCast(j)))], m1[@bitCast(@as(isize, @intCast(j)))], m2[@bitCast(@as(isize, @intCast(j)))], m3[@bitCast(@as(isize, @intCast(j)))], u[@bitCast(@as(isize, @intCast(k)))], m1[@bitCast(@as(isize, @intCast(k)))], m2[@bitCast(@as(isize, @intCast(k)))], m3[@bitCast(@as(isize, @intCast(k)))], k);
+            resid(u[@bitCast(@as(isize, @intCast(k)))], r[@bitCast(@as(isize, @intCast(k)))], r[@bitCast(@as(isize, @intCast(k)))], m1[@bitCast(@as(isize, @intCast(k)))], m2[@bitCast(@as(isize, @intCast(k)))], m3[@bitCast(@as(isize, @intCast(k)))], a, k);
+            psinv(r[@bitCast(@as(isize, @intCast(k)))], u[@bitCast(@as(isize, @intCast(k)))], m1[@bitCast(@as(isize, @intCast(k)))], m2[@bitCast(@as(isize, @intCast(k)))], m3[@bitCast(@as(isize, @intCast(k)))], c, k);
+        }
+    }
+    j = lt - @as(c_int, 1);
+    k = lt;
+    interp(u[@bitCast(@as(isize, @intCast(j)))], m1[@bitCast(@as(isize, @intCast(j)))], m2[@bitCast(@as(isize, @intCast(j)))], m3[@bitCast(@as(isize, @intCast(j)))], u[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3, k);
+    resid(u[@bitCast(@as(isize, @intCast(lt)))], v, r[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3, a, k);
+    psinv(r[@bitCast(@as(isize, @intCast(lt)))], u[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3, c, k);
+}
+
+// old func
+// pub fn psinv(arg_r: [*c][*c][*c]f64, arg_u: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_c: [*c]f64, arg_k: c_int) callconv(.c) void {
+//
+//     //
+//     // /*--------------------------------------------------------------------
+//     // c-------------------------------------------------------------------*/
+//     //
+//     // /*--------------------------------------------------------------------
+//     // c     psinv applies an approximate inverse as smoother:  u = u + Cr
+//     // c
+//     // c     This  implementation costs  15A + 4M per result, where
+//     // c     A and M denote the costs of Addition and Multiplication.  
+//     // c     Presuming coefficient c(3) is zero (the NPB assumes this,
+//     // c     but it is thus not a general case), 2A + 1M may be eliminated,
+//     // c     resulting in 13A + 3M.
+//     // c     Note that this vectorizes, and is also fine for cache 
+//     // c     based machines.  
+//     // c-------------------------------------------------------------------*/
+//
+//     var r = arg_r;
+//     _ = &r;
+//     var u = arg_u;
+//     _ = &u;
+//     var n1 = arg_n1;
+//     _ = &n1;
+//     var n2 = arg_n2;
+//     _ = &n2;
+//     var n3 = arg_n3;
+//     _ = &n3;
+//     var c = arg_c;
+//     _ = &c;
+//     var k = arg_k;
+//     _ = &k;
+//     var @"i3": c_int = undefined;
+//     _ = &@"i3";
+//     var @"i2": c_int = undefined;
+//     _ = &@"i2";
+//     var @"i1": c_int = undefined;
+//     _ = &@"i1";
+//     var r1: [1037]f64 = undefined;
+//     _ = &r1;
+//     var r2: [1037]f64 = undefined;
+//     _ = &r2;
+//     {
+//         @"i3" = 1;
+//         while (@"i3" < (n3 - @as(c_int, 1))) : (@"i3" += 1) {
+//             {
+//                 @"i2" = 1;
+//                 while (@"i2" < (n2 - @as(c_int, 1))) : (@"i2" += 1) {
+//                     {
+//                         @"i1" = 0;
+//                         while (@"i1" < n1) : (@"i1" += 1) {
+//                             r1[@bitCast(@as(isize, @intCast(@"i1")))] = ((r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))] + r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + r[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))]) + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))];
+//                             r2[@bitCast(@as(isize, @intCast(@"i1")))] = ((r[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))] + r[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))];
+//                         }
+//                     }
+//                     {
+//                         @"i1" = 1;
+//                         while (@"i1" < (n1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                             u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] = ((u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] + (c[@as(c_int, 0)] * r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))])) + (c[@as(c_int, 1)] * ((r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))] + r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]) + r1[@bitCast(@as(isize, @intCast(@"i1")))]))) + (c[@as(c_int, 2)] * ((r2[@bitCast(@as(isize, @intCast(@"i1")))] + r1[@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]) + r1[@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]));
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     comm3(u, n1, n2, n3, k);
+//     if (debug_vec[@as(c_int, 0)] >= @as(c_int, 1)) {
+//         rep_nrm(u, n1, n2, n3, @constCast("   psinv"), k);
+//     }
+//     if (debug_vec[@as(c_int, 3)] >= k) {
+//         showall(u, n1, n2, n3);
+//     }
+// }
+
+/// Rough equivalent of `#pragma omp parallel for` (static schedule) over [lo, hi).
+fn parallelFor(
+    comptime Args: type,
+    comptime worker: fn (Args, usize, usize) void,
+    args: Args,
+    lo: usize,
+    hi: usize,
+) !void {
+    if (hi <= lo) return;
+    const total = hi - lo;
+
+    const n_threads = @min(total, try std.Thread.getCpuCount());
+    // Max 64 threads here; bump if you like, or allocate dynamically.
+    var threads: [64]std.Thread = undefined;
+    const nt = @min(n_threads, threads.len);
+
+    const chunk = total / nt;
+    const rem = total % nt;
+
+    var spawned: usize = 0;
+    var start_loc = lo;
+    var t: usize = 0;
+    while (t < nt) : (t += 1) {
+        const len = chunk + @as(usize, if (t < rem) 1 else 0);
+        const end = start_loc + len;
+        if (t == nt - 1) {
+            // run the last chunk on the calling thread (like OpenMP's master)
+            worker(args, start_loc, end);
+        } else {
+            threads[spawned] = try std.Thread.spawn(.{}, worker, .{ args, start_loc, end });
+            spawned += 1;
+        }
+        start_loc = end;
+    }
+    for (threads[0..spawned]) |th| th.join();
+}
+
+
+const PsinvArgs = struct {
+    r: [*c][*c][*c]f64,
+    u: [*c][*c][*c]f64,
+    n1: usize,
+    n2: usize,
+    c: [*c]f64,
+};
+
+fn psinvWorker(args: PsinvArgs, i3_start: usize, i3_end: usize) void {
+    // private(r1, r2): each thread gets its own copies on its own stack
+    var r1: [1037]f64 = undefined;
+    var r2: [1037]f64 = undefined;
+
+    const r = args.r;
+    const u = args.u;
+    const c = args.c;
+    const n1 = args.n1;
+    const n2 = args.n2;
+
+    var i3_local = i3_start;
+    while (i3_local < i3_end) : (i3_local += 1) {
+        var i2_local: usize = 1;
+        while (i2_local < n2 - 1) : (i2_local += 1) {
+            var i1_local: usize = 0;
+            while (i1_local < n1) : (i1_local += 1) {
+                r1[i1_local] = r[i3_local][i2_local - 1][i1_local] + r[i3_local][i2_local + 1][i1_local] +
+                    r[i3_local - 1][i2_local][i1_local] + r[i3_local + 1][i2_local][i1_local];
+                r2[i1_local] = r[i3_local - 1][i2_local - 1][i1_local] + r[i3_local - 1][i2_local + 1][i1_local] +
+                    r[i3_local + 1][i2_local - 1][i1_local] + r[i3_local + 1][i2_local + 1][i1_local];
+            }
+            i1_local = 1;
+            while (i1_local < n1 - 1) : (i1_local += 1) {
+                u[i3_local][i2_local][i1_local] = u[i3_local][i2_local][i1_local] +
+                    c[0] * r[i3_local][i2_local][i1_local] +
+                    c[1] * (r[i3_local][i2_local][i1_local - 1] + r[i3_local][i2_local][i1_local + 1] + r1[i1_local]) +
+                    c[2] * (r2[i1_local] + r1[i1_local - 1] + r1[i1_local + 1]);
+            }
+        }
+    }
+}
+
+
+pub fn psinv(arg_r: [*c][*c][*c]f64, arg_u: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_c: [*c]f64, arg_k: c_int) callconv(.c) void {
+    const args = PsinvArgs{
+        .r = arg_r,
+        .u = arg_u,
+        .n1 = @intCast(arg_n1),
+        .n2 = @intCast(arg_n2),
+        .c = arg_c,
+    };
+
+    // #pragma omp parallel for  -> i3 in [1, n3-1)
+    parallelFor(PsinvArgs, psinvWorker, args, 1, @intCast(arg_n3 - 1)) catch @panic("thread spawn failed");
+
+    comm3(arg_u, arg_n1, arg_n2, arg_n3, arg_k);
+    if (debug_vec[0] >= 1) {
+        rep_nrm(arg_u, arg_n1, arg_n2, arg_n3, @constCast("   psinv"), arg_k);
+    }
+    if (debug_vec[3] >= arg_k) {
+        showall(arg_u, arg_n1, arg_n2, arg_n3);
+    }
+}
+
+// pub fn resid(arg_u: [*c][*c][*c]f64, arg_v: [*c][*c][*c]f64, arg_r: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_a: [*c]f64, arg_k: c_int) callconv(.c) void {
+//     var u = arg_u;
+//     _ = &u;
+//     var v = arg_v;
+//     _ = &v;
+//     var r = arg_r;
+//     _ = &r;
+//     var n1 = arg_n1;
+//     _ = &n1;
+//     var n2 = arg_n2;
+//     _ = &n2;
+//     var n3 = arg_n3;
+//     _ = &n3;
+//     var a = arg_a;
+//     _ = &a;
+//     var k = arg_k;
+//     _ = &k;
+//     var @"i3": c_int = undefined;
+//     _ = &@"i3";
+//     var @"i2": c_int = undefined;
+//     _ = &@"i2";
+//     var @"i1": c_int = undefined;
+//     _ = &@"i1";
+//     var @"u1": [1037]f64 = undefined;
+//     _ = &@"u1";
+//     var @"u2": [1037]f64 = undefined;
+//     _ = &@"u2";
+//
+//     {
+//
+//         @"i3" = 1;
+//         while (@"i3" < (n3 - @as(c_int, 1))) : (@"i3" += 1) {
+//             {
+//                 @"i2" = 1;
+//                 while (@"i2" < (n2 - @as(c_int, 1))) : (@"i2" += 1) {
+//                     {
+//                         @"i1" = 0;
+//                         while (@"i1" < n1) : (@"i1" += 1) {
+//                             @"u1"[@bitCast(@as(isize, @intCast(@"i1")))] = ((u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))] + u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + u[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))]) + u[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))];
+//                             @"u2"[@bitCast(@as(isize, @intCast(@"i1")))] = ((u[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))] + u[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + u[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + u[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))];
+//                         }
+//                     }
+//                     {
+//                         @"i1" = 1;
+//                         while (@"i1" < (n1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                             r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] = ((v[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] - (a[@as(c_int, 0)] * u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))])) - (a[@as(c_int, 2)] * ((@"u2"[@bitCast(@as(isize, @intCast(@"i1")))] + @"u1"[@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]) + @"u1"[@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]))) - (a[@as(c_int, 3)] * (@"u2"[@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))] + @"u2"[@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]));
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     comm3(r, n1, n2, n3, k);
+//     if (debug_vec[@as(c_int, 0)] >= @as(c_int, 1)) {
+//         rep_nrm(r, n1, n2, n3, @constCast("   resid"), k);
+//     }
+//     if (debug_vec[@as(c_int, 2)] >= k) {
+//         showall(r, n1, n2, n3);
+//     }
+// }
+
+const ResidArgs = struct {
+    u: [*c][*c][*c]f64,
+    v: [*c][*c][*c]f64,
+    r: [*c][*c][*c]f64,
+    n1: usize,
+    n2: usize,
+    a: [*c]f64,
+};
+
+fn residWorker(args: ResidArgs, i3_start: usize, i3_end: usize) void {
+    // private(u1, u2): each thread gets its own copies on its own stack
+    var u1_local: [1037]f64 = undefined;
+    var u2_local: [1037]f64 = undefined;
+
+    const u = args.u;
+    const v = args.v;
+    const r = args.r;
+    const a = args.a;
+    const n1 = args.n1;
+    const n2 = args.n2;
+
+    var i3_local = i3_start;
+    while (i3_local < i3_end) : (i3_local += 1) {
+        var i2_local: usize = 1;
+        while (i2_local < n2 - 1) : (i2_local += 1) {
+            var i1_local: usize = 0;
+            while (i1_local < n1) : (i1_local += 1) {
+                u1_local[i1_local] = u[i3_local][i2_local - 1][i1_local] + u[i3_local][i2_local + 1][i1_local] +
+                    u[i3_local - 1][i2_local][i1_local] + u[i3_local + 1][i2_local][i1_local];
+                u2_local[i1_local] = u[i3_local - 1][i2_local - 1][i1_local] + u[i3_local - 1][i2_local + 1][i1_local] +
+                    u[i3_local + 1][i2_local - 1][i1_local] + u[i3_local + 1][i2_local + 1][i1_local];
+            }
+            i1_local = 1;
+            while (i1_local < n1 - 1) : (i1_local += 1) {
+                r[i3_local][i2_local][i1_local] = v[i3_local][i2_local][i1_local] -
+                    a[0] * u[i3_local][i2_local][i1_local] -
+                    a[2] * (u2_local[i1_local] + u1_local[i1_local - 1] + u1_local[i1_local + 1]) -
+                    a[3] * (u2_local[i1_local - 1] + u2_local[i1_local + 1]);
+            }
+        }
+    }
+}
+
+pub fn resid(arg_u: [*c][*c][*c]f64, arg_v: [*c][*c][*c]f64, arg_r: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_a: [*c]f64, arg_k: c_int) callconv(.c) void {
+    const args = ResidArgs{
+        .u = arg_u,
+        .v = arg_v,
+        .r = arg_r,
+        .n1 = @intCast(arg_n1),
+        .n2 = @intCast(arg_n2),
+        .a = arg_a,
+    };
+
+    // #pragma omp parallel for  -> i3 in [1, n3-1)
+    parallelFor(ResidArgs, residWorker, args, 1, @intCast(arg_n3 - 1)) catch @panic("thread spawn failed");
+
+    comm3(arg_r, arg_n1, arg_n2, arg_n3, arg_k);
+    if (debug_vec[0] >= 1) {
+        rep_nrm(arg_r, arg_n1, arg_n2, arg_n3, @constCast("   resid"), arg_k);
+    }
+    if (debug_vec[2] >= arg_k) {
+        showall(arg_r, arg_n1, arg_n2, arg_n3);
+    }
+}
+
+// pub fn rprj3(arg_r: [*c][*c][*c]f64, arg_m1k: c_int, arg_m2k: c_int, arg_m3k: c_int, arg_s: [*c][*c][*c]f64, arg_m1j: c_int, arg_m2j: c_int, arg_m3j: c_int, arg_k: c_int) callconv(.c) void {
+//     var r = arg_r;
+//     _ = &r;
+//     var m1k = arg_m1k;
+//     _ = &m1k;
+//     var m2k = arg_m2k;
+//     _ = &m2k;
+//     var m3k = arg_m3k;
+//     _ = &m3k;
+//     var s = arg_s;
+//     _ = &s;
+//     var m1j = arg_m1j;
+//     _ = &m1j;
+//     var m2j = arg_m2j;
+//     _ = &m2j;
+//     var m3j = arg_m3j;
+//     _ = &m3j;
+//     var k = arg_k;
+//     _ = &k;
+//     var j3: c_int = undefined;
+//     _ = &j3;
+//     var j2: c_int = undefined;
+//     _ = &j2;
+//     var j1_1: c_int = undefined;
+//     _ = &j1_1;
+//     var @"i3": c_int = undefined;
+//     _ = &@"i3";
+//     var @"i2": c_int = undefined;
+//     _ = &@"i2";
+//     var @"i1": c_int = undefined;
+//     _ = &@"i1";
+//     var d1: c_int = undefined;
+//     _ = &d1;
+//     var d2: c_int = undefined;
+//     _ = &d2;
+//     var d3: c_int = undefined;
+//     _ = &d3;
+//     var x1: [1037]f64 = undefined;
+//     _ = &x1;
+//     var y1_2: [1037]f64 = undefined;
+//     _ = &y1_2;
+//     var x2: f64 = undefined;
+//     _ = &x2;
+//     var y2: f64 = undefined;
+//     _ = &y2;
+//     if (m1k == @as(c_int, 3)) {
+//         d1 = 2;
+//     } else {
+//         d1 = 1;
+//     }
+//     if (m2k == @as(c_int, 3)) {
+//         d2 = 2;
+//     } else {
+//         d2 = 1;
+//     }
+//     if (m3k == @as(c_int, 3)) {
+//         d3 = 2;
+//     } else {
+//         d3 = 1;
+//     }
+//     {
+//         j3 = 1;
+//         while (j3 < (m3j - @as(c_int, 1))) : (j3 += 1) {
+//             @"i3" = (@as(c_int, 2) * j3) - d3;
+//             {
+//                 j2 = 1;
+//                 while (j2 < (m2j - @as(c_int, 1))) : (j2 += 1) {
+//                     @"i2" = (@as(c_int, 2) * j2) - d2;
+//                     {
+//                         j1_1 = 1;
+//                         while (j1_1 < m1j) : (j1_1 += 1) {
+//                             @"i1" = (@as(c_int, 2) * j1_1) - d1;
+//                             x1[@bitCast(@as(isize, @intCast(@"i1")))] = ((r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i1")))]) + r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))];
+//                             y1_2[@bitCast(@as(isize, @intCast(@"i1")))] = ((r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))]) + r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i1")))]) + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i1")))];
+//                         }
+//                     }
+//                     {
+//                         j1_1 = 1;
+//                         while (j1_1 < (m1j - @as(c_int, 1))) : (j1_1 += 1) {
+//                             @"i1" = (@as(c_int, 2) * j1_1) - d1;
+//                             y2 = ((r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))] + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]) + r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]) + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))];
+//                             x2 = ((r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))] + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]) + r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]) + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))];
+//                             s[@bitCast(@as(isize, @intCast(j3)))][@bitCast(@as(isize, @intCast(j2)))][@bitCast(@as(isize, @intCast(j1_1)))] = (((@as(f64, 0.5) * r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]) + (@as(f64, 0.25) * ((r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))] + r[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 2))))]) + x2))) + (@as(f64, 0.125) * ((x1[@bitCast(@as(isize, @intCast(@"i1")))] + x1[@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 2))))]) + y2))) + (@as(f64, 0.0625) * (y1_2[@bitCast(@as(isize, @intCast(@"i1")))] + y1_2[@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 2))))]));
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     comm3(s, m1j, m2j, m3j, k - @as(c_int, 1));
+//     if (debug_vec[@as(c_int, 0)] >= @as(c_int, 1)) {
+//         rep_nrm(s, m1j, m2j, m3j, @constCast("   rprj3"), k - @as(c_int, 1));
+//     }
+//     if (debug_vec[@as(c_int, 4)] >= k) {
+//         showall(s, m1j, m2j, m3j);
+//     }
+// }
+
+const RPRJ3Args = struct {
+    r: [*c][*c][*c]f64,
+    m1k: c_int,
+    m2k: c_int,
+    m3k: c_int,
+
+    s: [*c][*c][*c]f64,
+    m1j: c_int,
+    m2j: c_int,
+    m3j: c_int,
+
+    k: c_int,
+
+    d1: c_int,
+    d2: c_int,
+    d3: c_int,
+};
+
+fn rprj3Worker(args: RPRJ3Args, j3_begin: usize, j3_end: usize) void {
+    const r = args.r;
+    const s = args.s;
+
+    const m1j = args.m1j;
+    const m2j = args.m2j;
+
+    const d1 = args.d1;
+    const d2 = args.d2;
+    const d3 = args.d3;
+
+    // OpenMP private variables.
+    var x1_local: [1037]f64 = undefined;
+    var y1_2_local: [1037]f64 = undefined;
+    var x2_local: f64 = undefined;
+    var y2_local: f64 = undefined;
+
+    var j3_local: c_int = @intCast(j3_begin);
+
+    while (j3_local < @as(c_int, @intCast(j3_end))) : (j3_local += 1) {
+        const i3_local = (@as(c_int, 2) * j3_local) - d3;
+
+        var j2_local: c_int = 1;
+
+        while (j2_local < (m2j - 1)) : (j2_local += 1) {
+            const i2_local = (@as(c_int, 2) * j2_local) - d2;
+
+            var j1_local: c_int = 1;
+
+            while (j1_local < m1j) : (j1_local += 1) {
+                const i1_local = (@as(c_int, 2) * j1_local) - d1;
+
+                x1_local[@intCast(i1_local)] =
+                    r[@intCast(i3_local + 1)]
+                     [@intCast(i2_local)]
+                     [@intCast(i1_local)] +
+                    r[@intCast(i3_local + 1)]
+                     [@intCast(i2_local + 2)]
+                     [@intCast(i1_local)] +
+                    r[@intCast(i3_local)]
+                     [@intCast(i2_local + 1)]
+                     [@intCast(i1_local)] +
+                    r[@intCast(i3_local + 2)]
+                     [@intCast(i2_local + 1)]
+                     [@intCast(i1_local)];
+
+                y1_2_local[@intCast(i1_local)] =
+                    r[@intCast(i3_local)]
+                     [@intCast(i2_local)]
+                     [@intCast(i1_local)] +
+                    r[@intCast(i3_local + 2)]
+                     [@intCast(i2_local)]
+                     [@intCast(i1_local)] +
+                    r[@intCast(i3_local)]
+                     [@intCast(i2_local + 2)]
+                     [@intCast(i1_local)] +
+                    r[@intCast(i3_local + 2)]
+                     [@intCast(i2_local + 2)]
+                     [@intCast(i1_local)];
+            }
+
+            j1_local = 1;
+
+            while (j1_local < (m1j - 1)) : (j1_local += 1) {
+                const i1_local = (@as(c_int, 2) * j1_local) - d1;
+
+                y2_local =
+                    r[@intCast(i3_local)]
+                     [@intCast(i2_local)]
+                     [@intCast(i1_local + 1)] +
+                    r[@intCast(i3_local + 2)]
+                     [@intCast(i2_local)]
+                     [@intCast(i1_local + 1)] +
+                    r[@intCast(i3_local)]
+                     [@intCast(i2_local + 2)]
+                     [@intCast(i1_local + 1)] +
+                    r[@intCast(i3_local + 2)]
+                     [@intCast(i2_local + 2)]
+                     [@intCast(i1_local + 1)];
+
+                x2_local =
+                    r[@intCast(i3_local + 1)]
+                     [@intCast(i2_local)]
+                     [@intCast(i1_local + 1)] +
+                    r[@intCast(i3_local + 1)]
+                     [@intCast(i2_local + 2)]
+                     [@intCast(i1_local + 1)] +
+                    r[@intCast(i3_local)]
+                     [@intCast(i2_local + 1)]
+                     [@intCast(i1_local + 1)] +
+                    r[@intCast(i3_local + 2)]
+                     [@intCast(i2_local + 1)]
+                     [@intCast(i1_local + 1)];
+
+                s[@intCast(j3_local)]
+                 [@intCast(j2_local)]
+                 [@intCast(j1_local)] =
+                    (0.5 *
+                        r[@intCast(i3_local + 1)]
+                         [@intCast(i2_local + 1)]
+                         [@intCast(i1_local + 1)]) +
+
+                    (0.25 *
+                        (r[@intCast(i3_local + 1)]
+                          [@intCast(i2_local + 1)]
+                          [@intCast(i1_local)] +
+                         r[@intCast(i3_local + 1)]
+                          [@intCast(i2_local + 1)]
+                          [@intCast(i1_local + 2)] +
+                         x2_local)) +
+
+                    (0.125 *
+                        (x1_local[@intCast(i1_local)] +
+                         x1_local[@intCast(i1_local + 2)] +
+                         y2_local)) +
+
+                    (0.0625 *
+                        (y1_2_local[@intCast(i1_local)] +
+                         y1_2_local[@intCast(i1_local + 2)]));
+            }
+        }
+    }
+}
+
+pub fn rprj3(
+    arg_r: [*c][*c][*c]f64,
+    arg_m1k: c_int,
+    arg_m2k: c_int,
+    arg_m3k: c_int,
+    arg_s: [*c][*c][*c]f64,
+    arg_m1j: c_int,
+    arg_m2j: c_int,
+    arg_m3j: c_int,
+    arg_k: c_int,
+) callconv(.c) void {
+    const d1: c_int = if (arg_m1k == 3) 2 else 1;
+    const d2: c_int = if (arg_m2k == 3) 2 else 1;
+    const d3: c_int = if (arg_m3k == 3) 2 else 1;
+
+    const args = RPRJ3Args{
+        .r = arg_r,
+        .m1k = arg_m1k,
+        .m2k = arg_m2k,
+        .m3k = arg_m3k,
+        .s = arg_s,
+        .m1j = arg_m1j,
+        .m2j = arg_m2j,
+        .m3j = arg_m3j,
+        .k = arg_k,
+        .d1 = d1,
+        .d2 = d2,
+        .d3 = d3,
+    };
+
+    // Equivalent to:
+    //
+    // #pragma omp parallel for default(shared) \
+    //     private(j1,j2,j3,i1,i2,i3,x1,y1,x2,y2)
+    //
+    // for (j3 = 1; j3 < m3j - 1; ++j3)
+
+    parallelFor(
+        RPRJ3Args,
+        rprj3Worker,
+        args,
+        1,
+        @intCast(arg_m3j - 1),
+    ) catch {
+        // rprj3 has a C void ABI, so there is nowhere useful
+        // to return the thread-spawn error.
+        //
+        // If desired, put an error reporting mechanism here.
+        return;
+    };
+
+    // parallelFor has joined every worker at this point, so this
+    // happens only after all writes to s are complete.
+    comm3(
+        arg_s,
+        arg_m1j,
+        arg_m2j,
+        arg_m3j,
+        arg_k - 1,
+    );
+
+    if (debug_vec[0] >= 1) {
+        rep_nrm(
+            arg_s,
+            arg_m1j,
+            arg_m2j,
+            arg_m3j,
+            @constCast("   rprj3"),
+            arg_k - 1,
+        );
+    }
+
+    if (debug_vec[4] >= arg_k) {
+        showall(
+            arg_s,
+            arg_m1j,
+            arg_m2j,
+            arg_m3j,
+        );
+    }
+}
+
+//old func
+// pub fn interp(arg_z: [*c][*c][*c]f64, arg_mm1: c_int, arg_mm2: c_int, arg_mm3: c_int, arg_u: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_k: c_int) callconv(.c) void {
+//     var z = arg_z;
+//     _ = &z;
+//     var mm1 = arg_mm1;
+//     _ = &mm1;
+//     var mm2 = arg_mm2;
+//     _ = &mm2;
+//     var mm3 = arg_mm3;
+//     _ = &mm3;
+//     var u = arg_u;
+//     _ = &u;
+//     var n1 = arg_n1;
+//     _ = &n1;
+//     var n2 = arg_n2;
+//     _ = &n2;
+//     var n3 = arg_n3;
+//     _ = &n3;
+//     var k = arg_k;
+//     _ = &k;
+//     var @"i3": c_int = undefined;
+//     _ = &@"i3";
+//     var @"i2": c_int = undefined;
+//     _ = &@"i2";
+//     var @"i1": c_int = undefined;
+//     _ = &@"i1";
+//     var d1: c_int = undefined;
+//     _ = &d1;
+//     var d2: c_int = undefined;
+//     _ = &d2;
+//     var d3: c_int = undefined;
+//     _ = &d3;
+//     var t1: c_int = undefined;
+//     _ = &t1;
+//     var t2: c_int = undefined;
+//     _ = &t2;
+//     var t3: c_int = undefined;
+//     _ = &t3;
+//     var z1: [1037]f64 = undefined;
+//     _ = &z1;
+//     var z2: [1037]f64 = undefined;
+//     _ = &z2;
+//     var z3: [1037]f64 = undefined;
+//     _ = &z3;
+//     if (((n1 != @as(c_int, 3)) and (n2 != @as(c_int, 3))) and (n3 != @as(c_int, 3))) {
+//         {
+//             @"i3" = 0;
+//             while (@"i3" < (mm3 - @as(c_int, 1))) : (@"i3" += 1) {
+//                 {
+//                     @"i2" = 0;
+//                     while (@"i2" < (mm2 - @as(c_int, 1))) : (@"i2" += 1) {
+//                         {
+//                             @"i1" = 0;
+//                             while (@"i1" < mm1) : (@"i1" += 1) {
+//                                 z1[@bitCast(@as(isize, @intCast(@"i1")))] = z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))] + z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))];
+//                                 z2[@bitCast(@as(isize, @intCast(@"i1")))] = z[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] + z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))];
+//                                 z3[@bitCast(@as(isize, @intCast(@"i1")))] = (z[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))] + z[@bitCast(@as(isize, @intCast(@"i3" + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))]) + z1[@bitCast(@as(isize, @intCast(@"i1")))];
+//                             }
+//                         }
+//                         {
+//                             @"i1" = 0;
+//                             while (@"i1" < (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                 u[@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i3")))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i2")))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i1")))] = u[@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i3")))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i2")))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i1")))] + z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))];
+//                                 u[@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i3")))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i2")))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i1") + @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i3")))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i2")))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i1") + @as(c_int, 1))))] + (@as(f64, 0.5) * (z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))] + z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))]));
+//                             }
+//                         }
+//                         {
+//                             @"i1" = 0;
+//                             while (@"i1" < (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                 u[@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i3")))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i2") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i1")))] = u[@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i3")))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i2") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i1")))] + (@as(f64, 0.5) * z1[@bitCast(@as(isize, @intCast(@"i1")))]);
+//                                 u[@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i3")))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i2") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i1") + @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i3")))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i2") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i1") + @as(c_int, 1))))] + (@as(f64, 0.25) * (z1[@bitCast(@as(isize, @intCast(@"i1")))] + z1[@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]));
+//                             }
+//                         }
+//                         {
+//                             @"i1" = 0;
+//                             while (@"i1" < (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                 u[@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i3") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i2")))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i1")))] = u[@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i3") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i2")))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i1")))] + (@as(f64, 0.5) * z2[@bitCast(@as(isize, @intCast(@"i1")))]);
+//                                 u[@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i3") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i2")))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i1") + @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i3") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i2")))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i1") + @as(c_int, 1))))] + (@as(f64, 0.25) * (z2[@bitCast(@as(isize, @intCast(@"i1")))] + z2[@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]));
+//                             }
+//                         }
+//                         {
+//                             @"i1" = 0;
+//                             while (@"i1" < (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                 u[@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i3") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i2") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i1")))] = u[@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i3") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i2") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@as(c_int, 2) * @"i1")))] + (@as(f64, 0.25) * z3[@bitCast(@as(isize, @intCast(@"i1")))]);
+//                                 u[@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i3") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i2") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i1") + @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i3") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i2") + @as(c_int, 1))))][@bitCast(@as(isize, @intCast((@as(c_int, 2) * @"i1") + @as(c_int, 1))))] + (@as(f64, 0.125) * (z3[@bitCast(@as(isize, @intCast(@"i1")))] + z3[@bitCast(@as(isize, @intCast(@"i1" + @as(c_int, 1))))]));
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     } else {
+//         if (n1 == @as(c_int, 3)) {
+//             d1 = 2;
+//             t1 = 1;
+//         } else {
+//             d1 = 1;
+//             t1 = 0;
+//         }
+//         if (n2 == @as(c_int, 3)) {
+//             d2 = 2;
+//             t2 = 1;
+//         } else {
+//             d2 = 1;
+//             t2 = 0;
+//         }
+//         if (n3 == @as(c_int, 3)) {
+//             d3 = 2;
+//             t3 = 1;
+//         } else {
+//             d3 = 1;
+//             t3 = 0;
+//         }
+//         {
+//             {
+//                 @"i3" = d3;
+//                 while (@"i3" <= (mm3 - @as(c_int, 1))) : (@"i3" += 1) {
+//                     {
+//                         @"i2" = d2;
+//                         while (@"i2" <= (mm2 - @as(c_int, 1))) : (@"i2" += 1) {
+//                             {
+//                                 @"i1" = d1;
+//                                 while (@"i1" <= (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                     u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - d3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - d2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - d1) - @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - d3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - d2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - d1) - @as(c_int, 1))))] + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))];
+//                                 }
+//                             }
+//                             {
+//                                 @"i1" = 1;
+//                                 while (@"i1" <= (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                     u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - d3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - d2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - t1) - @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - d3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - d2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - t1) - @as(c_int, 1))))] + (@as(f64, 0.5) * (z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))] + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]));
+//                                 }
+//                             }
+//                         }
+//                     }
+//                     {
+//                         @"i2" = 1;
+//                         while (@"i2" <= (mm2 - @as(c_int, 1))) : (@"i2" += 1) {
+//                             {
+//                                 @"i1" = d1;
+//                                 while (@"i1" <= (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                     u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - d3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - t2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - d1) - @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - d3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - t2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - d1) - @as(c_int, 1))))] + (@as(f64, 0.5) * (z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))] + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]));
+//                                 }
+//                             }
+//                             {
+//                                 @"i1" = 1;
+//                                 while (@"i1" <= (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                     u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - d3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - t2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - t1) - @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - d3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - t2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - t1) - @as(c_int, 1))))] + (@as(f64, 0.25) * (((z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]) + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]));
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//             {
+//                 @"i3" = 1;
+//                 while (@"i3" <= (mm3 - @as(c_int, 1))) : (@"i3" += 1) {
+//                     {
+//                         @"i2" = d2;
+//                         while (@"i2" <= (mm2 - @as(c_int, 1))) : (@"i2" += 1) {
+//                             {
+//                                 @"i1" = d1;
+//                                 while (@"i1" <= (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                     u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - t3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - d2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - d1) - @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - t3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - d2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - d1) - @as(c_int, 1))))] + (@as(f64, 0.5) * (z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))] + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]));
+//                                 }
+//                             }
+//                             {
+//                                 @"i1" = 1;
+//                                 while (@"i1" <= (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                     u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - t3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - d2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - t1) - @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - t3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - d2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - t1) - @as(c_int, 1))))] + (@as(f64, 0.25) * (((z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))] + z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]) + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]));
+//                                 }
+//                             }
+//                         }
+//                     }
+//                     {
+//                         @"i2" = 1;
+//                         while (@"i2" <= (mm2 - @as(c_int, 1))) : (@"i2" += 1) {
+//                             {
+//                                 @"i1" = d1;
+//                                 while (@"i1" <= (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                     u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - t3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - t2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - d1) - @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - t3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - t2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - d1) - @as(c_int, 1))))] + (@as(f64, 0.25) * (((z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))] + z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]) + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]) + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]));
+//                                 }
+//                             }
+//                             {
+//                                 @"i1" = 1;
+//                                 while (@"i1" <= (mm1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                                     u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - t3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - t2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - t1) - @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i3") - t3) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i2") - t2) - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(((@as(c_int, 2) * @"i1") - t1) - @as(c_int, 1))))] + (@as(f64, 0.125) * (((((((z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] + z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]) + z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]) + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))]) + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))]) + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]) + z[@bitCast(@as(isize, @intCast(@"i3" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2" - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1" - @as(c_int, 1))))]));
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     if (debug_vec[@as(c_int, 0)] >= @as(c_int, 1)) {
+//         rep_nrm(z, mm1, mm2, mm3, @constCast("z: inter"), k - @as(c_int, 1));
+//         rep_nrm(u, n1, n2, n3, @constCast("u: inter"), k);
+//     }
+//     if (debug_vec[@as(c_int, 5)] >= k) {
+//         showall(z, mm1, mm2, mm3);
+//         showall(u, n1, n2, n3);
+//     }
+// }
+
+const InterpArgs = struct {
+    z: [*c][*c][*c]f64,
+    u: [*c][*c][*c]f64,
+
+    mm1: c_int,
+    mm2: c_int,
+    mm3: c_int,
+
+    n1: c_int,
+    n2: c_int,
+    n3: c_int,
+
+    k: c_int,
+
+    d1: c_int,
+    d2: c_int,
+    d3: c_int,
+
+    t1: c_int,
+    t2: c_int,
+    t3: c_int,
+};
+
+
+fn interpWorkerCoarse(
+    args: InterpArgs,
+    i3_begin: usize,
+    i3_end: usize,
+) void {
+    const z = args.z;
+    const u = args.u;
+
+    const mm1 = args.mm1;
+    const mm2 = args.mm2;
+
+    // OpenMP private variables.
+    var z1_local: [1037]f64 = undefined;
+    var z2_local: [1037]f64 = undefined;
+    var z3_local: [1037]f64 = undefined;
+
+    var i3_local: c_int = @intCast(i3_begin);
+
+    while (i3_local < @as(c_int, @intCast(i3_end))) : (i3_local += 1) {
+        var i2_local: c_int = 0;
+
+        while (i2_local < (mm2 - 1)) : (i2_local += 1) {
+            var i1_local: c_int = 0;
+
+            while (i1_local < mm1) : (i1_local += 1) {
+                z1_local[@bitCast(@as(isize, @intCast(i1_local)))] =
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local + 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ];
+
+                z2_local[@bitCast(@as(isize, @intCast(i1_local)))] =
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local + 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ];
+
+                z3_local[@bitCast(@as(isize, @intCast(i1_local)))] =
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local + 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local + 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local + 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z1_local[@bitCast(@as(isize, @intCast(i1_local)))];
+            }
+
+            i1_local = 0;
+
+            while (i1_local < (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 = @as(c_int, 2) * i3_local;
+                const u_i2 = @as(c_int, 2) * i2_local;
+                const u_i1 = @as(c_int, 2) * i1_local;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += z[
+                    @bitCast(@as(isize, @intCast(i3_local)))
+                ][
+                    @bitCast(@as(isize, @intCast(i2_local)))
+                ][
+                    @bitCast(@as(isize, @intCast(i1_local)))
+                ];
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1 + 1)))
+                ] += 0.5 * (
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local + 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ]
+                );
+            }
+
+            i1_local = 0;
+
+            while (i1_local < (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 = @as(c_int, 2) * i3_local;
+                const u_i2 = (@as(c_int, 2) * i2_local) + 1;
+                const u_i1 = @as(c_int, 2) * i1_local;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += 0.5 * z1_local[
+                    @bitCast(@as(isize, @intCast(i1_local)))
+                ];
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1 + 1)))
+                ] += 0.25 * (
+                    z1_local[
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z1_local[
+                        @bitCast(@as(isize, @intCast(i1_local + 1)))
+                    ]
+                );
+            }
+
+            i1_local = 0;
+
+            while (i1_local < (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 = (@as(c_int, 2) * i3_local) + 1;
+                const u_i2 = @as(c_int, 2) * i2_local;
+                const u_i1 = @as(c_int, 2) * i1_local;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += 0.5 * z2_local[
+                    @bitCast(@as(isize, @intCast(i1_local)))
+                ];
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1 + 1)))
+                ] += 0.25 * (
+                    z2_local[
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z2_local[
+                        @bitCast(@as(isize, @intCast(i1_local + 1)))
+                    ]
+                );
+            }
+
+            i1_local = 0;
+
+            while (i1_local < (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 = (@as(c_int, 2) * i3_local) + 1;
+                const u_i2 = (@as(c_int, 2) * i2_local) + 1;
+                const u_i1 = @as(c_int, 2) * i1_local;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += 0.25 * z3_local[
+                    @bitCast(@as(isize, @intCast(i1_local)))
+                ];
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1 + 1)))
+                ] += 0.125 * (
+                    z3_local[
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z3_local[
+                        @bitCast(@as(isize, @intCast(i1_local + 1)))
+                    ]
+                );
+            }
+        }
+    }
+}
+
+
+fn interpWorkerFine1(
+    args: InterpArgs,
+    i3_begin: usize,
+    i3_end: usize,
+) void {
+    const z = args.z;
+    const u = args.u;
+
+    const mm1 = args.mm1;
+    const mm2 = args.mm2;
+
+    const d1 = args.d1;
+    const d2 = args.d2;
+    const d3 = args.d3;
+
+    const t1 = args.t1;
+    const t2 = args.t2;
+    // const t3 = args.t3;
+
+    var i3_local: c_int = @intCast(i3_begin);
+
+    while (i3_local < @as(c_int, @intCast(i3_end))) : (i3_local += 1) {
+        var i2_local: c_int = d2;
+
+        while (i2_local <= (mm2 - 1)) : (i2_local += 1) {
+            var i1_local: c_int = d1;
+
+            while (i1_local <= (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 =
+                    ((@as(c_int, 2) * i3_local) - d3) - 1;
+                const u_i2 =
+                    ((@as(c_int, 2) * i2_local) - d2) - 1;
+                const u_i1 =
+                    ((@as(c_int, 2) * i1_local) - d1) - 1;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += z[
+                    @bitCast(@as(isize, @intCast(i3_local - 1)))
+                ][
+                    @bitCast(@as(isize, @intCast(i2_local - 1)))
+                ][
+                    @bitCast(@as(isize, @intCast(i1_local - 1)))
+                ];
+            }
+
+            i1_local = 1;
+
+            while (i1_local <= (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 =
+                    ((@as(c_int, 2) * i3_local) - d3) - 1;
+                const u_i2 =
+                    ((@as(c_int, 2) * i2_local) - d2) - 1;
+                const u_i1 =
+                    ((@as(c_int, 2) * i1_local) - t1) - 1;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += 0.5 * (
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ]
+                );
+            }
+        }
+
+        i2_local = 1;
+
+        while (i2_local <= (mm2 - 1)) : (i2_local += 1) {
+            var i1_local: c_int = d1;
+
+            while (i1_local <= (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 =
+                    ((@as(c_int, 2) * i3_local) - d3) - 1;
+                const u_i2 =
+                    ((@as(c_int, 2) * i2_local) - t2) - 1;
+                const u_i1 =
+                    ((@as(c_int, 2) * i1_local) - d1) - 1;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += 0.5 * (
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ]
+                );
+            }
+
+            i1_local = 1;
+
+            while (i1_local <= (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 =
+                    ((@as(c_int, 2) * i3_local) - d3) - 1;
+                const u_i2 =
+                    ((@as(c_int, 2) * i2_local) - t2) - 1;
+                const u_i1 =
+                    ((@as(c_int, 2) * i1_local) - t1) - 1;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += 0.25 * (
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ]
+                );
+            }
+        }
+    }
+}
+
+fn interpWorkerFine2(
+    args: InterpArgs,
+    i3_begin: usize,
+    i3_end: usize,
+) void {
+    const z = args.z;
+    const u = args.u;
+
+    const mm1 = args.mm1;
+    const mm2 = args.mm2;
+
+    const d1 = args.d1;
+    const d2 = args.d2;
+    // const d3 = args.d3;
+
+    const t1 = args.t1;
+    const t2 = args.t2;
+    const t3 = args.t3;
+
+    var i3_local: c_int = @intCast(i3_begin);
+
+    while (i3_local < @as(c_int, @intCast(i3_end))) : (i3_local += 1) {
+        var i2_local: c_int = d2;
+
+        while (i2_local <= (mm2 - 1)) : (i2_local += 1) {
+            var i1_local: c_int = d1;
+
+            while (i1_local <= (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 =
+                    ((@as(c_int, 2) * i3_local) - t3) - 1;
+                const u_i2 =
+                    ((@as(c_int, 2) * i2_local) - d2) - 1;
+                const u_i1 =
+                    ((@as(c_int, 2) * i1_local) - d1) - 1;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += 0.5 * (
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ]
+                );
+            }
+
+            i1_local = 1;
+
+            while (i1_local <= (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 =
+                    ((@as(c_int, 2) * i3_local) - t3) - 1;
+                const u_i2 =
+                    ((@as(c_int, 2) * i2_local) - d2) - 1;
+                const u_i1 =
+                    ((@as(c_int, 2) * i1_local) - t1) - 1;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += 0.25 * (
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ]
+                );
+            }
+        }
+
+        i2_local = 1;
+
+        while (i2_local <= (mm2 - 1)) : (i2_local += 1) {
+            var i1_local: c_int = d1;
+
+            while (i1_local <= (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 =
+                    ((@as(c_int, 2) * i3_local) - t3) - 1;
+                const u_i2 =
+                    ((@as(c_int, 2) * i2_local) - t2) - 1;
+                const u_i1 =
+                    ((@as(c_int, 2) * i1_local) - d1) - 1;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += 0.25 * (
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ]
+                );
+            }
+
+            i1_local = 1;
+
+            while (i1_local <= (mm1 - 1)) : (i1_local += 1) {
+                const u_i3 =
+                    ((@as(c_int, 2) * i3_local) - t3) - 1;
+                const u_i2 =
+                    ((@as(c_int, 2) * i2_local) - t2) - 1;
+                const u_i1 =
+                    ((@as(c_int, 2) * i1_local) - t1) - 1;
+
+                u[
+                    @bitCast(@as(isize, @intCast(u_i3)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i2)))
+                ][
+                    @bitCast(@as(isize, @intCast(u_i1)))
+                ] += 0.125 * (
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ] +
+                    z[
+                        @bitCast(@as(isize, @intCast(i3_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i2_local - 1)))
+                    ][
+                        @bitCast(@as(isize, @intCast(i1_local - 1)))
+                    ]
+                );
+            }
+        }
+    }
+}
+
+pub fn interp(
+    arg_z: [*c][*c][*c]f64,
+    arg_mm1: c_int,
+    arg_mm2: c_int,
+    arg_mm3: c_int,
+    arg_u: [*c][*c][*c]f64,
+    arg_n1: c_int,
+    arg_n2: c_int,
+    arg_n3: c_int,
+    arg_k: c_int,
+) callconv(.c) void {
+    const d1: c_int = if (arg_n1 == 3) 2 else 1;
+    const d2: c_int = if (arg_n2 == 3) 2 else 1;
+    const d3: c_int = if (arg_n3 == 3) 2 else 1;
+
+    const t1: c_int = if (arg_n1 == 3) 1 else 0;
+    const t2: c_int = if (arg_n2 == 3) 1 else 0;
+    const t3: c_int = if (arg_n3 == 3) 1 else 0;
+
+    const args = InterpArgs{
+        .z = arg_z,
+        .u = arg_u,
+
+        .mm1 = arg_mm1,
+        .mm2 = arg_mm2,
+        .mm3 = arg_mm3,
+
+        .n1 = arg_n1,
+        .n2 = arg_n2,
+        .n3 = arg_n3,
+
+        .k = arg_k,
+
+        .d1 = d1,
+        .d2 = d2,
+        .d3 = d3,
+
+        .t1 = t1,
+        .t2 = t2,
+        .t3 = t3,
+    };
+
+    if (((arg_n1 != 3) and (arg_n2 != 3)) and (arg_n3 != 3)) {
+        parallelFor(
+            InterpArgs,
+            interpWorkerCoarse,
+            args,
+            0,
+            @intCast(arg_mm3 - 1),
+        ) catch {
+            return;
+        };
+    } else {
+        // Corresponds to the first "#pragma omp for".
+        //
+        // Original:
+        // i3 = d3;
+        // while (i3 <= mm3 - 1)
+        //
+        // Therefore:
+        // [d3, mm3)
+        parallelFor(
+            InterpArgs,
+            interpWorkerFine1,
+            args,
+            @intCast(d3),
+            @intCast(arg_mm3),
+        ) catch {
+            return;
+        };
+
+        // Corresponds to the "#pragma omp for nowait".
+        //
+        // Original:
+        // i3 = 1;
+        // while (i3 <= mm3 - 1)
+        //
+        // Therefore:
+        // [1, mm3)
+        //
+        // Your parallelFor joins here, so this has a barrier where
+        // the original OpenMP nowait did not.
+        parallelFor(
+            InterpArgs,
+            interpWorkerFine2,
+            args,
+            1,
+            @intCast(arg_mm3),
+        ) catch {
+            return;
+        };
+    }
+
+    if (debug_vec[0] >= 1) {
+        rep_nrm(
+            arg_z,
+            arg_mm1,
+            arg_mm2,
+            arg_mm3,
+            @constCast("z: inter"),
+            arg_k - 1,
+        );
+
+        rep_nrm(
+            arg_u,
+            arg_n1,
+            arg_n2,
+            arg_n3,
+            @constCast("u: inter"),
+            arg_k,
+        );
+    }
+
+    if (debug_vec[5] >= arg_k) {
+        showall(arg_z, arg_mm1, arg_mm2, arg_mm3);
+        showall(arg_u, arg_n1, arg_n2, arg_n3);
+    }
+}
+
+// pub fn norm2u3(arg_r: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_rnm2: [*c]f64, arg_rnmu: [*c]f64, arg_nx_1: c_int, arg_ny_2: c_int, arg_nz_3: c_int) callconv(.c) void {
+//     var r = arg_r;
+//     _ = &r;
+//     var n1 = arg_n1;
+//     _ = &n1;
+//     var n2 = arg_n2;
+//     _ = &n2;
+//     var n3 = arg_n3;
+//     _ = &n3;
+//     var rnm2 = arg_rnm2;
+//     _ = &rnm2;
+//     var rnmu = arg_rnmu;
+//     _ = &rnmu;
+//     var nx_1 = arg_nx_1;
+//     _ = &nx_1;
+//     var ny_2 = arg_ny_2;
+//     _ = &ny_2;
+//     var nz_3 = arg_nz_3;
+//     _ = &nz_3;
+//     var s: f64 = 0.0;
+//     _ = &s;
+//     var @"i3": c_int = undefined;
+//     _ = &@"i3";
+//     var @"i2": c_int = undefined;
+//     _ = &@"i2";
+//     var @"i1": c_int = undefined;
+//     _ = &@"i1";
+//     var n: c_int = undefined;
+//     _ = &n;
+//     var a: f64 = 0.0;
+//     _ = &a;
+//     var tmp: f64 = 0.0;
+//     _ = &tmp;
+//     n = (nx_1 * ny_2) * nz_3;
+//     // TODO: make paralell "#pragma omp parallel for default(shared) private(i1,i2,i3,a) reduction(+:s) reduction(max:tmp)"
+//     {
+//         @"i3" = 1;
+//         while (@"i3" < (n3 - @as(c_int, 1))) : (@"i3" += 1) {
+//             {
+//                 @"i2" = 1;
+//                 while (@"i2" < (n2 - @as(c_int, 1))) : (@"i2" += 1) {
+//                     {
+//                         @"i1" = 1;
+//                         while (@"i1" < (n1 - @as(c_int, 1))) : (@"i1" += 1) {
+//                             s = s + (r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] * r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))]);
+//                             a = fabs(r[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))]);
+//                             if (a > tmp) {
+//                                 tmp = a;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     rnmu.* = tmp;
+//     rnm2.* = sqrt(s / @as(f64, @floatFromInt(n)));
+// }
+
+const Norm2u3Args = struct {
+    r: [*c][*c][*c]f64,
+    n1: c_int,
+    n2: c_int,
+    n3: c_int,
+    sum_results: *[64]f64,
+    max_results: *[64]f64,
+};
+
+fn norm2u3Worker(
+    args: Norm2u3Args,
+    i3_start: usize,
+    i3_end: usize,
+    worker_index: usize,
+) void {
+    var sum_local: f64 = 0.0;
+    var max_local: f64 = 0.0;
+
+    var i3_local: usize = i3_start;
+
+    while (i3_local < i3_end) : (i3_local += 1) {
+        var i2_local: c_int = 1;
+
+        while (i2_local < args.n2 - @as(c_int, 1)) : (i2_local += 1) {
+            var i1_local: c_int = 1;
+
+            while (i1_local < args.n1 - @as(c_int, 1)) : (i1_local += 1) {
+                const value = args.r[
+                    @bitCast(@as(isize, @intCast(i3_local)))
+                ][
+                    @bitCast(@as(isize, @intCast(i2_local)))
+                ][
+                    @bitCast(@as(isize, @intCast(i1_local)))
+                ];
+
+                sum_local += value * value;
+
+                const abs_value = fabs(value);
+
+                if (abs_value > max_local) {
+                    max_local = abs_value;
+                }
+            }
+        }
+    }
+
+    args.sum_results[worker_index] = sum_local;
+    args.max_results[worker_index] = max_local;
+}
+
+fn parallelForIndexed(
+    comptime Args: type,
+    comptime worker: fn (Args, usize, usize, usize) void,
+    args: Args,
+    lo: usize,
+    hi: usize,
+) !usize {
+    if (hi <= lo) {
+        return 0;
+    }
+
+    const total = hi - lo;
+
+    const cpu_count = try std.Thread.getCpuCount();
+    const n_threads = @min(total, cpu_count);
+    const nt = @min(n_threads, @as(usize, 64));
+
+    var threads: [64]std.Thread = undefined;
+
+    const chunk = total / nt;
+    const rem = total % nt;
+
+    var spawned: usize = 0;
+    var start_loc = lo;
+    var thread_index: usize = 0;
+
+    while (thread_index < nt) : (thread_index += 1) {
+        const len = chunk + @as(usize, if (thread_index < rem) 1 else 0);
+        const end_loc = start_loc + len;
+
+        if (thread_index == nt - 1) {
+            worker(
+                args,
+                start_loc,
+                end_loc,
+                thread_index,
+            );
+        } else {
+            threads[spawned] = try std.Thread.spawn(
+                .{},
+                worker,
+                .{
+                    args,
+                    start_loc,
+                    end_loc,
+                    thread_index,
+                },
+            );
+            spawned += 1;
+        }
+
+        start_loc = end_loc;
+    }
+
+    for (threads[0..spawned]) |thread| {
+        thread.join();
+    }
+
+    return nt;
+}
+
+pub fn norm2u3(
+    arg_r: [*c][*c][*c]f64,
+    arg_n1: c_int,
+    arg_n2: c_int,
+    arg_n3: c_int,
+    arg_rnm2: [*c]f64,
+    arg_rnmu: [*c]f64,
+    arg_nx_1: c_int,
+    arg_ny_2: c_int,
+    arg_nz_3: c_int,
+) callconv(.c) void {
+    var r = arg_r;
+    _ = &r;
+
+    var n1 = arg_n1;
+    _ = &n1;
+
+    var n2 = arg_n2;
+    _ = &n2;
+
+    var n3 = arg_n3;
+    _ = &n3;
+
+    var rnm2 = arg_rnm2;
+    _ = &rnm2;
+
+    var rnmu = arg_rnmu;
+    _ = &rnmu;
+
+    var nx_1 = arg_nx_1;
+    _ = &nx_1;
+
+    var ny_2 = arg_ny_2;
+    _ = &ny_2;
+
+    var nz_3 = arg_nz_3;
+    _ = &nz_3;
+
+    const n = (nx_1 * ny_2) * nz_3;
+
+    var sum_results: [64]f64 = [_]f64{0.0} ** 64;
+    var max_results: [64]f64 = [_]f64{0.0} ** 64;
+
+    const worker_args = Norm2u3Args{
+        .r = r,
+        .n1 = n1,
+        .n2 = n2,
+        .n3 = n3,
+        .sum_results = &sum_results,
+        .max_results = &max_results,
+    };
+
+    const i3_begin: usize = 1;
+    const i3_end: usize = @intCast(n3 - @as(c_int, 1));
+
+    const thread_count = parallelForIndexed(
+        Norm2u3Args,
+        norm2u3Worker,
+        worker_args,
+        i3_begin,
+        i3_end,
+    ) catch {
+        return;
+    };
+
+    var s: f64 = 0.0;
+    var tmp: f64 = 0.0;
+
+    var reduction_index: usize = 0;
+
+    while (reduction_index < thread_count) : (reduction_index += 1) {
+        s += sum_results[reduction_index];
+
+        if (max_results[reduction_index] > tmp) {
+            tmp = max_results[reduction_index];
+        }
+    }
+
+    rnmu.* = tmp;
+    rnm2.* = sqrt(
+        s / @as(f64, @floatFromInt(n)),
+    );
+}
+
+pub fn rep_nrm(arg_u: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_title: [*c]u8, arg_kk: c_int) callconv(.c) void {
+    var u = arg_u;
+    _ = &u;
+    var n1 = arg_n1;
+    _ = &n1;
+    var n2 = arg_n2;
+    _ = &n2;
+    var n3 = arg_n3;
+    _ = &n3;
+    var title = arg_title;
+    _ = &title;
+    var kk = arg_kk;
+    _ = &kk;
+    var rnm2: f64 = undefined;
+    _ = &rnm2;
+    var rnmu: f64 = undefined;
+    _ = &rnmu;
+    norm2u3(u, n1, n2, n3, &rnm2, &rnmu, nx[@bitCast(@as(isize, @intCast(kk)))], ny[@bitCast(@as(isize, @intCast(kk)))], nz[@bitCast(@as(isize, @intCast(kk)))]);
+    _ = printf(" Level%2d in %8s: norms =%21.14e%21.14e\n", kk, title, rnm2, rnmu);
+}
+
+pub fn comm3(arg_u: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_kk: c_int) callconv(.c) void {
+    var u = arg_u;
+    _ = &u;
+    var n1 = arg_n1;
+    _ = &n1;
+    var n2 = arg_n2;
+    _ = &n2;
+    var n3 = arg_n3;
+    _ = &n3;
+    var kk = arg_kk;
+    _ = &kk;
+    var @"i1": c_int = undefined;
+    _ = &@"i1";
+    var @"i2": c_int = undefined;
+    _ = &@"i2";
+    var @"i3": c_int = undefined;
+    _ = &@"i3";
+    {
+        {
+            @"i3" = 1;
+            while (@"i3" < (n3 - @as(c_int, 1))) : (@"i3" += 1) {
+                {
+                    @"i2" = 1;
+                    while (@"i2" < (n2 - @as(c_int, 1))) : (@"i2" += 1) {
+                        u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(n1 - @as(c_int, 1))))] = u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@as(c_int, 1)];
+                        u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@as(c_int, 0)] = u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(n1 - @as(c_int, 2))))];
+                    }
+                }
+                {
+                    @"i1" = 0;
+                    while (@"i1" < n1) : (@"i1" += 1) {
+                        u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(n2 - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i1")))] = u[@bitCast(@as(isize, @intCast(@"i3")))][@as(c_int, 1)][@bitCast(@as(isize, @intCast(@"i1")))];
+                        u[@bitCast(@as(isize, @intCast(@"i3")))][@as(c_int, 0)][@bitCast(@as(isize, @intCast(@"i1")))] = u[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(n2 - @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i1")))];
+                    }
+                }
+            }
+        }
+        {
+            @"i2" = 0;
+            while (@"i2" < n2) : (@"i2" += 1) {
+                {
+                    @"i1" = 0;
+                    while (@"i1" < n1) : (@"i1" += 1) {
+                        u[@bitCast(@as(isize, @intCast(n3 - @as(c_int, 1))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] = u[@as(c_int, 1)][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))];
+                        u[@as(c_int, 0)][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] = u[@bitCast(@as(isize, @intCast(n3 - @as(c_int, 2))))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))];
+                    }
+                }
+            }
+        }
+    }
+}
+pub fn zran3(arg_z: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int, arg_nx_1: c_int, arg_ny_2: c_int, arg_k: c_int) callconv(.c) void {
+    var z = arg_z;
+    _ = &z;
+    var n1 = arg_n1;
+    _ = &n1;
+    var n2 = arg_n2;
+    _ = &n2;
+    var n3 = arg_n3;
+    _ = &n3;
+    var nx_1 = arg_nx_1;
+    _ = &nx_1;
+    var ny_2 = arg_ny_2;
+    _ = &ny_2;
+    var k = arg_k;
+    _ = &k;
+    var @"i0": c_int = undefined;
+    _ = &@"i0";
+    var m0: c_int = undefined;
+    _ = &m0;
+    var m1_3: c_int = undefined;
+    _ = &m1_3;
+    var @"i1": c_int = undefined;
+    _ = &@"i1";
+    var @"i2": c_int = undefined;
+    _ = &@"i2";
+    var @"i3": c_int = undefined;
+    _ = &@"i3";
+    var d1: c_int = undefined;
+    _ = &d1;
+    var e1: c_int = undefined;
+    _ = &e1;
+    var e2: c_int = undefined;
+    _ = &e2;
+    var e3: c_int = undefined;
+    _ = &e3;
+    var xx: f64 = undefined;
+    _ = &xx;
+    var x0: f64 = undefined;
+    _ = &x0;
+    var x1: f64 = undefined;
+    _ = &x1;
+    var a1: f64 = undefined;
+    _ = &a1;
+    var a2: f64 = undefined;
+    _ = &a2;
+    var ai: f64 = undefined;
+    _ = &ai;
+    var ten: [10][2]f64 = undefined;
+    _ = &ten;
+    var best: f64 = undefined;
+    _ = &best;
+    var i: c_int = undefined;
+    _ = &i;
+    var j1_4: [10][2]c_int = undefined;
+    _ = &j1_4;
+    var j2: [10][2]c_int = undefined;
+    _ = &j2;
+    var j3: [10][2]c_int = undefined;
+    _ = &j3;
+    var jg: [4][10][2]c_int = undefined;
+    _ = &jg;
+    var rdummy: f64 = undefined;
+    _ = &rdummy;
+    a1 = power(pow(5.0, @floatFromInt(@as(c_int, 13))), nx_1);
+    a2 = power(pow(5.0, @floatFromInt(@as(c_int, 13))), nx_1 * ny_2);
+    zero3(z, n1, n2, n3);
+    i = (is1 - @as(c_int, 1)) + (nx_1 * ((is2 - @as(c_int, 1)) + (ny_2 * (is3 - @as(c_int, 1)))));
+    ai = power(pow(5.0, @floatFromInt(@as(c_int, 13))), i);
+    d1 = (ie1 - is1) + @as(c_int, 1);
+    e1 = (ie1 - is1) + @as(c_int, 2);
+    e2 = (ie2 - is2) + @as(c_int, 2);
+    e3 = (ie3 - is3) + @as(c_int, 2);
+    x0 = X;
+    rdummy = randlc(&x0, ai);
+    {
+        @"i3" = 1;
+        while (@"i3" < e3) : (@"i3" += 1) {
+            x1 = x0;
+            {
+                @"i2" = 1;
+                while (@"i2" < e2) : (@"i2" += 1) {
+                    xx = x1;
+                    vranlc(d1, &xx, pow(5.0, @floatFromInt(@as(c_int, 13))), &z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@as(c_int, 0)]);
+                    rdummy = randlc(&x1, a1);
+                }
+            }
+            rdummy = randlc(&x0, a2);
+        }
+    }
+    {
+        i = 0;
+        while (i < MM) : (i += 1) {
+            ten[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = 0.0;
+            j1_4[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = 0;
+            j2[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = 0;
+            j3[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = 0;
+            ten[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = 1.0;
+            j1_4[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = 0;
+            j2[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = 0;
+            j3[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = 0;
+        }
+    }
+    {
+        @"i3" = 1;
+        while (@"i3" < (n3 - @as(c_int, 1))) : (@"i3" += 1) {
+            {
+                @"i2" = 1;
+                while (@"i2" < (n2 - @as(c_int, 1))) : (@"i2" += 1) {
+                    {
+                        @"i1" = 1;
+                        while (@"i1" < (n1 - @as(c_int, 1))) : (@"i1" += 1) {
+                            if (z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] > ten[@as(c_int, 0)][@as(c_int, 1)]) {
+                                ten[@as(c_int, 0)][@as(c_int, 1)] = z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))];
+                                j1_4[@as(c_int, 0)][@as(c_int, 1)] = @"i1";
+                                j2[@as(c_int, 0)][@as(c_int, 1)] = @"i2";
+                                j3[@as(c_int, 0)][@as(c_int, 1)] = @"i3";
+                                bubble(@ptrCast(@alignCast(&ten)), @ptrCast(@alignCast(&j1_4)), @ptrCast(@alignCast(&j2)), @ptrCast(@alignCast(&j3)), MM, 1);
+                            }
+                            if (z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] < ten[@as(c_int, 0)][@as(c_int, 0)]) {
+                                ten[@as(c_int, 0)][@as(c_int, 0)] = z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))];
+                                j1_4[@as(c_int, 0)][@as(c_int, 0)] = @"i1";
+                                j2[@as(c_int, 0)][@as(c_int, 0)] = @"i2";
+                                j3[@as(c_int, 0)][@as(c_int, 0)] = @"i3";
+                                bubble(@ptrCast(@alignCast(&ten)), @ptrCast(@alignCast(&j1_4)), @ptrCast(@alignCast(&j2)), @ptrCast(@alignCast(&j3)), MM, 0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @"i1" = MM - @as(c_int, 1);
+    @"i0" = MM - @as(c_int, 1);
+    {
+        i = MM - @as(c_int, 1);
+        while (i >= @as(c_int, 0)) : (i -= 1) {
+            best = z[@bitCast(@as(isize, @intCast(j3[@bitCast(@as(isize, @intCast(@"i1")))][@as(c_int, 1)])))][@bitCast(@as(isize, @intCast(j2[@bitCast(@as(isize, @intCast(@"i1")))][@as(c_int, 1)])))][@bitCast(@as(isize, @intCast(j1_4[@bitCast(@as(isize, @intCast(@"i1")))][@as(c_int, 1)])))];
+            if (best == z[@bitCast(@as(isize, @intCast(j3[@bitCast(@as(isize, @intCast(@"i1")))][@as(c_int, 1)])))][@bitCast(@as(isize, @intCast(j2[@bitCast(@as(isize, @intCast(@"i1")))][@as(c_int, 1)])))][@bitCast(@as(isize, @intCast(j1_4[@bitCast(@as(isize, @intCast(@"i1")))][@as(c_int, 1)])))]) {
+                jg[@as(c_int, 0)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = 0;
+                jg[@as(c_int, 1)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = (is1 - @as(c_int, 1)) + j1_4[@bitCast(@as(isize, @intCast(@"i1")))][@as(c_int, 1)];
+                jg[@as(c_int, 2)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = (is2 - @as(c_int, 1)) + j2[@bitCast(@as(isize, @intCast(@"i1")))][@as(c_int, 1)];
+                jg[@as(c_int, 3)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = (is3 - @as(c_int, 1)) + j3[@bitCast(@as(isize, @intCast(@"i1")))][@as(c_int, 1)];
+                @"i1" = @"i1" - @as(c_int, 1);
+            } else {
+                jg[@as(c_int, 0)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = 0;
+                jg[@as(c_int, 1)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = 0;
+                jg[@as(c_int, 2)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = 0;
+                jg[@as(c_int, 3)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = 0;
+            }
+            ten[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)] = best;
+            best = z[@bitCast(@as(isize, @intCast(j3[@bitCast(@as(isize, @intCast(@"i0")))][@as(c_int, 0)])))][@bitCast(@as(isize, @intCast(j2[@bitCast(@as(isize, @intCast(@"i0")))][@as(c_int, 0)])))][@bitCast(@as(isize, @intCast(j1_4[@bitCast(@as(isize, @intCast(@"i0")))][@as(c_int, 0)])))];
+            if (best == z[@bitCast(@as(isize, @intCast(j3[@bitCast(@as(isize, @intCast(@"i0")))][@as(c_int, 0)])))][@bitCast(@as(isize, @intCast(j2[@bitCast(@as(isize, @intCast(@"i0")))][@as(c_int, 0)])))][@bitCast(@as(isize, @intCast(j1_4[@bitCast(@as(isize, @intCast(@"i0")))][@as(c_int, 0)])))]) {
+                jg[@as(c_int, 0)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = 0;
+                jg[@as(c_int, 1)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = (is1 - @as(c_int, 1)) + j1_4[@bitCast(@as(isize, @intCast(@"i0")))][@as(c_int, 0)];
+                jg[@as(c_int, 2)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = (is2 - @as(c_int, 1)) + j2[@bitCast(@as(isize, @intCast(@"i0")))][@as(c_int, 0)];
+                jg[@as(c_int, 3)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = (is3 - @as(c_int, 1)) + j3[@bitCast(@as(isize, @intCast(@"i0")))][@as(c_int, 0)];
+                @"i0" = @"i0" - @as(c_int, 1);
+            } else {
+                jg[@as(c_int, 0)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = 0;
+                jg[@as(c_int, 1)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = 0;
+                jg[@as(c_int, 2)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = 0;
+                jg[@as(c_int, 3)][@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = 0;
+            }
+            ten[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)] = best;
+        }
+    }
+    m1_3 = @"i1" + @as(c_int, 1);
+    m0 = @"i0" + @as(c_int, 1);
+    {
+        @"i3" = 0;
+        while (@"i3" < n3) : (@"i3" += 1) {
+            {
+                @"i2" = 0;
+                while (@"i2" < n2) : (@"i2" += 1) {
+                    {
+                        @"i1" = 0;
+                        while (@"i1" < n1) : (@"i1" += 1) {
+                            z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] = 0.0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    {
+        i = MM - @as(c_int, 1);
+        while (i >= m0) : (i -= 1) {
+            z[@bitCast(@as(isize, @intCast(j3[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)])))][@bitCast(@as(isize, @intCast(j2[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)])))][@bitCast(@as(isize, @intCast(j1_4[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 0)])))] = -@as(f64, 1.0);
+        }
+    }
+    {
+        i = MM - @as(c_int, 1);
+        while (i >= m1_3) : (i -= 1) {
+            z[@bitCast(@as(isize, @intCast(j3[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)])))][@bitCast(@as(isize, @intCast(j2[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)])))][@bitCast(@as(isize, @intCast(j1_4[@bitCast(@as(isize, @intCast(i)))][@as(c_int, 1)])))] = 1.0;
+        }
+    }
+    comm3(z, n1, n2, n3, k);
+}
+pub fn showall(arg_z: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int) callconv(.c) void {
+    var z = arg_z;
+    _ = &z;
+    var n1 = arg_n1;
+    _ = &n1;
+    var n2 = arg_n2;
+    _ = &n2;
+    var n3 = arg_n3;
+    _ = &n3;
+    var @"i1": c_int = undefined;
+    _ = &@"i1";
+    var @"i2": c_int = undefined;
+    _ = &@"i2";
+    var @"i3": c_int = undefined;
+    _ = &@"i3";
+    var m1_1: c_int = undefined;
+    _ = &m1_1;
+    var m2_2: c_int = undefined;
+    _ = &m2_2;
+    var m3_3: c_int = undefined;
+    _ = &m3_3;
+    m1_1 = if (n1 < @as(c_int, 18)) n1 else @as(c_int, 18);
+    m2_2 = if (n2 < @as(c_int, 14)) n2 else @as(c_int, 14);
+    m3_3 = if (n3 < @as(c_int, 18)) n3 else @as(c_int, 18);
+    _ = printf("\n");
+    {
+        @"i3" = 0;
+        while (@"i3" < m3_3) : (@"i3" += 1) {
+            {
+                @"i1" = 0;
+                while (@"i1" < m1_1) : (@"i1" += 1) {
+                    {
+                        @"i2" = 0;
+                        while (@"i2" < m2_2) : (@"i2" += 1) {
+                            _ = printf("%6.3f", z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))]);
+                        }
+                    }
+                    _ = printf("\n");
+                }
+            }
+            _ = printf(" - - - - - - - \n");
+        }
+    }
+    _ = printf("\n");
+}
+pub fn power(arg_a: f64, arg_n: c_int) callconv(.c) f64 {
+    var a = arg_a;
+    _ = &a;
+    var n = arg_n;
+    _ = &n;
+    var aj: f64 = undefined;
+    _ = &aj;
+    var nj: c_int = undefined;
+    _ = &nj;
+    var rdummy: f64 = undefined;
+    _ = &rdummy;
+    var power_1: f64 = undefined;
+    _ = &power_1;
+    power_1 = 1.0;
+    nj = n;
+    aj = a;
+    while (nj != @as(c_int, 0)) {
+        if (__helpers.signedRemainder(nj, @as(c_int, 2)) == @as(c_int, 1)) {
+            rdummy = randlc(&power_1, aj);
+        }
+        rdummy = randlc(&aj, aj);
+        nj = @divTrunc(nj, @as(c_int, 2));
+    }
+    return power_1;
+}
+pub fn bubble(arg_ten: [*c][2]f64, arg_j1_1: [*c][2]c_int, arg_j2: [*c][2]c_int, arg_j3: [*c][2]c_int, arg_m: c_int, arg_ind: c_int) callconv(.c) void {
+    var ten = arg_ten;
+    _ = &ten;
+    var j1_1 = arg_j1_1;
+    _ = &j1_1;
+    var j2 = arg_j2;
+    _ = &j2;
+    var j3 = arg_j3;
+    _ = &j3;
+    var m = arg_m;
+    _ = &m;
+    var ind = arg_ind;
+    _ = &ind;
+    var temp: f64 = undefined;
+    _ = &temp;
+    var i: c_int = undefined;
+    _ = &i;
+    var j_temp: c_int = undefined;
+    _ = &j_temp;
+    if (ind == @as(c_int, 1)) {
+        {
+            i = 0;
+            while (i < (m - @as(c_int, 1))) : (i += 1) {
+                if (ten[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))] > ten[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))]) {
+                    temp = ten[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))];
+                    ten[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))] = ten[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))];
+                    ten[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))] = temp;
+                    j_temp = j1_1[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))];
+                    j1_1[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))] = j1_1[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))];
+                    j1_1[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))] = j_temp;
+                    j_temp = j2[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))];
+                    j2[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))] = j2[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))];
+                    j2[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))] = j_temp;
+                    j_temp = j3[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))];
+                    j3[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))] = j3[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))];
+                    j3[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))] = j_temp;
+                } else {
+                    return;
+                }
+            }
+        }
+    } else {
+        {
+            i = 0;
+            while (i < (m - @as(c_int, 1))) : (i += 1) {
+                if (ten[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))] < ten[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))]) {
+                    temp = ten[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))];
+                    ten[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))] = ten[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))];
+                    ten[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))] = temp;
+                    j_temp = j1_1[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))];
+                    j1_1[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))] = j1_1[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))];
+                    j1_1[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))] = j_temp;
+                    j_temp = j2[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))];
+                    j2[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))] = j2[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))];
+                    j2[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))] = j_temp;
+                    j_temp = j3[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))];
+                    j3[@bitCast(@as(isize, @intCast(i + @as(c_int, 1))))][@bitCast(@as(isize, @intCast(ind)))] = j3[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))];
+                    j3[@bitCast(@as(isize, @intCast(i)))][@bitCast(@as(isize, @intCast(ind)))] = j_temp;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+}
+pub fn zero3(arg_z: [*c][*c][*c]f64, arg_n1: c_int, arg_n2: c_int, arg_n3: c_int) callconv(.c) void {
+    var z = arg_z;
+    _ = &z;
+    var n1 = arg_n1;
+    _ = &n1;
+    var n2 = arg_n2;
+    _ = &n2;
+    var n3 = arg_n3;
+    _ = &n3;
+    var @"i1": c_int = undefined;
+    _ = &@"i1";
+    var @"i2": c_int = undefined;
+    _ = &@"i2";
+    var @"i3": c_int = undefined;
+    _ = &@"i3";
+    {
+        @"i3" = 0;
+        while (@"i3" < n3) : (@"i3" += 1) {
+            {
+                @"i2" = 0;
+                while (@"i2" < n2) : (@"i2" += 1) {
+                    {
+                        @"i1" = 0;
+                        while (@"i1" < n1) : (@"i1" += 1) {
+                            z[@bitCast(@as(isize, @intCast(@"i3")))][@bitCast(@as(isize, @intCast(@"i2")))][@bitCast(@as(isize, @intCast(@"i1")))] = 0.0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+pub extern fn nonzero(z: [*c][*c][*c]f64, n1: c_int, n2: c_int, n3: c_int) void;
+pub export fn c_main(arg_argc: c_int, arg_argv: [*c][*c]u8) c_int {
+    var argc = arg_argc;
+    _ = &argc;
+    var argv = arg_argv;
+    _ = &argv;
+    var k: c_int = undefined;
+    _ = &k;
+    var it: c_int = undefined;
+    _ = &it;
+    var t: f64 = undefined;
+    _ = &t;
+    var tinit: f64 = undefined;
+    _ = &tinit;
+    var mflops: f64 = undefined;
+    _ = &mflops;
+    var nthreads: c_int = 1;
+    _ = &nthreads;
+    var u: [*c][*c][*c][*c]f64 = undefined;
+    _ = &u;
+    var v: [*c][*c][*c]f64 = undefined;
+    _ = &v;
+    var r: [*c][*c][*c][*c]f64 = undefined;
+    _ = &r;
+    var a: [4]f64 = undefined;
+    _ = &a;
+    var c: [4]f64 = undefined;
+    _ = &c;
+    var rnm2: f64 = undefined;
+    _ = &rnm2;
+    var rnmu: f64 = undefined;
+    _ = &rnmu;
+    var epsilon: f64 = 0.00000001;
+    _ = &epsilon;
+    var n1: c_int = undefined;
+    _ = &n1;
+    var n2: c_int = undefined;
+    _ = &n2;
+    var n3: c_int = undefined;
+    _ = &n3;
+    var nit: c_int = undefined;
+    _ = &nit;
+    var verify_value: f64 = undefined;
+    _ = &verify_value;
+    var verified: boolean = undefined;
+    _ = &verified;
+    var i: c_int = undefined;
+    _ = &i;
+    var j: c_int = undefined;
+    _ = &j;
+    var l: c_int = undefined;
+    _ = &l;
+    var fp: ?*FILE = undefined;
+    _ = &fp;
+    timer_clear(T_BENCH);
+    timer_clear(T_INIT);
+    timer_start(T_INIT);
+    _ = printf("\n\n NAS Parallel Benchmarks 3.0 structured Zig 0.16.0 threaded version - MG Benchmark \n\n Done with zig translate-c and LLMs\n\n very fragile\n\n");
+    fp = fopen("mg.input", "r");
+    if (@as(?*anyopaque, @ptrCast(@alignCast(fp))) != @as(?*anyopaque, null)) {
+        _ = printf(" Reading from input file mg.input\n");
+        _ = fscanf(fp, "%d", &lt);
+        while (fgetc(fp) != @as(c_int, '\n')) {}
+        _ = fscanf(fp, "%d%d%d", &nx[@bitCast(@as(isize, @intCast(lt)))], &ny[@bitCast(@as(isize, @intCast(lt)))], &nz[@bitCast(@as(isize, @intCast(lt)))]);
+        while (fgetc(fp) != @as(c_int, '\n')) {}
+        _ = fscanf(fp, "%d", &nit);
+        while (fgetc(fp) != @as(c_int, '\n')) {}
+        {
+            i = 0;
+            while (i <= @as(c_int, 7)) : (i += 1) {
+                _ = fscanf(fp, "%d", &debug_vec[@bitCast(@as(isize, @intCast(i)))]);
+            }
+        }
+        _ = fclose(fp);
+    } else {
+        _ = printf(" No input file. Using compiled defaults\n");
+        lt = LT_DEFAULT;
+        nit = NIT_DEFAULT;
+        nx[@bitCast(@as(isize, @intCast(lt)))] = NX_DEFAULT;
+        ny[@bitCast(@as(isize, @intCast(lt)))] = NY_DEFAULT;
+        nz[@bitCast(@as(isize, @intCast(lt)))] = NZ_DEFAULT;
+        {
+            i = 0;
+            while (i <= @as(c_int, 7)) : (i += 1) {
+                debug_vec[@bitCast(@as(isize, @intCast(i)))] = DEBUG_DEFAULT;
+            }
+        }
+    }
+    if ((nx[@bitCast(@as(isize, @intCast(lt)))] != ny[@bitCast(@as(isize, @intCast(lt)))]) or (nx[@bitCast(@as(isize, @intCast(lt)))] != nz[@bitCast(@as(isize, @intCast(lt)))])) {
+        Class = 'U';
+    } else if ((nx[@bitCast(@as(isize, @intCast(lt)))] == @as(c_int, 32)) and (nit == @as(c_int, 4))) {
+        Class = 'S';
+    } else if ((nx[@bitCast(@as(isize, @intCast(lt)))] == @as(c_int, 64)) and (nit == @as(c_int, 40))) {
+        Class = 'W';
+    } else if ((nx[@bitCast(@as(isize, @intCast(lt)))] == @as(c_int, 256)) and (nit == @as(c_int, 20))) {
+        Class = 'B';
+    } else if ((nx[@bitCast(@as(isize, @intCast(lt)))] == @as(c_int, 512)) and (nit == @as(c_int, 20))) {
+        Class = 'C';
+    } else if ((nx[@bitCast(@as(isize, @intCast(lt)))] == @as(c_int, 256)) and (nit == @as(c_int, 4))) {
+        Class = 'A';
+    } else {
+        Class = 'U';
+    }
+    a[@as(c_int, 0)] = -@as(f64, 8.0) / @as(f64, 3.0);
+    a[@as(c_int, 1)] = 0.0;
+    a[@as(c_int, 2)] = @as(f64, 1.0) / @as(f64, 6.0);
+    a[@as(c_int, 3)] = @as(f64, 1.0) / @as(f64, 12.0);
+    if (((@as(c_int, Class) == @as(c_int, 'A')) or (@as(c_int, Class) == @as(c_int, 'S'))) or (@as(c_int, Class) == @as(c_int, 'W'))) {
+        c[@as(c_int, 0)] = -@as(f64, 3.0) / @as(f64, 8.0);
+        c[@as(c_int, 1)] = @as(f64, 1.0) / @as(f64, 32.0);
+        c[@as(c_int, 2)] = -@as(f64, 1.0) / @as(f64, 64.0);
+        c[@as(c_int, 3)] = 0.0;
+    } else {
+        c[@as(c_int, 0)] = -@as(f64, 3.0) / @as(f64, 17.0);
+        c[@as(c_int, 1)] = @as(f64, 1.0) / @as(f64, 33.0);
+        c[@as(c_int, 2)] = -@as(f64, 1.0) / @as(f64, 61.0);
+        c[@as(c_int, 3)] = 0.0;
+    }
+    lb = 1;
+    setup(&n1, &n2, &n3, lt);
+    u = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, lt + @as(c_int, 1)))) *% @sizeOf([*c][*c][*c]f64))));
+    {
+        l = lt;
+        while (l >= @as(c_int, 1)) : (l -= 1) {
+            u[@bitCast(@as(isize, @intCast(l)))] = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, m3[@bitCast(@as(isize, @intCast(l)))]))) *% @sizeOf([*c][*c]f64))));
+            {
+                k = 0;
+                while (k < m3[@bitCast(@as(isize, @intCast(l)))]) : (k += 1) {
+                    u[@bitCast(@as(isize, @intCast(l)))][@bitCast(@as(isize, @intCast(k)))] = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, m2[@bitCast(@as(isize, @intCast(l)))]))) *% @sizeOf([*c]f64))));
+                    {
+                        j = 0;
+                        while (j < m2[@bitCast(@as(isize, @intCast(l)))]) : (j += 1) {
+                            u[@bitCast(@as(isize, @intCast(l)))][@bitCast(@as(isize, @intCast(k)))][@bitCast(@as(isize, @intCast(j)))] = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, m1[@bitCast(@as(isize, @intCast(l)))]))) *% @sizeOf(f64))));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    v = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, m3[@bitCast(@as(isize, @intCast(lt)))]))) *% @sizeOf([*c][*c]f64))));
+    {
+        k = 0;
+        while (k < m3[@bitCast(@as(isize, @intCast(lt)))]) : (k += 1) {
+            v[@bitCast(@as(isize, @intCast(k)))] = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, m2[@bitCast(@as(isize, @intCast(lt)))]))) *% @sizeOf([*c]f64))));
+            {
+                j = 0;
+                while (j < m2[@bitCast(@as(isize, @intCast(lt)))]) : (j += 1) {
+                    v[@bitCast(@as(isize, @intCast(k)))][@bitCast(@as(isize, @intCast(j)))] = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, m1[@bitCast(@as(isize, @intCast(lt)))]))) *% @sizeOf(f64))));
+                }
+            }
+        }
+    }
+    r = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, lt + @as(c_int, 1)))) *% @sizeOf([*c][*c][*c]f64))));
+    {
+        l = lt;
+        while (l >= @as(c_int, 1)) : (l -= 1) {
+            r[@bitCast(@as(isize, @intCast(l)))] = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, m3[@bitCast(@as(isize, @intCast(l)))]))) *% @sizeOf([*c][*c]f64))));
+            {
+                k = 0;
+                while (k < m3[@bitCast(@as(isize, @intCast(l)))]) : (k += 1) {
+                    r[@bitCast(@as(isize, @intCast(l)))][@bitCast(@as(isize, @intCast(k)))] = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, m2[@bitCast(@as(isize, @intCast(l)))]))) *% @sizeOf([*c]f64))));
+                    {
+                        j = 0;
+                        while (j < m2[@bitCast(@as(isize, @intCast(l)))]) : (j += 1) {
+                            r[@bitCast(@as(isize, @intCast(l)))][@bitCast(@as(isize, @intCast(k)))][@bitCast(@as(isize, @intCast(j)))] = @ptrCast(@alignCast(malloc(@as(c_ulong, @bitCast(@as(c_long, m1[@bitCast(@as(isize, @intCast(l)))]))) *% @sizeOf(f64))));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    zero3(u[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3);
+    zran3(v, n1, n2, n3, nx[@bitCast(@as(isize, @intCast(lt)))], ny[@bitCast(@as(isize, @intCast(lt)))], lt);
+    norm2u3(v, n1, n2, n3, &rnm2, &rnmu, nx[@bitCast(@as(isize, @intCast(lt)))], ny[@bitCast(@as(isize, @intCast(lt)))], nz[@bitCast(@as(isize, @intCast(lt)))]);
+    _ = printf(" Size: %3dx%3dx%3d (class %1c)\n", nx[@bitCast(@as(isize, @intCast(lt)))], ny[@bitCast(@as(isize, @intCast(lt)))], nz[@bitCast(@as(isize, @intCast(lt)))], Class);
+    _ = printf(" Iterations: %3d\n", nit);
+    resid(u[@bitCast(@as(isize, @intCast(lt)))], v, r[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3, @ptrCast(@alignCast(&a)), lt);
+    norm2u3(r[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3, &rnm2, &rnmu, nx[@bitCast(@as(isize, @intCast(lt)))], ny[@bitCast(@as(isize, @intCast(lt)))], nz[@bitCast(@as(isize, @intCast(lt)))]);
+    mg3P(u, v, r, @ptrCast(@alignCast(&a)), @ptrCast(@alignCast(&c)), n1, n2, n3, lt);
+    resid(u[@bitCast(@as(isize, @intCast(lt)))], v, r[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3, @ptrCast(@alignCast(&a)), lt);
+    setup(&n1, &n2, &n3, lt);
+    zero3(u[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3);
+    zran3(v, n1, n2, n3, nx[@bitCast(@as(isize, @intCast(lt)))], ny[@bitCast(@as(isize, @intCast(lt)))], lt);
+    timer_stop(T_INIT);
+    timer_start(T_BENCH);
+    resid(u[@bitCast(@as(isize, @intCast(lt)))], v, r[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3, @ptrCast(@alignCast(&a)), lt);
+    norm2u3(r[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3, &rnm2, &rnmu, nx[@bitCast(@as(isize, @intCast(lt)))], ny[@bitCast(@as(isize, @intCast(lt)))], nz[@bitCast(@as(isize, @intCast(lt)))]);
+    {
+        it = 1;
+        while (it <= nit) : (it += 1) {
+            mg3P(u, v, r, @ptrCast(@alignCast(&a)), @ptrCast(@alignCast(&c)), n1, n2, n3, lt);
+            resid(u[@bitCast(@as(isize, @intCast(lt)))], v, r[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3, @ptrCast(@alignCast(&a)), lt);
+        }
+    }
+    norm2u3(r[@bitCast(@as(isize, @intCast(lt)))], n1, n2, n3, &rnm2, &rnmu, nx[@bitCast(@as(isize, @intCast(lt)))], ny[@bitCast(@as(isize, @intCast(lt)))], nz[@bitCast(@as(isize, @intCast(lt)))]);
+    // TODO: set number of threads
+    timer_stop(T_BENCH);
+    t = timer_read(T_BENCH);
+    tinit = timer_read(T_INIT);
+    verified = FALSE;
+    verify_value = 0.0;
+    _ = printf(" Initialization time: %15.3f seconds\n", tinit);
+    _ = printf(" Benchmark completed\n");
+    if (@as(c_int, Class) != @as(c_int, 'U')) {
+        if (@as(c_int, Class) == @as(c_int, 'S')) {
+            verify_value = 0.0000530770700573;
+        } else if (@as(c_int, Class) == @as(c_int, 'W')) {
+            verify_value = 0.00000000000000000250391406439;
+        } else if (@as(c_int, Class) == @as(c_int, 'A')) {
+            verify_value = 0.000002433365309;
+        } else if (@as(c_int, Class) == @as(c_int, 'B')) {
+            verify_value = 0.00000180056440132;
+        } else if (@as(c_int, Class) == @as(c_int, 'C')) {
+            verify_value = 0.000000570674826298;
+        }
+        if (fabs(rnm2 - verify_value) <= epsilon) {
+            verified = TRUE;
+            _ = printf(" VERIFICATION SUCCESSFUL\n");
+            _ = printf(" L2 Norm is %20.12e\n", rnm2);
+            _ = printf(" Error is   %20.12e\n", rnm2 - verify_value);
+        } else {
+            verified = FALSE;
+            _ = printf(" VERIFICATION FAILED\n");
+            _ = printf(" L2 Norm is             %20.12e\n", rnm2);
+            _ = printf(" The correct L2 Norm is %20.12e\n", verify_value);
+        }
+    } else {
+        verified = FALSE;
+        _ = printf(" Problem size unknown\n");
+        _ = printf(" NO VERIFICATION PERFORMED\n");
+    }
+    if (t != @as(f64, 0.0)) {
+        var nn: c_int = (nx[@bitCast(@as(isize, @intCast(lt)))] * ny[@bitCast(@as(isize, @intCast(lt)))]) * nz[@bitCast(@as(isize, @intCast(lt)))];
+        _ = &nn;
+        mflops = (((@as(f64, 58.0) * @as(f64, @floatFromInt(nit))) * @as(f64, @floatFromInt(nn))) * @as(f64, 0.000001)) / t;
+    } else {
+        mflops = 0.0;
+    }
+    c_print_results(@constCast("MG"), Class, nx[@bitCast(@as(isize, @intCast(lt)))], ny[@bitCast(@as(isize, @intCast(lt)))], nz[@bitCast(@as(isize, @intCast(lt)))], nit, nthreads, t, mflops, @constCast("          floating point"), verified, @constCast("3.0 structured"), @constCast("18 Sep 2026"), @constCast("cc"), @constCast("cc"), @constCast("(none)"), @constCast("-I../common"), @constCast("-lm -O3 "), @constCast("(none)"), @constCast("randdp"));
+    return 0;
+}
+
+pub fn main(init: std.process.Init) !void {
+    const arena: std.mem.Allocator = init.arena.allocator();
+
+    // const io = std.Io.Threaded.global_single_threaded.io();
+    const args: []const [:0]const u8 = try init.minimal.args.toSlice(arena);
+
+    const argc: c_int = @intCast(args.len);
+    
+    const argv = try arena.alloc([*c]u8, args.len + 1);
+
+    for (args, 0..) |arg, i| {
+        argv[i] = @constCast(arg.ptr);
+    }
+    argv[args.len] = null;
+
+    const rc = c_main(argc, @constCast(argv.ptr));
+    if (rc != 0) std.process.exit(@intCast(rc));
+}
+
+pub const __VERSION__ = "Aro aro-zig";
+pub const __Aro__ = "";
+pub const __STDC__ = @as(c_int, 1);
+pub const __STDC_HOSTED__ = @as(c_int, 1);
+pub const __STDC_UTF_16__ = @as(c_int, 1);
+pub const __STDC_UTF_32__ = @as(c_int, 1);
+pub const __STDC_EMBED_NOT_FOUND__ = @as(c_int, 0);
+pub const __STDC_EMBED_FOUND__ = @as(c_int, 1);
+pub const __STDC_EMBED_EMPTY__ = @as(c_int, 2);
+pub const __STDC_VERSION__ = @as(c_long, 201710);
+pub const __GNUC__ = @as(c_int, 7);
+pub const __GNUC_MINOR__ = @as(c_int, 1);
+pub const __GNUC_PATCHLEVEL__ = @as(c_int, 0);
+pub const __ARO_EMULATE_NO__ = @as(c_int, 0);
+pub const __ARO_EMULATE_CLANG__ = @as(c_int, 1);
+pub const __ARO_EMULATE_GCC__ = @as(c_int, 2);
+pub const __ARO_EMULATE_MSVC__ = @as(c_int, 3);
+pub const __ARO_EMULATE__ = __ARO_EMULATE_GCC__;
+pub inline fn __building_module(x: anytype) @TypeOf(@as(c_int, 0)) {
+    _ = &x;
+    return @as(c_int, 0);
+}
+pub const linux = @as(c_int, 1);
+pub const __linux = @as(c_int, 1);
+pub const __linux__ = @as(c_int, 1);
+pub const unix = @as(c_int, 1);
+pub const __unix = @as(c_int, 1);
+pub const __unix__ = @as(c_int, 1);
+pub const __code_model_small__ = @as(c_int, 1);
+pub const __amd64__ = @as(c_int, 1);
+pub const __amd64 = @as(c_int, 1);
+pub const __x86_64__ = @as(c_int, 1);
+pub const __x86_64 = @as(c_int, 1);
+pub const __SEG_GS = @as(c_int, 1);
+pub const __SEG_FS = @as(c_int, 1);
+pub const __seg_gs = @compileError("unable to translate macro: undefined identifier `address_space`"); // <builtin>:33:9
+pub const __seg_fs = @compileError("unable to translate macro: undefined identifier `address_space`"); // <builtin>:34:9
+pub const __LAHF_SAHF__ = @as(c_int, 1);
+pub const __AES__ = @as(c_int, 1);
+pub const __PCLMUL__ = @as(c_int, 1);
+pub const __LZCNT__ = @as(c_int, 1);
+pub const __RDRND__ = @as(c_int, 1);
+pub const __FSGSBASE__ = @as(c_int, 1);
+pub const __BMI__ = @as(c_int, 1);
+pub const __BMI2__ = @as(c_int, 1);
+pub const __POPCNT__ = @as(c_int, 1);
+pub const __RTM__ = @as(c_int, 1);
+pub const __PRFCHW__ = @as(c_int, 1);
+pub const __RDSEED__ = @as(c_int, 1);
+pub const __ADX__ = @as(c_int, 1);
+pub const __MOVBE__ = @as(c_int, 1);
+pub const __FMA__ = @as(c_int, 1);
+pub const __F16C__ = @as(c_int, 1);
+pub const __FXSR__ = @as(c_int, 1);
+pub const __XSAVE__ = @as(c_int, 1);
+pub const __XSAVEOPT__ = @as(c_int, 1);
+pub const __XSAVEC__ = @as(c_int, 1);
+pub const __XSAVES__ = @as(c_int, 1);
+pub const __CLFLUSHOPT__ = @as(c_int, 1);
+pub const __SGX__ = @as(c_int, 1);
+pub const __INVPCID__ = @as(c_int, 1);
+pub const __CRC32__ = @as(c_int, 1);
+pub const __AVX2__ = @as(c_int, 1);
+pub const __AVX__ = @as(c_int, 1);
+pub const __SSE4_2__ = @as(c_int, 1);
+pub const __SSE4_1__ = @as(c_int, 1);
+pub const __SSSE3__ = @as(c_int, 1);
+pub const __SSE3__ = @as(c_int, 1);
+pub const __SSE2__ = @as(c_int, 1);
+pub const __SSE__ = @as(c_int, 1);
+pub const __SSE_MATH__ = @as(c_int, 1);
+pub const __MMX__ = @as(c_int, 1);
+pub const __GCC_HAVE_SYNC_COMPARE_AND_SWAP_8 = @as(c_int, 1);
+pub const __SIZEOF_FLOAT128__ = @as(c_int, 16);
+pub const _LP64 = @as(c_int, 1);
+pub const __LP64__ = @as(c_int, 1);
+pub const __FLOAT128__ = @as(c_int, 1);
+pub const __ORDER_LITTLE_ENDIAN__ = @as(c_int, 1234);
+pub const __ORDER_BIG_ENDIAN__ = @as(c_int, 4321);
+pub const __ORDER_PDP_ENDIAN__ = @as(c_int, 3412);
+pub const __BYTE_ORDER__ = __ORDER_LITTLE_ENDIAN__;
+pub const __LITTLE_ENDIAN__ = @as(c_int, 1);
+pub const __ELF__ = @as(c_int, 1);
+pub const __ATOMIC_RELAXED = @as(c_int, 0);
+pub const __ATOMIC_CONSUME = @as(c_int, 1);
+pub const __ATOMIC_ACQUIRE = @as(c_int, 2);
+pub const __ATOMIC_RELEASE = @as(c_int, 3);
+pub const __ATOMIC_ACQ_REL = @as(c_int, 4);
+pub const __ATOMIC_SEQ_CST = @as(c_int, 5);
+pub const __ATOMIC_BOOL_LOCK_FREE = @as(c_int, 1);
+pub const __ATOMIC_CHAR_LOCK_FREE = @as(c_int, 1);
+pub const __ATOMIC_CHAR16_T_LOCK_FREE = @as(c_int, 1);
+pub const __ATOMIC_CHAR32_T_LOCK_FREE = @as(c_int, 1);
+pub const __ATOMIC_WCHAR_T_LOCK_FREE = @as(c_int, 1);
+pub const __ATOMIC_WINT_T_LOCK_FREE = @as(c_int, 1);
+pub const __ATOMIC_SHORT_LOCK_FREE = @as(c_int, 1);
+pub const __ATOMIC_INT_LOCK_FREE = @as(c_int, 1);
+pub const __ATOMIC_LONG_LOCK_FREE = @as(c_int, 1);
+pub const __ATOMIC_LLONG_LOCK_FREE = @as(c_int, 1);
+pub const __ATOMIC_POINTER_LOCK_FREE = @as(c_int, 1);
+pub const __WINT_UNSIGNED__ = @as(c_int, 1);
+pub const __CHAR_BIT__ = @as(c_int, 8);
+pub const __BOOL_WIDTH__ = @as(c_int, 8);
+pub const __SCHAR_MAX__ = @as(c_int, 127);
+pub const __SCHAR_WIDTH__ = @as(c_int, 8);
+pub const __SHRT_MAX__ = @as(c_int, 32767);
+pub const __SHRT_WIDTH__ = @as(c_int, 16);
+pub const __INT_MAX__ = __helpers.promoteIntLiteral(c_int, 2147483647, .decimal);
+pub const __INT_WIDTH__ = @as(c_int, 32);
+pub const __LONG_MAX__ = __helpers.promoteIntLiteral(c_long, 9223372036854775807, .decimal);
+pub const __LONG_WIDTH__ = @as(c_int, 64);
+pub const __LONG_LONG_MAX__ = @as(c_longlong, 9223372036854775807);
+pub const __LONG_LONG_WIDTH__ = @as(c_int, 64);
+pub const __WCHAR_MAX__ = __helpers.promoteIntLiteral(c_int, 2147483647, .decimal);
+pub const __WCHAR_WIDTH__ = @as(c_int, 32);
+pub const __WINT_MAX__ = __helpers.promoteIntLiteral(c_uint, 4294967295, .decimal);
+pub const __WINT_WIDTH__ = @as(c_int, 32);
+pub const __INTMAX_MAX__ = __helpers.promoteIntLiteral(c_long, 9223372036854775807, .decimal);
+pub const __INTMAX_WIDTH__ = @as(c_int, 64);
+pub const __SIZE_MAX__ = __helpers.promoteIntLiteral(c_ulong, 18446744073709551615, .decimal);
+pub const __SIZE_WIDTH__ = @as(c_int, 64);
+pub const __UINTMAX_MAX__ = __helpers.promoteIntLiteral(c_ulong, 18446744073709551615, .decimal);
+pub const __UINTMAX_WIDTH__ = @as(c_int, 64);
+pub const __PTRDIFF_MAX__ = __helpers.promoteIntLiteral(c_long, 9223372036854775807, .decimal);
+pub const __PTRDIFF_WIDTH__ = @as(c_int, 64);
+pub const __INTPTR_MAX__ = __helpers.promoteIntLiteral(c_long, 9223372036854775807, .decimal);
+pub const __INTPTR_WIDTH__ = @as(c_int, 64);
+pub const __UINTPTR_MAX__ = __helpers.promoteIntLiteral(c_ulong, 18446744073709551615, .decimal);
+pub const __UINTPTR_WIDTH__ = @as(c_int, 64);
+pub const __SIG_ATOMIC_MAX__ = __helpers.promoteIntLiteral(c_int, 2147483647, .decimal);
+pub const __SIG_ATOMIC_WIDTH__ = @as(c_int, 32);
+pub const __BITINT_MAXWIDTH__ = __helpers.promoteIntLiteral(c_int, 65535, .decimal);
+pub const __SIZEOF_FLOAT__ = @as(c_int, 4);
+pub const __SIZEOF_DOUBLE__ = @as(c_int, 8);
+pub const __SIZEOF_LONG_DOUBLE__ = @as(c_int, 10);
+pub const __SIZEOF_SHORT__ = @as(c_int, 2);
+pub const __SIZEOF_INT__ = @as(c_int, 4);
+pub const __SIZEOF_LONG__ = @as(c_int, 8);
+pub const __SIZEOF_LONG_LONG__ = @as(c_int, 8);
+pub const __SIZEOF_POINTER__ = @as(c_int, 8);
+pub const __SIZEOF_PTRDIFF_T__ = @as(c_int, 8);
+pub const __SIZEOF_SIZE_T__ = @as(c_int, 8);
+pub const __SIZEOF_WCHAR_T__ = @as(c_int, 4);
+pub const __SIZEOF_WINT_T__ = @as(c_int, 4);
+pub const __SIZEOF_INT128__ = @as(c_int, 16);
+pub const __INTPTR_TYPE__ = c_long;
+pub const __UINTPTR_TYPE__ = c_ulong;
+pub const __INTMAX_TYPE__ = c_long;
+pub const __INTMAX_C_SUFFIX__ = @compileError("unable to translate macro: undefined identifier `L`"); // <builtin>:147:9
+pub const __INTMAX_C = __helpers.L_SUFFIX;
+pub const __UINTMAX_TYPE__ = c_ulong;
+pub const __UINTMAX_C_SUFFIX__ = @compileError("unable to translate macro: undefined identifier `UL`"); // <builtin>:150:9
+pub const __UINTMAX_C = __helpers.UL_SUFFIX;
+pub const __PTRDIFF_TYPE__ = c_long;
+pub const __SIZE_TYPE__ = c_ulong;
+pub const __WCHAR_TYPE__ = c_int;
+pub const __WINT_TYPE__ = c_uint;
+pub const __CHAR16_TYPE__ = c_ushort;
+pub const __CHAR32_TYPE__ = c_uint;
+pub const __INT8_TYPE__ = i8;
+pub const __INT8_FMTd__ = "hhd";
+pub const __INT8_FMTi__ = "hhi";
+pub const __INT8_C_SUFFIX__ = "";
+pub inline fn __INT8_C(c: anytype) @TypeOf(c) {
+    _ = &c;
+    return c;
+}
+pub const __INT16_TYPE__ = c_short;
+pub const __INT16_FMTd__ = "hd";
+pub const __INT16_FMTi__ = "hi";
+pub const __INT16_C_SUFFIX__ = "";
+pub inline fn __INT16_C(c: anytype) @TypeOf(c) {
+    _ = &c;
+    return c;
+}
+pub const __INT32_TYPE__ = c_int;
+pub const __INT32_FMTd__ = "d";
+pub const __INT32_FMTi__ = "i";
+pub const __INT32_C_SUFFIX__ = "";
+pub inline fn __INT32_C(c: anytype) @TypeOf(c) {
+    _ = &c;
+    return c;
+}
+pub const __INT64_TYPE__ = c_long;
+pub const __INT64_FMTd__ = "ld";
+pub const __INT64_FMTi__ = "li";
+pub const __INT64_C_SUFFIX__ = @compileError("unable to translate macro: undefined identifier `L`"); // <builtin>:176:9
+pub const __INT64_C = __helpers.L_SUFFIX;
+pub const __UINT8_TYPE__ = u8;
+pub const __UINT8_FMTo__ = "hho";
+pub const __UINT8_FMTu__ = "hhu";
+pub const __UINT8_FMTx__ = "hhx";
+pub const __UINT8_FMTX__ = "hhX";
+pub const __UINT8_C_SUFFIX__ = "";
+pub inline fn __UINT8_C(c: anytype) @TypeOf(c) {
+    _ = &c;
+    return c;
+}
+pub const __UINT8_MAX__ = @as(c_int, 255);
+pub const __INT8_MAX__ = @as(c_int, 127);
+pub const __UINT16_TYPE__ = c_ushort;
+pub const __UINT16_FMTo__ = "ho";
+pub const __UINT16_FMTu__ = "hu";
+pub const __UINT16_FMTx__ = "hx";
+pub const __UINT16_FMTX__ = "hX";
+pub const __UINT16_C_SUFFIX__ = "";
+pub inline fn __UINT16_C(c: anytype) @TypeOf(c) {
+    _ = &c;
+    return c;
+}
+pub const __UINT16_MAX__ = __helpers.promoteIntLiteral(c_int, 65535, .decimal);
+pub const __INT16_MAX__ = @as(c_int, 32767);
+pub const __UINT32_TYPE__ = c_uint;
+pub const __UINT32_FMTo__ = "o";
+pub const __UINT32_FMTu__ = "u";
+pub const __UINT32_FMTx__ = "x";
+pub const __UINT32_FMTX__ = "X";
+pub const __UINT32_C_SUFFIX__ = @compileError("unable to translate macro: undefined identifier `U`"); // <builtin>:201:9
+pub const __UINT32_C = __helpers.U_SUFFIX;
+pub const __UINT32_MAX__ = __helpers.promoteIntLiteral(c_uint, 4294967295, .decimal);
+pub const __INT32_MAX__ = __helpers.promoteIntLiteral(c_int, 2147483647, .decimal);
+pub const __UINT64_TYPE__ = c_ulong;
+pub const __UINT64_FMTo__ = "lo";
+pub const __UINT64_FMTu__ = "lu";
+pub const __UINT64_FMTx__ = "lx";
+pub const __UINT64_FMTX__ = "lX";
+pub const __UINT64_C_SUFFIX__ = @compileError("unable to translate macro: undefined identifier `UL`"); // <builtin>:210:9
+pub const __UINT64_C = __helpers.UL_SUFFIX;
+pub const __UINT64_MAX__ = __helpers.promoteIntLiteral(c_ulong, 18446744073709551615, .decimal);
+pub const __INT64_MAX__ = __helpers.promoteIntLiteral(c_long, 9223372036854775807, .decimal);
+pub const __INT_LEAST8_TYPE__ = i8;
+pub const __INT_LEAST8_MAX__ = @as(c_int, 127);
+pub const __INT_LEAST8_WIDTH__ = @as(c_int, 8);
+pub const INT_LEAST8_FMTd__ = "hhd";
+pub const INT_LEAST8_FMTi__ = "hhi";
+pub const __UINT_LEAST8_TYPE__ = u8;
+pub const __UINT_LEAST8_MAX__ = @as(c_int, 255);
+pub const UINT_LEAST8_FMTo__ = "hho";
+pub const UINT_LEAST8_FMTu__ = "hhu";
+pub const UINT_LEAST8_FMTx__ = "hhx";
+pub const UINT_LEAST8_FMTX__ = "hhX";
+pub const __INT_FAST8_TYPE__ = i8;
+pub const __INT_FAST8_MAX__ = @as(c_int, 127);
+pub const __INT_FAST8_WIDTH__ = @as(c_int, 8);
+pub const INT_FAST8_FMTd__ = "hhd";
+pub const INT_FAST8_FMTi__ = "hhi";
+pub const __UINT_FAST8_TYPE__ = u8;
+pub const __UINT_FAST8_MAX__ = @as(c_int, 255);
+pub const UINT_FAST8_FMTo__ = "hho";
+pub const UINT_FAST8_FMTu__ = "hhu";
+pub const UINT_FAST8_FMTx__ = "hhx";
+pub const UINT_FAST8_FMTX__ = "hhX";
+pub const __INT_LEAST16_TYPE__ = c_short;
+pub const __INT_LEAST16_MAX__ = @as(c_int, 32767);
+pub const __INT_LEAST16_WIDTH__ = @as(c_int, 16);
+pub const INT_LEAST16_FMTd__ = "hd";
+pub const INT_LEAST16_FMTi__ = "hi";
+pub const __UINT_LEAST16_TYPE__ = c_ushort;
+pub const __UINT_LEAST16_MAX__ = __helpers.promoteIntLiteral(c_int, 65535, .decimal);
+pub const UINT_LEAST16_FMTo__ = "ho";
+pub const UINT_LEAST16_FMTu__ = "hu";
+pub const UINT_LEAST16_FMTx__ = "hx";
+pub const UINT_LEAST16_FMTX__ = "hX";
+pub const __INT_FAST16_TYPE__ = c_short;
+pub const __INT_FAST16_MAX__ = @as(c_int, 32767);
+pub const __INT_FAST16_WIDTH__ = @as(c_int, 16);
+pub const INT_FAST16_FMTd__ = "hd";
+pub const INT_FAST16_FMTi__ = "hi";
+pub const __UINT_FAST16_TYPE__ = c_ushort;
+pub const __UINT_FAST16_MAX__ = __helpers.promoteIntLiteral(c_int, 65535, .decimal);
+pub const UINT_FAST16_FMTo__ = "ho";
+pub const UINT_FAST16_FMTu__ = "hu";
+pub const UINT_FAST16_FMTx__ = "hx";
+pub const UINT_FAST16_FMTX__ = "hX";
+pub const __INT_LEAST32_TYPE__ = c_int;
+pub const __INT_LEAST32_MAX__ = __helpers.promoteIntLiteral(c_int, 2147483647, .decimal);
+pub const __INT_LEAST32_WIDTH__ = @as(c_int, 32);
+pub const INT_LEAST32_FMTd__ = "d";
+pub const INT_LEAST32_FMTi__ = "i";
+pub const __UINT_LEAST32_TYPE__ = c_uint;
+pub const __UINT_LEAST32_MAX__ = __helpers.promoteIntLiteral(c_uint, 4294967295, .decimal);
+pub const UINT_LEAST32_FMTo__ = "o";
+pub const UINT_LEAST32_FMTu__ = "u";
+pub const UINT_LEAST32_FMTx__ = "x";
+pub const UINT_LEAST32_FMTX__ = "X";
+pub const __INT_FAST32_TYPE__ = c_int;
+pub const __INT_FAST32_MAX__ = __helpers.promoteIntLiteral(c_int, 2147483647, .decimal);
+pub const __INT_FAST32_WIDTH__ = @as(c_int, 32);
+pub const INT_FAST32_FMTd__ = "d";
+pub const INT_FAST32_FMTi__ = "i";
+pub const __UINT_FAST32_TYPE__ = c_uint;
+pub const __UINT_FAST32_MAX__ = __helpers.promoteIntLiteral(c_uint, 4294967295, .decimal);
+pub const UINT_FAST32_FMTo__ = "o";
+pub const UINT_FAST32_FMTu__ = "u";
+pub const UINT_FAST32_FMTx__ = "x";
+pub const UINT_FAST32_FMTX__ = "X";
+pub const __INT_LEAST64_TYPE__ = c_long;
+pub const __INT_LEAST64_MAX__ = __helpers.promoteIntLiteral(c_long, 9223372036854775807, .decimal);
+pub const __INT_LEAST64_WIDTH__ = @as(c_int, 64);
+pub const INT_LEAST64_FMTd__ = "ld";
+pub const INT_LEAST64_FMTi__ = "li";
+pub const __UINT_LEAST64_TYPE__ = c_ulong;
+pub const __UINT_LEAST64_MAX__ = __helpers.promoteIntLiteral(c_ulong, 18446744073709551615, .decimal);
+pub const UINT_LEAST64_FMTo__ = "lo";
+pub const UINT_LEAST64_FMTu__ = "lu";
+pub const UINT_LEAST64_FMTx__ = "lx";
+pub const UINT_LEAST64_FMTX__ = "lX";
+pub const __INT_FAST64_TYPE__ = c_long;
+pub const __INT_FAST64_MAX__ = __helpers.promoteIntLiteral(c_long, 9223372036854775807, .decimal);
+pub const __INT_FAST64_WIDTH__ = @as(c_int, 64);
+pub const INT_FAST64_FMTd__ = "ld";
+pub const INT_FAST64_FMTi__ = "li";
+pub const __UINT_FAST64_TYPE__ = c_ulong;
+pub const __UINT_FAST64_MAX__ = __helpers.promoteIntLiteral(c_ulong, 18446744073709551615, .decimal);
+pub const UINT_FAST64_FMTo__ = "lo";
+pub const UINT_FAST64_FMTu__ = "lu";
+pub const UINT_FAST64_FMTx__ = "lx";
+pub const UINT_FAST64_FMTX__ = "lX";
+pub const __FLT16_DENORM_MIN__ = @as(f16, 5.9604644775390625e-8);
+pub const __FLT16_HAS_DENORM__ = "";
+pub const __FLT16_DIG__ = @as(c_int, 3);
+pub const __FLT16_DECIMAL_DIG__ = @as(c_int, 5);
+pub const __FLT16_EPSILON__ = @as(f16, 9.765625e-4);
+pub const __FLT16_HAS_INFINITY__ = "";
+pub const __FLT16_HAS_QUIET_NAN__ = "";
+pub const __FLT16_MANT_DIG__ = @as(c_int, 11);
+pub const __FLT16_MAX_10_EXP__ = @as(c_int, 4);
+pub const __FLT16_MAX_EXP__ = @as(c_int, 16);
+pub const __FLT16_MAX__ = @as(f16, 6.5504e+4);
+pub const __FLT16_MIN_10_EXP__ = -@as(c_int, 4);
+pub const __FLT16_MIN_EXP__ = -@as(c_int, 13);
+pub const __FLT16_MIN__ = @as(f16, 6.103515625e-5);
+pub const __FLT_DENORM_MIN__ = @as(f32, 1.40129846e-45);
+pub const __FLT_HAS_DENORM__ = "";
+pub const __FLT_DIG__ = @as(c_int, 6);
+pub const __FLT_DECIMAL_DIG__ = @as(c_int, 9);
+pub const __FLT_EPSILON__ = @as(f32, 1.19209290e-7);
+pub const __FLT_HAS_INFINITY__ = "";
+pub const __FLT_HAS_QUIET_NAN__ = "";
+pub const __FLT_MANT_DIG__ = @as(c_int, 24);
+pub const __FLT_MAX_10_EXP__ = @as(c_int, 38);
+pub const __FLT_MAX_EXP__ = @as(c_int, 128);
+pub const __FLT_MAX__ = @as(f32, 3.40282347e+38);
+pub const __FLT_MIN_10_EXP__ = -@as(c_int, 37);
+pub const __FLT_MIN_EXP__ = -@as(c_int, 125);
+pub const __FLT_MIN__ = @as(f32, 1.17549435e-38);
+pub const __DBL_DENORM_MIN__ = @as(f64, 4.9406564584124654e-324);
+pub const __DBL_HAS_DENORM__ = "";
+pub const __DBL_DIG__ = @as(c_int, 15);
+pub const __DBL_DECIMAL_DIG__ = @as(c_int, 17);
+pub const __DBL_EPSILON__ = @as(f64, 2.2204460492503131e-16);
+pub const __DBL_HAS_INFINITY__ = "";
+pub const __DBL_HAS_QUIET_NAN__ = "";
+pub const __DBL_MANT_DIG__ = @as(c_int, 53);
+pub const __DBL_MAX_10_EXP__ = @as(c_int, 308);
+pub const __DBL_MAX_EXP__ = @as(c_int, 1024);
+pub const __DBL_MAX__ = @as(f64, 1.7976931348623157e+308);
+pub const __DBL_MIN_10_EXP__ = -@as(c_int, 307);
+pub const __DBL_MIN_EXP__ = -@as(c_int, 1021);
+pub const __DBL_MIN__ = @as(f64, 2.2250738585072014e-308);
+pub const __LDBL_DENORM_MIN__ = @as(c_longdouble, 3.64519953188247460253e-4951);
+pub const __LDBL_HAS_DENORM__ = "";
+pub const __LDBL_DIG__ = @as(c_int, 18);
+pub const __LDBL_DECIMAL_DIG__ = @as(c_int, 21);
+pub const __LDBL_EPSILON__ = @as(c_longdouble, 1.08420217248550443401e-19);
+pub const __LDBL_HAS_INFINITY__ = "";
+pub const __LDBL_HAS_QUIET_NAN__ = "";
+pub const __LDBL_MANT_DIG__ = @as(c_int, 64);
+pub const __LDBL_MAX_10_EXP__ = @as(c_int, 4932);
+pub const __LDBL_MAX_EXP__ = @as(c_int, 16384);
+pub const __LDBL_MAX__ = @as(c_longdouble, 1.18973149535723176502e+4932);
+pub const __LDBL_MIN_10_EXP__ = -@as(c_int, 4931);
+pub const __LDBL_MIN_EXP__ = -@as(c_int, 16381);
+pub const __LDBL_MIN__ = @as(c_longdouble, 3.36210314311209350626e-4932);
+pub const __FLT_EVAL_METHOD__ = @as(c_int, 0);
+pub const __FLT_RADIX__ = @as(c_int, 2);
+pub const __DECIMAL_DIG__ = __LDBL_DECIMAL_DIG__;
+pub const __pic__ = @as(c_int, 2);
+pub const __PIC__ = @as(c_int, 2);
+pub const __GLIBC_MINOR__ = @as(c_int, 42);
+pub const _STDIO_H = @as(c_int, 1);
+pub const _FEATURES_H = @as(c_int, 1);
+pub const __KERNEL_STRICT_NAMES = "";
+pub inline fn __GNUC_PREREQ(maj: anytype, min_1: anytype) @TypeOf(((__GNUC__ << @as(c_int, 16)) + __GNUC_MINOR__) >= ((maj << @as(c_int, 16)) + min_1)) {
+    _ = &maj;
+    _ = &min_1;
+    return ((__GNUC__ << @as(c_int, 16)) + __GNUC_MINOR__) >= ((maj << @as(c_int, 16)) + min_1);
+}
+pub inline fn __glibc_clang_prereq(maj: anytype, min_1: anytype) @TypeOf(@as(c_int, 0)) {
+    _ = &maj;
+    _ = &min_1;
+    return @as(c_int, 0);
+}
+pub const __GLIBC_USE = @compileError("unable to translate macro: undefined identifier `__GLIBC_USE_`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/features.h:191:9
+pub const _DEFAULT_SOURCE = @as(c_int, 1);
+pub const __GLIBC_USE_ISOC2Y = @as(c_int, 0);
+pub const __GLIBC_USE_ISOC23 = @as(c_int, 0);
+pub const __USE_ISOC11 = @as(c_int, 1);
+pub const __USE_POSIX_IMPLICITLY = @as(c_int, 1);
+pub const _POSIX_SOURCE = @as(c_int, 1);
+pub const _POSIX_C_SOURCE = @as(c_long, 200809);
+pub const __USE_POSIX = @as(c_int, 1);
+pub const __USE_POSIX2 = @as(c_int, 1);
+pub const __USE_POSIX199309 = @as(c_int, 1);
+pub const __USE_POSIX199506 = @as(c_int, 1);
+pub const __USE_XOPEN2K = @as(c_int, 1);
+pub const __USE_ISOC95 = @as(c_int, 1);
+pub const __USE_ISOC99 = @as(c_int, 1);
+pub const __USE_XOPEN2K8 = @as(c_int, 1);
+pub const _ATFILE_SOURCE = @as(c_int, 1);
+pub const __WORDSIZE = @as(c_int, 64);
+pub const __WORDSIZE_TIME64_COMPAT32 = @as(c_int, 1);
+pub const __SYSCALL_WORDSIZE = @as(c_int, 64);
+pub const __TIMESIZE = __WORDSIZE;
+pub const __USE_TIME_BITS64 = @as(c_int, 1);
+pub const __USE_MISC = @as(c_int, 1);
+pub const __USE_ATFILE = @as(c_int, 1);
+pub const __USE_FORTIFY_LEVEL = @as(c_int, 0);
+pub const __GLIBC_USE_DEPRECATED_GETS = @as(c_int, 0);
+pub const __GLIBC_USE_DEPRECATED_SCANF = @as(c_int, 0);
+pub const __GLIBC_USE_C23_STRTOL = @as(c_int, 0);
+pub const _STDC_PREDEF_H = @as(c_int, 1);
+pub const __STDC_IEC_559__ = @as(c_int, 1);
+pub const __STDC_IEC_60559_BFP__ = @as(c_long, 201404);
+pub const __STDC_IEC_559_COMPLEX__ = @as(c_int, 1);
+pub const __STDC_IEC_60559_COMPLEX__ = @as(c_long, 201404);
+pub const __STDC_ISO_10646__ = @as(c_long, 201706);
+pub const __GNU_LIBRARY__ = @as(c_int, 6);
+pub const __GLIBC__ = @as(c_int, 2);
+pub inline fn __GLIBC_PREREQ(maj: anytype, min_1: anytype) @TypeOf(((__GLIBC__ << @as(c_int, 16)) + __GLIBC_MINOR__) >= ((maj << @as(c_int, 16)) + min_1)) {
+    _ = &maj;
+    _ = &min_1;
+    return ((__GLIBC__ << @as(c_int, 16)) + __GLIBC_MINOR__) >= ((maj << @as(c_int, 16)) + min_1);
+}
+pub const _SYS_CDEFS_H = @as(c_int, 1);
+pub const __glibc_has_attribute = @compileError("unable to translate macro: undefined identifier `__has_attribute`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:45:10
+pub inline fn __glibc_has_builtin(name: anytype) @TypeOf(__builtin.has_builtin(name)) {
+    _ = &name;
+    return __builtin.has_builtin(name);
+}
+pub const __glibc_has_extension = @compileError("unable to translate macro: undefined identifier `__has_extension`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:55:10
+pub const __LEAF = @compileError("unable to translate macro: undefined identifier `__leaf__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:65:11
+pub const __LEAF_ATTR = @compileError("unable to translate macro: undefined identifier `__leaf__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:66:11
+pub const __THROW = @compileError("unable to translate macro: undefined identifier `__nothrow__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:79:11
+pub const __THROWNL = @compileError("unable to translate macro: undefined identifier `__nothrow__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:80:11
+pub const __NTH = @compileError("unable to translate macro: undefined identifier `__nothrow__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:81:11
+pub const __NTHNL = @compileError("unable to translate macro: undefined identifier `__nothrow__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:82:11
+pub const __COLD = @compileError("unable to translate macro: undefined identifier `__cold__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:102:11
+pub inline fn __P(args: anytype) @TypeOf(args) {
+    _ = &args;
+    return args;
+}
+pub inline fn __PMT(args: anytype) @TypeOf(args) {
+    _ = &args;
+    return args;
+}
+pub const __CONCAT = @compileError("unable to translate C expr: unexpected token '##'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:131:9
+pub const __STRING = @compileError("unable to translate C expr: unexpected token ''"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:132:9
+pub const __ptr_t = ?*anyopaque;
+pub const __BEGIN_DECLS = "";
+pub const __END_DECLS = "";
+pub const __attribute_overloadable__ = "";
+pub inline fn __bos(ptr: anytype) @TypeOf(__builtin.object_size(ptr, __USE_FORTIFY_LEVEL > @as(c_int, 1))) {
+    _ = &ptr;
+    return __builtin.object_size(ptr, __USE_FORTIFY_LEVEL > @as(c_int, 1));
+}
+pub inline fn __bos0(ptr: anytype) @TypeOf(__builtin.object_size(ptr, @as(c_int, 0))) {
+    _ = &ptr;
+    return __builtin.object_size(ptr, @as(c_int, 0));
+}
+pub inline fn __glibc_objsize0(__o: anytype) @TypeOf(__bos0(__o)) {
+    _ = &__o;
+    return __bos0(__o);
+}
+pub inline fn __glibc_objsize(__o: anytype) @TypeOf(__bos(__o)) {
+    _ = &__o;
+    return __bos(__o);
+}
+pub const __warnattr = @compileError("unable to translate macro: undefined identifier `__warning__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:366:10
+pub const __errordecl = @compileError("unable to translate macro: undefined identifier `__error__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:367:10
+pub const __flexarr = @compileError("unable to translate C expr: unexpected token '['"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:379:10
+pub const __glibc_c99_flexarr_available = @as(c_int, 1);
+pub const __REDIRECT = @compileError("unable to translate C expr: unexpected token '__asm__'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:410:10
+pub const __REDIRECT_NTH = @compileError("unable to translate C expr: unexpected token '__asm__'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:417:11
+pub const __REDIRECT_NTHNL = @compileError("unable to translate C expr: unexpected token '__asm__'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:419:11
+pub const __ASMNAME = @compileError("unable to translate macro: undefined identifier `__USER_LABEL_PREFIX__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:422:10
+pub inline fn __ASMNAME2(prefix: anytype, cname: anytype) @TypeOf(__STRING(prefix) ++ cname) {
+    _ = &prefix;
+    _ = &cname;
+    return __STRING(prefix) ++ cname;
+}
+pub const __REDIRECT_FORTIFY = __REDIRECT;
+pub const __REDIRECT_FORTIFY_NTH = __REDIRECT_NTH;
+pub const __attribute_malloc__ = @compileError("unable to translate macro: undefined identifier `__malloc__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:452:10
+pub const __attribute_alloc_size__ = @compileError("unable to translate macro: undefined identifier `__alloc_size__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:460:10
+pub const __attribute_alloc_align__ = @compileError("unable to translate macro: undefined identifier `__alloc_align__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:469:10
+pub const __attribute_pure__ = @compileError("unable to translate macro: undefined identifier `__pure__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:479:10
+pub const __attribute_const__ = @compileError("unable to translate C expr: unexpected token '__attribute__'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:486:10
+pub const __attribute_maybe_unused__ = @compileError("unable to translate macro: undefined identifier `__unused__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:492:10
+pub const __attribute_used__ = @compileError("unable to translate macro: undefined identifier `__used__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:501:10
+pub const __attribute_noinline__ = @compileError("unable to translate macro: undefined identifier `__noinline__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:502:10
+pub const __attribute_deprecated__ = @compileError("unable to translate macro: undefined identifier `__deprecated__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:510:10
+pub const __attribute_deprecated_msg__ = @compileError("unable to translate macro: undefined identifier `__deprecated__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:520:10
+pub const __attribute_format_arg__ = @compileError("unable to translate macro: undefined identifier `__format_arg__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:533:10
+pub const __attribute_format_strfmon__ = @compileError("unable to translate macro: undefined identifier `__format__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:543:10
+pub const __attribute_nonnull__ = @compileError("unable to translate macro: undefined identifier `__nonnull__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:555:11
+pub inline fn __nonnull(params: anytype) @TypeOf(__attribute_nonnull__(params)) {
+    _ = &params;
+    return __attribute_nonnull__(params);
+}
+pub const __returns_nonnull = @compileError("unable to translate macro: undefined identifier `__returns_nonnull__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:568:10
+pub const __attribute_warn_unused_result__ = @compileError("unable to translate macro: undefined identifier `__warn_unused_result__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:577:10
+pub const __wur = "";
+pub const __always_inline = @compileError("unable to translate macro: undefined identifier `__always_inline__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:595:10
+pub const __attribute_artificial__ = @compileError("unable to translate macro: undefined identifier `__artificial__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:604:10
+pub const __extern_inline = @compileError("unable to translate C expr: unexpected token 'extern'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:626:11
+pub const __extern_always_inline = @compileError("unable to translate C expr: unexpected token 'extern'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:627:11
+pub const __fortify_function = __extern_always_inline ++ __attribute_artificial__;
+pub const __va_arg_pack = @compileError("unable to translate macro: undefined identifier `__builtin_va_arg_pack`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:638:10
+pub const __va_arg_pack_len = @compileError("unable to translate macro: undefined identifier `__builtin_va_arg_pack_len`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:639:10
+pub const __restrict_arr = @compileError("unable to translate C expr: unexpected token '__restrict'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:666:10
+pub inline fn __glibc_unlikely(cond: anytype) @TypeOf(__builtin.expect(cond, @as(c_int, 0))) {
+    _ = &cond;
+    return __builtin.expect(cond, @as(c_int, 0));
+}
+pub inline fn __glibc_likely(cond: anytype) @TypeOf(__builtin.expect(cond, @as(c_int, 1))) {
+    _ = &cond;
+    return __builtin.expect(cond, @as(c_int, 1));
+}
+pub const __attribute_nonstring__ = "";
+pub inline fn __attribute_copy__(arg: anytype) void {
+    _ = &arg;
+    return;
+}
+pub const __LDOUBLE_REDIRECTS_TO_FLOAT128_ABI = @as(c_int, 0);
+pub inline fn __LDBL_REDIR1(name: anytype, proto: anytype, alias: anytype) @TypeOf(name ++ proto) {
+    _ = &name;
+    _ = &proto;
+    _ = &alias;
+    return name ++ proto;
+}
+pub inline fn __LDBL_REDIR(name: anytype, proto: anytype) @TypeOf(name ++ proto) {
+    _ = &name;
+    _ = &proto;
+    return name ++ proto;
+}
+pub inline fn __LDBL_REDIR1_NTH(name: anytype, proto: anytype, alias: anytype) @TypeOf(name ++ proto ++ __THROW) {
+    _ = &name;
+    _ = &proto;
+    _ = &alias;
+    return name ++ proto ++ __THROW;
+}
+pub inline fn __LDBL_REDIR_NTH(name: anytype, proto: anytype) @TypeOf(name ++ proto ++ __THROW) {
+    _ = &name;
+    _ = &proto;
+    return name ++ proto ++ __THROW;
+}
+pub inline fn __LDBL_REDIR2_DECL(name: anytype) void {
+    _ = &name;
+    return;
+}
+pub inline fn __LDBL_REDIR_DECL(name: anytype) void {
+    _ = &name;
+    return;
+}
+pub inline fn __REDIRECT_LDBL(name: anytype, proto: anytype, alias: anytype) @TypeOf(__REDIRECT(name, proto, alias)) {
+    _ = &name;
+    _ = &proto;
+    _ = &alias;
+    return __REDIRECT(name, proto, alias);
+}
+pub inline fn __REDIRECT_NTH_LDBL(name: anytype, proto: anytype, alias: anytype) @TypeOf(__REDIRECT_NTH(name, proto, alias)) {
+    _ = &name;
+    _ = &proto;
+    _ = &alias;
+    return __REDIRECT_NTH(name, proto, alias);
+}
+pub const __glibc_macro_warning1 = @compileError("unable to translate macro: undefined identifier `_Pragma`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:807:10
+pub const __glibc_macro_warning = @compileError("unable to translate macro: undefined identifier `GCC`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:808:10
+pub const __HAVE_GENERIC_SELECTION = @as(c_int, 1);
+pub inline fn __fortified_attr_access(a: anytype, o: anytype, s: anytype) void {
+    _ = &a;
+    _ = &o;
+    _ = &s;
+    return;
+}
+pub inline fn __attr_access(x: anytype) void {
+    _ = &x;
+    return;
+}
+pub inline fn __attr_access_none(argno: anytype) void {
+    _ = &argno;
+    return;
+}
+pub inline fn __attr_dealloc(dealloc: anytype, argno: anytype) void {
+    _ = &dealloc;
+    _ = &argno;
+    return;
+}
+pub const __attr_dealloc_free = "";
+pub const __attribute_returns_twice__ = @compileError("unable to translate macro: undefined identifier `__returns_twice__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:872:10
+pub const __attribute_struct_may_alias__ = @compileError("unable to translate macro: undefined identifier `__may_alias__`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/cdefs.h:881:10
+pub const __stub___compat_bdflush = "";
+pub const __stub_chflags = "";
+pub const __stub_fchflags = "";
+pub const __stub_gtty = "";
+pub const __stub_revoke = "";
+pub const __stub_setlogin = "";
+pub const __stub_sigreturn = "";
+pub const __stub_stty = "";
+pub const __need_size_t = "";
+pub const __need_NULL = "";
+pub const __STDC_VERSION_STDDEF_H__ = @as(c_long, 202311);
+pub const NULL = __helpers.cast(?*anyopaque, @as(c_int, 0));
+pub const offsetof = @compileError("unable to translate macro: undefined identifier `__builtin_offsetof`"); // /nix/store/9zyky24fffkbhnkmjcnrjcl3dmvx6w9x-zig-0.16.0/lib/compiler/aro/include/stddef.h:18:9
+pub const __need___va_list = "";
+pub const __STDC_VERSION_STDARG_H__ = @as(c_int, 0);
+pub const va_start = @compileError("unable to translate macro: undefined identifier `__builtin_va_start`"); // /nix/store/9zyky24fffkbhnkmjcnrjcl3dmvx6w9x-zig-0.16.0/lib/compiler/aro/include/stdarg.h:12:9
+pub const va_end = @compileError("unable to translate macro: undefined identifier `__builtin_va_end`"); // /nix/store/9zyky24fffkbhnkmjcnrjcl3dmvx6w9x-zig-0.16.0/lib/compiler/aro/include/stdarg.h:14:9
+pub const va_arg = @compileError("unable to translate macro: undefined identifier `__builtin_va_arg`"); // /nix/store/9zyky24fffkbhnkmjcnrjcl3dmvx6w9x-zig-0.16.0/lib/compiler/aro/include/stdarg.h:15:9
+pub const __va_copy = @compileError("unable to translate macro: undefined identifier `__builtin_va_copy`"); // /nix/store/9zyky24fffkbhnkmjcnrjcl3dmvx6w9x-zig-0.16.0/lib/compiler/aro/include/stdarg.h:18:9
+pub const va_copy = @compileError("unable to translate macro: undefined identifier `__builtin_va_copy`"); // /nix/store/9zyky24fffkbhnkmjcnrjcl3dmvx6w9x-zig-0.16.0/lib/compiler/aro/include/stdarg.h:22:9
+pub const __GNUC_VA_LIST = @as(c_int, 1);
+pub const _BITS_TYPES_H = @as(c_int, 1);
+pub const __S16_TYPE = c_short;
+pub const __U16_TYPE = c_ushort;
+pub const __S32_TYPE = c_int;
+pub const __U32_TYPE = c_uint;
+pub const __SLONGWORD_TYPE = c_long;
+pub const __ULONGWORD_TYPE = c_ulong;
+pub const __SQUAD_TYPE = c_long;
+pub const __UQUAD_TYPE = c_ulong;
+pub const __SWORD_TYPE = c_long;
+pub const __UWORD_TYPE = c_ulong;
+pub const __SLONG32_TYPE = c_int;
+pub const __ULONG32_TYPE = c_uint;
+pub const __S64_TYPE = c_long;
+pub const __U64_TYPE = c_ulong;
+pub const _BITS_TYPESIZES_H = @as(c_int, 1);
+pub const __SYSCALL_SLONG_TYPE = __SLONGWORD_TYPE;
+pub const __SYSCALL_ULONG_TYPE = __ULONGWORD_TYPE;
+pub const __DEV_T_TYPE = __UQUAD_TYPE;
+pub const __UID_T_TYPE = __U32_TYPE;
+pub const __GID_T_TYPE = __U32_TYPE;
+pub const __INO_T_TYPE = __SYSCALL_ULONG_TYPE;
+pub const __INO64_T_TYPE = __UQUAD_TYPE;
+pub const __MODE_T_TYPE = __U32_TYPE;
+pub const __NLINK_T_TYPE = __SYSCALL_ULONG_TYPE;
+pub const __FSWORD_T_TYPE = __SYSCALL_SLONG_TYPE;
+pub const __OFF_T_TYPE = __SYSCALL_SLONG_TYPE;
+pub const __OFF64_T_TYPE = __SQUAD_TYPE;
+pub const __PID_T_TYPE = __S32_TYPE;
+pub const __RLIM_T_TYPE = __SYSCALL_ULONG_TYPE;
+pub const __RLIM64_T_TYPE = __UQUAD_TYPE;
+pub const __BLKCNT_T_TYPE = __SYSCALL_SLONG_TYPE;
+pub const __BLKCNT64_T_TYPE = __SQUAD_TYPE;
+pub const __FSBLKCNT_T_TYPE = __SYSCALL_ULONG_TYPE;
+pub const __FSBLKCNT64_T_TYPE = __UQUAD_TYPE;
+pub const __FSFILCNT_T_TYPE = __SYSCALL_ULONG_TYPE;
+pub const __FSFILCNT64_T_TYPE = __UQUAD_TYPE;
+pub const __ID_T_TYPE = __U32_TYPE;
+pub const __CLOCK_T_TYPE = __SYSCALL_SLONG_TYPE;
+pub const __TIME_T_TYPE = __SYSCALL_SLONG_TYPE;
+pub const __USECONDS_T_TYPE = __U32_TYPE;
+pub const __SUSECONDS_T_TYPE = __SYSCALL_SLONG_TYPE;
+pub const __SUSECONDS64_T_TYPE = __SQUAD_TYPE;
+pub const __DADDR_T_TYPE = __S32_TYPE;
+pub const __KEY_T_TYPE = __S32_TYPE;
+pub const __CLOCKID_T_TYPE = __S32_TYPE;
+pub const __TIMER_T_TYPE = ?*anyopaque;
+pub const __BLKSIZE_T_TYPE = __SYSCALL_SLONG_TYPE;
+pub const __FSID_T_TYPE = @compileError("unable to translate macro: undefined identifier `__val`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/typesizes.h:73:9
+pub const __SSIZE_T_TYPE = __SWORD_TYPE;
+pub const __CPU_MASK_TYPE = __SYSCALL_ULONG_TYPE;
+pub const __OFF_T_MATCHES_OFF64_T = @as(c_int, 1);
+pub const __INO_T_MATCHES_INO64_T = @as(c_int, 1);
+pub const __RLIM_T_MATCHES_RLIM64_T = @as(c_int, 1);
+pub const __STATFS_MATCHES_STATFS64 = @as(c_int, 1);
+pub const __KERNEL_OLD_TIMEVAL_MATCHES_TIMEVAL64 = @as(c_int, 1);
+pub const __FD_SETSIZE = @as(c_int, 1024);
+pub const _BITS_TIME64_H = @as(c_int, 1);
+pub const __TIME64_T_TYPE = __TIME_T_TYPE;
+pub const _____fpos_t_defined = @as(c_int, 1);
+pub const ____mbstate_t_defined = @as(c_int, 1);
+pub const _____fpos64_t_defined = @as(c_int, 1);
+pub const ____FILE_defined = @as(c_int, 1);
+pub const __FILE_defined = @as(c_int, 1);
+pub const __struct_FILE_defined = @as(c_int, 1);
+pub const __getc_unlocked_body = @compileError("TODO postfix inc/dec expr"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/types/struct_FILE.h:113:9
+pub const __putc_unlocked_body = @compileError("TODO postfix inc/dec expr"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/types/struct_FILE.h:117:9
+pub const _IO_EOF_SEEN = @as(c_int, 0x0010);
+pub inline fn __feof_unlocked_body(_fp: anytype) @TypeOf((_fp.*._flags & _IO_EOF_SEEN) != @as(c_int, 0)) {
+    _ = &_fp;
+    return (_fp.*._flags & _IO_EOF_SEEN) != @as(c_int, 0);
+}
+pub const _IO_ERR_SEEN = @as(c_int, 0x0020);
+pub inline fn __ferror_unlocked_body(_fp: anytype) @TypeOf((_fp.*._flags & _IO_ERR_SEEN) != @as(c_int, 0)) {
+    _ = &_fp;
+    return (_fp.*._flags & _IO_ERR_SEEN) != @as(c_int, 0);
+}
+pub const _IO_USER_LOCK = __helpers.promoteIntLiteral(c_int, 0x8000, .hex);
+pub const __cookie_io_functions_t_defined = @as(c_int, 1);
+pub const _VA_LIST_DEFINED = "";
+pub const __off_t_defined = "";
+pub const __ssize_t_defined = "";
+pub const _IOFBF = @as(c_int, 0);
+pub const _IOLBF = @as(c_int, 1);
+pub const _IONBF = @as(c_int, 2);
+pub const BUFSIZ = @as(c_int, 8192);
+pub const EOF = -@as(c_int, 1);
+pub const SEEK_SET = @as(c_int, 0);
+pub const SEEK_CUR = @as(c_int, 1);
+pub const SEEK_END = @as(c_int, 2);
+pub const P_tmpdir = "/tmp";
+pub const L_tmpnam = @as(c_int, 20);
+pub const TMP_MAX = __helpers.promoteIntLiteral(c_int, 238328, .decimal);
+pub const _BITS_STDIO_LIM_H = @as(c_int, 1);
+pub const FILENAME_MAX = @as(c_int, 4096);
+pub const L_ctermid = @as(c_int, 9);
+pub const FOPEN_MAX = @as(c_int, 16);
+pub const __attr_dealloc_fclose = __attr_dealloc(fclose, @as(c_int, 1));
+pub const _BITS_FLOATN_H = "";
+pub const __HAVE_FLOAT128 = @as(c_int, 1);
+pub const __HAVE_DISTINCT_FLOAT128 = @as(c_int, 1);
+pub const __HAVE_FLOAT64X = @as(c_int, 1);
+pub const __HAVE_FLOAT64X_LONG_DOUBLE = @as(c_int, 1);
+pub const __f128 = @compileError("unable to translate macro: undefined identifier `f128`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/floatn.h:72:12
+pub const __CFLOAT128 = @compileError("unable to translate: invalid numeric type"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/floatn.h:86:12
+pub const _BITS_FLOATN_COMMON_H = "";
+pub const __HAVE_FLOAT16 = @as(c_int, 0);
+pub const __HAVE_FLOAT32 = @as(c_int, 1);
+pub const __HAVE_FLOAT64 = @as(c_int, 1);
+pub const __HAVE_FLOAT32X = @as(c_int, 1);
+pub const __HAVE_FLOAT128X = @as(c_int, 0);
+pub const __HAVE_DISTINCT_FLOAT16 = __HAVE_FLOAT16;
+pub const __HAVE_DISTINCT_FLOAT32 = @as(c_int, 0);
+pub const __HAVE_DISTINCT_FLOAT64 = @as(c_int, 0);
+pub const __HAVE_DISTINCT_FLOAT32X = @as(c_int, 0);
+pub const __HAVE_DISTINCT_FLOAT64X = @as(c_int, 0);
+pub const __HAVE_DISTINCT_FLOAT128X = __HAVE_FLOAT128X;
+pub const __HAVE_FLOAT128_UNLIKE_LDBL = (__HAVE_DISTINCT_FLOAT128 != 0) and (__LDBL_MANT_DIG__ != @as(c_int, 113));
+pub const __HAVE_FLOATN_NOT_TYPEDEF = @as(c_int, 1);
+pub const __f32 = @compileError("unable to translate macro: undefined identifier `f32`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/floatn-common.h:93:12
+pub const __f64 = @compileError("unable to translate macro: undefined identifier `f64`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/floatn-common.h:105:12
+pub const __f32x = @compileError("unable to translate macro: undefined identifier `f32x`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/floatn-common.h:113:12
+pub const __f64x = @compileError("unable to translate macro: undefined identifier `f64x`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/floatn-common.h:125:12
+pub const __CFLOAT32 = @compileError("unable to translate: invalid numeric type"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/floatn-common.h:151:12
+pub const __CFLOAT64 = @compileError("unable to translate: invalid numeric type"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/floatn-common.h:163:12
+pub const __CFLOAT32X = @compileError("unable to translate: invalid numeric type"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/floatn-common.h:171:12
+pub const __CFLOAT64X = @compileError("unable to translate: invalid numeric type"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/floatn-common.h:183:12
+pub const __need_wchar_t = "";
+pub const _STDLIB_H = @as(c_int, 1);
+pub const WNOHANG = @as(c_int, 1);
+pub const WUNTRACED = @as(c_int, 2);
+pub const WSTOPPED = @as(c_int, 2);
+pub const WEXITED = @as(c_int, 4);
+pub const WCONTINUED = @as(c_int, 8);
+pub const WNOWAIT = __helpers.promoteIntLiteral(c_int, 0x01000000, .hex);
+pub const __WNOTHREAD = __helpers.promoteIntLiteral(c_int, 0x20000000, .hex);
+pub const __WALL = __helpers.promoteIntLiteral(c_int, 0x40000000, .hex);
+pub const __WCLONE = __helpers.promoteIntLiteral(c_int, 0x80000000, .hex);
+pub inline fn __WEXITSTATUS(status: anytype) @TypeOf((status & __helpers.promoteIntLiteral(c_int, 0xff00, .hex)) >> @as(c_int, 8)) {
+    _ = &status;
+    return (status & __helpers.promoteIntLiteral(c_int, 0xff00, .hex)) >> @as(c_int, 8);
+}
+pub inline fn __WTERMSIG(status: anytype) @TypeOf(status & @as(c_int, 0x7f)) {
+    _ = &status;
+    return status & @as(c_int, 0x7f);
+}
+pub inline fn __WSTOPSIG(status: anytype) @TypeOf(__WEXITSTATUS(status)) {
+    _ = &status;
+    return __WEXITSTATUS(status);
+}
+pub inline fn __WIFEXITED(status: anytype) @TypeOf(__WTERMSIG(status) == @as(c_int, 0)) {
+    _ = &status;
+    return __WTERMSIG(status) == @as(c_int, 0);
+}
+pub inline fn __WIFSIGNALED(status: anytype) @TypeOf((__helpers.cast(i8, (status & @as(c_int, 0x7f)) + @as(c_int, 1)) >> @as(c_int, 1)) > @as(c_int, 0)) {
+    _ = &status;
+    return (__helpers.cast(i8, (status & @as(c_int, 0x7f)) + @as(c_int, 1)) >> @as(c_int, 1)) > @as(c_int, 0);
+}
+pub inline fn __WIFSTOPPED(status: anytype) @TypeOf((status & @as(c_int, 0xff)) == @as(c_int, 0x7f)) {
+    _ = &status;
+    return (status & @as(c_int, 0xff)) == @as(c_int, 0x7f);
+}
+pub inline fn __WIFCONTINUED(status: anytype) @TypeOf(status == __W_CONTINUED) {
+    _ = &status;
+    return status == __W_CONTINUED;
+}
+pub inline fn __WCOREDUMP(status: anytype) @TypeOf(status & __WCOREFLAG) {
+    _ = &status;
+    return status & __WCOREFLAG;
+}
+pub inline fn __W_EXITCODE(ret: anytype, sig: anytype) @TypeOf((ret << @as(c_int, 8)) | sig) {
+    _ = &ret;
+    _ = &sig;
+    return (ret << @as(c_int, 8)) | sig;
+}
+pub inline fn __W_STOPCODE(sig: anytype) @TypeOf((sig << @as(c_int, 8)) | @as(c_int, 0x7f)) {
+    _ = &sig;
+    return (sig << @as(c_int, 8)) | @as(c_int, 0x7f);
+}
+pub const __W_CONTINUED = __helpers.promoteIntLiteral(c_int, 0xffff, .hex);
+pub const __WCOREFLAG = @as(c_int, 0x80);
+pub inline fn WEXITSTATUS(status: anytype) @TypeOf(__WEXITSTATUS(status)) {
+    _ = &status;
+    return __WEXITSTATUS(status);
+}
+pub inline fn WTERMSIG(status: anytype) @TypeOf(__WTERMSIG(status)) {
+    _ = &status;
+    return __WTERMSIG(status);
+}
+pub inline fn WSTOPSIG(status: anytype) @TypeOf(__WSTOPSIG(status)) {
+    _ = &status;
+    return __WSTOPSIG(status);
+}
+pub inline fn WIFEXITED(status: anytype) @TypeOf(__WIFEXITED(status)) {
+    _ = &status;
+    return __WIFEXITED(status);
+}
+pub inline fn WIFSIGNALED(status: anytype) @TypeOf(__WIFSIGNALED(status)) {
+    _ = &status;
+    return __WIFSIGNALED(status);
+}
+pub inline fn WIFSTOPPED(status: anytype) @TypeOf(__WIFSTOPPED(status)) {
+    _ = &status;
+    return __WIFSTOPPED(status);
+}
+pub inline fn WIFCONTINUED(status: anytype) @TypeOf(__WIFCONTINUED(status)) {
+    _ = &status;
+    return __WIFCONTINUED(status);
+}
+pub const __ldiv_t_defined = @as(c_int, 1);
+pub const __lldiv_t_defined = @as(c_int, 1);
+pub const RAND_MAX = __helpers.promoteIntLiteral(c_int, 2147483647, .decimal);
+pub const EXIT_FAILURE = @as(c_int, 1);
+pub const EXIT_SUCCESS = @as(c_int, 0);
+pub const MB_CUR_MAX = __ctype_get_mb_cur_max();
+pub const _SYS_TYPES_H = @as(c_int, 1);
+pub const __u_char_defined = "";
+pub const __ino_t_defined = "";
+pub const __dev_t_defined = "";
+pub const __gid_t_defined = "";
+pub const __mode_t_defined = "";
+pub const __nlink_t_defined = "";
+pub const __uid_t_defined = "";
+pub const __pid_t_defined = "";
+pub const __id_t_defined = "";
+pub const __daddr_t_defined = "";
+pub const __key_t_defined = "";
+pub const __clock_t_defined = @as(c_int, 1);
+pub const __clockid_t_defined = @as(c_int, 1);
+pub const __time_t_defined = @as(c_int, 1);
+pub const __timer_t_defined = @as(c_int, 1);
+pub const _BITS_STDINT_INTN_H = @as(c_int, 1);
+pub const __BIT_TYPES_DEFINED__ = @as(c_int, 1);
+pub const _ENDIAN_H = @as(c_int, 1);
+pub const _BITS_ENDIAN_H = @as(c_int, 1);
+pub const __LITTLE_ENDIAN = @as(c_int, 1234);
+pub const __BIG_ENDIAN = @as(c_int, 4321);
+pub const __PDP_ENDIAN = @as(c_int, 3412);
+pub const _BITS_ENDIANNESS_H = @as(c_int, 1);
+pub const __BYTE_ORDER = __LITTLE_ENDIAN;
+pub const __FLOAT_WORD_ORDER = __BYTE_ORDER;
+pub inline fn __LONG_LONG_PAIR(HI: anytype, LO: anytype) @TypeOf(HI) {
+    _ = &HI;
+    _ = &LO;
+    return blk: {
+        _ = &LO;
+        break :blk HI;
+    };
+}
+pub const LITTLE_ENDIAN = __LITTLE_ENDIAN;
+pub const BIG_ENDIAN = __BIG_ENDIAN;
+pub const PDP_ENDIAN = __PDP_ENDIAN;
+pub const BYTE_ORDER = __BYTE_ORDER;
+pub const _BITS_BYTESWAP_H = @as(c_int, 1);
+pub inline fn __bswap_constant_16(x: anytype) __uint16_t {
+    _ = &x;
+    return __helpers.cast(__uint16_t, ((x >> @as(c_int, 8)) & @as(c_int, 0xff)) | ((x & @as(c_int, 0xff)) << @as(c_int, 8)));
+}
+pub inline fn __bswap_constant_32(x: anytype) @TypeOf(((((x & __helpers.promoteIntLiteral(c_uint, 0xff000000, .hex)) >> @as(c_int, 24)) | ((x & __helpers.promoteIntLiteral(c_uint, 0x00ff0000, .hex)) >> @as(c_int, 8))) | ((x & @as(c_uint, 0x0000ff00)) << @as(c_int, 8))) | ((x & @as(c_uint, 0x000000ff)) << @as(c_int, 24))) {
+    _ = &x;
+    return ((((x & __helpers.promoteIntLiteral(c_uint, 0xff000000, .hex)) >> @as(c_int, 24)) | ((x & __helpers.promoteIntLiteral(c_uint, 0x00ff0000, .hex)) >> @as(c_int, 8))) | ((x & @as(c_uint, 0x0000ff00)) << @as(c_int, 8))) | ((x & @as(c_uint, 0x000000ff)) << @as(c_int, 24));
+}
+pub inline fn __bswap_constant_64(x: anytype) @TypeOf(((((((((x & @as(c_ulonglong, 0xff00000000000000)) >> @as(c_int, 56)) | ((x & @as(c_ulonglong, 0x00ff000000000000)) >> @as(c_int, 40))) | ((x & @as(c_ulonglong, 0x0000ff0000000000)) >> @as(c_int, 24))) | ((x & @as(c_ulonglong, 0x000000ff00000000)) >> @as(c_int, 8))) | ((x & @as(c_ulonglong, 0x00000000ff000000)) << @as(c_int, 8))) | ((x & @as(c_ulonglong, 0x0000000000ff0000)) << @as(c_int, 24))) | ((x & @as(c_ulonglong, 0x000000000000ff00)) << @as(c_int, 40))) | ((x & @as(c_ulonglong, 0x00000000000000ff)) << @as(c_int, 56))) {
+    _ = &x;
+    return ((((((((x & @as(c_ulonglong, 0xff00000000000000)) >> @as(c_int, 56)) | ((x & @as(c_ulonglong, 0x00ff000000000000)) >> @as(c_int, 40))) | ((x & @as(c_ulonglong, 0x0000ff0000000000)) >> @as(c_int, 24))) | ((x & @as(c_ulonglong, 0x000000ff00000000)) >> @as(c_int, 8))) | ((x & @as(c_ulonglong, 0x00000000ff000000)) << @as(c_int, 8))) | ((x & @as(c_ulonglong, 0x0000000000ff0000)) << @as(c_int, 24))) | ((x & @as(c_ulonglong, 0x000000000000ff00)) << @as(c_int, 40))) | ((x & @as(c_ulonglong, 0x00000000000000ff)) << @as(c_int, 56));
+}
+pub const _BITS_UINTN_IDENTITY_H = @as(c_int, 1);
+pub inline fn htobe16(x: anytype) @TypeOf(__bswap_16(x)) {
+    _ = &x;
+    return __bswap_16(x);
+}
+pub inline fn htole16(x: anytype) @TypeOf(__uint16_identity(x)) {
+    _ = &x;
+    return __uint16_identity(x);
+}
+pub inline fn be16toh(x: anytype) @TypeOf(__bswap_16(x)) {
+    _ = &x;
+    return __bswap_16(x);
+}
+pub inline fn le16toh(x: anytype) @TypeOf(__uint16_identity(x)) {
+    _ = &x;
+    return __uint16_identity(x);
+}
+pub inline fn htobe32(x: anytype) @TypeOf(__bswap_32(x)) {
+    _ = &x;
+    return __bswap_32(x);
+}
+pub inline fn htole32(x: anytype) @TypeOf(__uint32_identity(x)) {
+    _ = &x;
+    return __uint32_identity(x);
+}
+pub inline fn be32toh(x: anytype) @TypeOf(__bswap_32(x)) {
+    _ = &x;
+    return __bswap_32(x);
+}
+pub inline fn le32toh(x: anytype) @TypeOf(__uint32_identity(x)) {
+    _ = &x;
+    return __uint32_identity(x);
+}
+pub inline fn htobe64(x: anytype) @TypeOf(__bswap_64(x)) {
+    _ = &x;
+    return __bswap_64(x);
+}
+pub inline fn htole64(x: anytype) @TypeOf(__uint64_identity(x)) {
+    _ = &x;
+    return __uint64_identity(x);
+}
+pub inline fn be64toh(x: anytype) @TypeOf(__bswap_64(x)) {
+    _ = &x;
+    return __bswap_64(x);
+}
+pub inline fn le64toh(x: anytype) @TypeOf(__uint64_identity(x)) {
+    _ = &x;
+    return __uint64_identity(x);
+}
+pub const _SYS_SELECT_H = @as(c_int, 1);
+pub const __FD_ZERO = @compileError("unable to translate macro: undefined identifier `__i`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/select.h:25:9
+pub const __FD_SET = @compileError("unable to translate C expr: expected ')' instead got '|='"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/select.h:32:9
+pub const __FD_CLR = @compileError("unable to translate C expr: expected ')' instead got '&='"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/select.h:34:9
+pub inline fn __FD_ISSET(d: anytype, s: anytype) @TypeOf((__FDS_BITS(s)[@as(usize, @intCast(__FD_ELT(d)))] & __FD_MASK(d)) != @as(c_int, 0)) {
+    _ = &d;
+    _ = &s;
+    return (__FDS_BITS(s)[@as(usize, @intCast(__FD_ELT(d)))] & __FD_MASK(d)) != @as(c_int, 0);
+}
+pub const __sigset_t_defined = @as(c_int, 1);
+pub const ____sigset_t_defined = "";
+pub const _SIGSET_NWORDS = __helpers.div(@as(c_int, 1024), @as(c_int, 8) * __helpers.sizeof(c_ulong));
+pub const __timeval_defined = @as(c_int, 1);
+pub const _STRUCT_TIMESPEC = @as(c_int, 1);
+pub const __suseconds_t_defined = "";
+pub const __NFDBITS = @as(c_int, 8) * __helpers.cast(c_int, __helpers.sizeof(__fd_mask));
+pub inline fn __FD_ELT(d: anytype) @TypeOf(__helpers.div(d, __NFDBITS)) {
+    _ = &d;
+    return __helpers.div(d, __NFDBITS);
+}
+pub inline fn __FD_MASK(d: anytype) __fd_mask {
+    _ = &d;
+    return __helpers.cast(__fd_mask, @as(c_ulong, 1) << __helpers.rem(d, __NFDBITS));
+}
+pub inline fn __FDS_BITS(set: anytype) @TypeOf(set.*.__fds_bits) {
+    _ = &set;
+    return set.*.__fds_bits;
+}
+pub const FD_SETSIZE = __FD_SETSIZE;
+pub const NFDBITS = __NFDBITS;
+pub inline fn FD_SET(fd: anytype, fdsetp: anytype) @TypeOf(__FD_SET(fd, fdsetp)) {
+    _ = &fd;
+    _ = &fdsetp;
+    return __FD_SET(fd, fdsetp);
+}
+pub inline fn FD_CLR(fd: anytype, fdsetp: anytype) @TypeOf(__FD_CLR(fd, fdsetp)) {
+    _ = &fd;
+    _ = &fdsetp;
+    return __FD_CLR(fd, fdsetp);
+}
+pub inline fn FD_ISSET(fd: anytype, fdsetp: anytype) @TypeOf(__FD_ISSET(fd, fdsetp)) {
+    _ = &fd;
+    _ = &fdsetp;
+    return __FD_ISSET(fd, fdsetp);
+}
+pub inline fn FD_ZERO(fdsetp: anytype) @TypeOf(__FD_ZERO(fdsetp)) {
+    _ = &fdsetp;
+    return __FD_ZERO(fdsetp);
+}
+pub const __blksize_t_defined = "";
+pub const __blkcnt_t_defined = "";
+pub const __fsblkcnt_t_defined = "";
+pub const __fsfilcnt_t_defined = "";
+pub const _BITS_PTHREADTYPES_COMMON_H = @as(c_int, 1);
+pub const _THREAD_SHARED_TYPES_H = @as(c_int, 1);
+pub const _BITS_PTHREADTYPES_ARCH_H = @as(c_int, 1);
+pub const __SIZEOF_PTHREAD_MUTEX_T = @as(c_int, 40);
+pub const __SIZEOF_PTHREAD_ATTR_T = @as(c_int, 56);
+pub const __SIZEOF_PTHREAD_RWLOCK_T = @as(c_int, 56);
+pub const __SIZEOF_PTHREAD_BARRIER_T = @as(c_int, 32);
+pub const __SIZEOF_PTHREAD_MUTEXATTR_T = @as(c_int, 4);
+pub const __SIZEOF_PTHREAD_COND_T = @as(c_int, 48);
+pub const __SIZEOF_PTHREAD_CONDATTR_T = @as(c_int, 4);
+pub const __SIZEOF_PTHREAD_RWLOCKATTR_T = @as(c_int, 8);
+pub const __SIZEOF_PTHREAD_BARRIERATTR_T = @as(c_int, 4);
+pub const __LOCK_ALIGNMENT = "";
+pub const __ONCE_ALIGNMENT = "";
+pub const _BITS_ATOMIC_WIDE_COUNTER_H = "";
+pub const _THREAD_MUTEX_INTERNAL_H = @as(c_int, 1);
+pub const __PTHREAD_MUTEX_HAVE_PREV = @as(c_int, 1);
+pub const __PTHREAD_MUTEX_INITIALIZER = @compileError("unable to translate C expr: unexpected token '{'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/struct_mutex.h:56:10
+pub const _RWLOCK_INTERNAL_H = "";
+pub const __PTHREAD_RWLOCK_ELISION_EXTRA = @compileError("unable to translate C expr: unexpected token '{'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/struct_rwlock.h:40:11
+pub inline fn __PTHREAD_RWLOCK_INITIALIZER(__flags: anytype) @TypeOf(__flags) {
+    _ = &__flags;
+    return blk: {
+        _ = @as(c_int, 0);
+        _ = @as(c_int, 0);
+        _ = @as(c_int, 0);
+        _ = @as(c_int, 0);
+        _ = @as(c_int, 0);
+        _ = @as(c_int, 0);
+        _ = @as(c_int, 0);
+        _ = @as(c_int, 0);
+        _ = &__PTHREAD_RWLOCK_ELISION_EXTRA;
+        _ = @as(c_int, 0);
+        break :blk __flags;
+    };
+}
+pub const __ONCE_FLAG_INIT = @compileError("unable to translate C expr: unexpected token '{'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/thread-shared-types.h:114:9
+pub const __have_pthread_attr_t = @as(c_int, 1);
+pub const _ALLOCA_H = @as(c_int, 1);
+pub const __COMPAR_FN_T = "";
+pub const _MATH_H = @as(c_int, 1);
+pub const __GLIBC_USE_LIB_EXT2 = @as(c_int, 0);
+pub const __GLIBC_USE_IEC_60559_BFP_EXT = @as(c_int, 0);
+pub const __GLIBC_USE_IEC_60559_BFP_EXT_C23 = @as(c_int, 0);
+pub const __GLIBC_USE_IEC_60559_EXT = @as(c_int, 0);
+pub const __GLIBC_USE_IEC_60559_FUNCS_EXT = @as(c_int, 0);
+pub const __GLIBC_USE_IEC_60559_FUNCS_EXT_C23 = @as(c_int, 0);
+pub const __GLIBC_USE_IEC_60559_TYPES_EXT = @as(c_int, 0);
+pub const _BITS_LIBM_SIMD_DECL_STUBS_H = @as(c_int, 1);
+pub const __DECL_SIMD_cos = "";
+pub const __DECL_SIMD_cosf = "";
+pub const __DECL_SIMD_cosl = "";
+pub const __DECL_SIMD_cosf16 = "";
+pub const __DECL_SIMD_cosf32 = "";
+pub const __DECL_SIMD_cosf64 = "";
+pub const __DECL_SIMD_cosf128 = "";
+pub const __DECL_SIMD_cosf32x = "";
+pub const __DECL_SIMD_cosf64x = "";
+pub const __DECL_SIMD_cosf128x = "";
+pub const __DECL_SIMD_sin = "";
+pub const __DECL_SIMD_sinf = "";
+pub const __DECL_SIMD_sinl = "";
+pub const __DECL_SIMD_sinf16 = "";
+pub const __DECL_SIMD_sinf32 = "";
+pub const __DECL_SIMD_sinf64 = "";
+pub const __DECL_SIMD_sinf128 = "";
+pub const __DECL_SIMD_sinf32x = "";
+pub const __DECL_SIMD_sinf64x = "";
+pub const __DECL_SIMD_sinf128x = "";
+pub const __DECL_SIMD_sincos = "";
+pub const __DECL_SIMD_sincosf = "";
+pub const __DECL_SIMD_sincosl = "";
+pub const __DECL_SIMD_sincosf16 = "";
+pub const __DECL_SIMD_sincosf32 = "";
+pub const __DECL_SIMD_sincosf64 = "";
+pub const __DECL_SIMD_sincosf128 = "";
+pub const __DECL_SIMD_sincosf32x = "";
+pub const __DECL_SIMD_sincosf64x = "";
+pub const __DECL_SIMD_sincosf128x = "";
+pub const __DECL_SIMD_log = "";
+pub const __DECL_SIMD_logf = "";
+pub const __DECL_SIMD_logl = "";
+pub const __DECL_SIMD_logf16 = "";
+pub const __DECL_SIMD_logf32 = "";
+pub const __DECL_SIMD_logf64 = "";
+pub const __DECL_SIMD_logf128 = "";
+pub const __DECL_SIMD_logf32x = "";
+pub const __DECL_SIMD_logf64x = "";
+pub const __DECL_SIMD_logf128x = "";
+pub const __DECL_SIMD_exp = "";
+pub const __DECL_SIMD_expf = "";
+pub const __DECL_SIMD_expl = "";
+pub const __DECL_SIMD_expf16 = "";
+pub const __DECL_SIMD_expf32 = "";
+pub const __DECL_SIMD_expf64 = "";
+pub const __DECL_SIMD_expf128 = "";
+pub const __DECL_SIMD_expf32x = "";
+pub const __DECL_SIMD_expf64x = "";
+pub const __DECL_SIMD_expf128x = "";
+pub const __DECL_SIMD_pow = "";
+pub const __DECL_SIMD_powf = "";
+pub const __DECL_SIMD_powl = "";
+pub const __DECL_SIMD_powf16 = "";
+pub const __DECL_SIMD_powf32 = "";
+pub const __DECL_SIMD_powf64 = "";
+pub const __DECL_SIMD_powf128 = "";
+pub const __DECL_SIMD_powf32x = "";
+pub const __DECL_SIMD_powf64x = "";
+pub const __DECL_SIMD_powf128x = "";
+pub const __DECL_SIMD_acos = "";
+pub const __DECL_SIMD_acosf = "";
+pub const __DECL_SIMD_acosl = "";
+pub const __DECL_SIMD_acosf16 = "";
+pub const __DECL_SIMD_acosf32 = "";
+pub const __DECL_SIMD_acosf64 = "";
+pub const __DECL_SIMD_acosf128 = "";
+pub const __DECL_SIMD_acosf32x = "";
+pub const __DECL_SIMD_acosf64x = "";
+pub const __DECL_SIMD_acosf128x = "";
+pub const __DECL_SIMD_atan = "";
+pub const __DECL_SIMD_atanf = "";
+pub const __DECL_SIMD_atanl = "";
+pub const __DECL_SIMD_atanf16 = "";
+pub const __DECL_SIMD_atanf32 = "";
+pub const __DECL_SIMD_atanf64 = "";
+pub const __DECL_SIMD_atanf128 = "";
+pub const __DECL_SIMD_atanf32x = "";
+pub const __DECL_SIMD_atanf64x = "";
+pub const __DECL_SIMD_atanf128x = "";
+pub const __DECL_SIMD_asin = "";
+pub const __DECL_SIMD_asinf = "";
+pub const __DECL_SIMD_asinl = "";
+pub const __DECL_SIMD_asinf16 = "";
+pub const __DECL_SIMD_asinf32 = "";
+pub const __DECL_SIMD_asinf64 = "";
+pub const __DECL_SIMD_asinf128 = "";
+pub const __DECL_SIMD_asinf32x = "";
+pub const __DECL_SIMD_asinf64x = "";
+pub const __DECL_SIMD_asinf128x = "";
+pub const __DECL_SIMD_hypot = "";
+pub const __DECL_SIMD_hypotf = "";
+pub const __DECL_SIMD_hypotl = "";
+pub const __DECL_SIMD_hypotf16 = "";
+pub const __DECL_SIMD_hypotf32 = "";
+pub const __DECL_SIMD_hypotf64 = "";
+pub const __DECL_SIMD_hypotf128 = "";
+pub const __DECL_SIMD_hypotf32x = "";
+pub const __DECL_SIMD_hypotf64x = "";
+pub const __DECL_SIMD_hypotf128x = "";
+pub const __DECL_SIMD_exp2 = "";
+pub const __DECL_SIMD_exp2f = "";
+pub const __DECL_SIMD_exp2l = "";
+pub const __DECL_SIMD_exp2f16 = "";
+pub const __DECL_SIMD_exp2f32 = "";
+pub const __DECL_SIMD_exp2f64 = "";
+pub const __DECL_SIMD_exp2f128 = "";
+pub const __DECL_SIMD_exp2f32x = "";
+pub const __DECL_SIMD_exp2f64x = "";
+pub const __DECL_SIMD_exp2f128x = "";
+pub const __DECL_SIMD_exp10 = "";
+pub const __DECL_SIMD_exp10f = "";
+pub const __DECL_SIMD_exp10l = "";
+pub const __DECL_SIMD_exp10f16 = "";
+pub const __DECL_SIMD_exp10f32 = "";
+pub const __DECL_SIMD_exp10f64 = "";
+pub const __DECL_SIMD_exp10f128 = "";
+pub const __DECL_SIMD_exp10f32x = "";
+pub const __DECL_SIMD_exp10f64x = "";
+pub const __DECL_SIMD_exp10f128x = "";
+pub const __DECL_SIMD_cosh = "";
+pub const __DECL_SIMD_coshf = "";
+pub const __DECL_SIMD_coshl = "";
+pub const __DECL_SIMD_coshf16 = "";
+pub const __DECL_SIMD_coshf32 = "";
+pub const __DECL_SIMD_coshf64 = "";
+pub const __DECL_SIMD_coshf128 = "";
+pub const __DECL_SIMD_coshf32x = "";
+pub const __DECL_SIMD_coshf64x = "";
+pub const __DECL_SIMD_coshf128x = "";
+pub const __DECL_SIMD_expm1 = "";
+pub const __DECL_SIMD_expm1f = "";
+pub const __DECL_SIMD_expm1l = "";
+pub const __DECL_SIMD_expm1f16 = "";
+pub const __DECL_SIMD_expm1f32 = "";
+pub const __DECL_SIMD_expm1f64 = "";
+pub const __DECL_SIMD_expm1f128 = "";
+pub const __DECL_SIMD_expm1f32x = "";
+pub const __DECL_SIMD_expm1f64x = "";
+pub const __DECL_SIMD_expm1f128x = "";
+pub const __DECL_SIMD_sinh = "";
+pub const __DECL_SIMD_sinhf = "";
+pub const __DECL_SIMD_sinhl = "";
+pub const __DECL_SIMD_sinhf16 = "";
+pub const __DECL_SIMD_sinhf32 = "";
+pub const __DECL_SIMD_sinhf64 = "";
+pub const __DECL_SIMD_sinhf128 = "";
+pub const __DECL_SIMD_sinhf32x = "";
+pub const __DECL_SIMD_sinhf64x = "";
+pub const __DECL_SIMD_sinhf128x = "";
+pub const __DECL_SIMD_cbrt = "";
+pub const __DECL_SIMD_cbrtf = "";
+pub const __DECL_SIMD_cbrtl = "";
+pub const __DECL_SIMD_cbrtf16 = "";
+pub const __DECL_SIMD_cbrtf32 = "";
+pub const __DECL_SIMD_cbrtf64 = "";
+pub const __DECL_SIMD_cbrtf128 = "";
+pub const __DECL_SIMD_cbrtf32x = "";
+pub const __DECL_SIMD_cbrtf64x = "";
+pub const __DECL_SIMD_cbrtf128x = "";
+pub const __DECL_SIMD_atan2 = "";
+pub const __DECL_SIMD_atan2f = "";
+pub const __DECL_SIMD_atan2l = "";
+pub const __DECL_SIMD_atan2f16 = "";
+pub const __DECL_SIMD_atan2f32 = "";
+pub const __DECL_SIMD_atan2f64 = "";
+pub const __DECL_SIMD_atan2f128 = "";
+pub const __DECL_SIMD_atan2f32x = "";
+pub const __DECL_SIMD_atan2f64x = "";
+pub const __DECL_SIMD_atan2f128x = "";
+pub const __DECL_SIMD_log10 = "";
+pub const __DECL_SIMD_log10f = "";
+pub const __DECL_SIMD_log10l = "";
+pub const __DECL_SIMD_log10f16 = "";
+pub const __DECL_SIMD_log10f32 = "";
+pub const __DECL_SIMD_log10f64 = "";
+pub const __DECL_SIMD_log10f128 = "";
+pub const __DECL_SIMD_log10f32x = "";
+pub const __DECL_SIMD_log10f64x = "";
+pub const __DECL_SIMD_log10f128x = "";
+pub const __DECL_SIMD_log2 = "";
+pub const __DECL_SIMD_log2f = "";
+pub const __DECL_SIMD_log2l = "";
+pub const __DECL_SIMD_log2f16 = "";
+pub const __DECL_SIMD_log2f32 = "";
+pub const __DECL_SIMD_log2f64 = "";
+pub const __DECL_SIMD_log2f128 = "";
+pub const __DECL_SIMD_log2f32x = "";
+pub const __DECL_SIMD_log2f64x = "";
+pub const __DECL_SIMD_log2f128x = "";
+pub const __DECL_SIMD_log1p = "";
+pub const __DECL_SIMD_log1pf = "";
+pub const __DECL_SIMD_log1pl = "";
+pub const __DECL_SIMD_log1pf16 = "";
+pub const __DECL_SIMD_log1pf32 = "";
+pub const __DECL_SIMD_log1pf64 = "";
+pub const __DECL_SIMD_log1pf128 = "";
+pub const __DECL_SIMD_log1pf32x = "";
+pub const __DECL_SIMD_log1pf64x = "";
+pub const __DECL_SIMD_log1pf128x = "";
+pub const __DECL_SIMD_logp1 = "";
+pub const __DECL_SIMD_logp1f = "";
+pub const __DECL_SIMD_logp1l = "";
+pub const __DECL_SIMD_logp1f16 = "";
+pub const __DECL_SIMD_logp1f32 = "";
+pub const __DECL_SIMD_logp1f64 = "";
+pub const __DECL_SIMD_logp1f128 = "";
+pub const __DECL_SIMD_logp1f32x = "";
+pub const __DECL_SIMD_logp1f64x = "";
+pub const __DECL_SIMD_logp1f128x = "";
+pub const __DECL_SIMD_atanh = "";
+pub const __DECL_SIMD_atanhf = "";
+pub const __DECL_SIMD_atanhl = "";
+pub const __DECL_SIMD_atanhf16 = "";
+pub const __DECL_SIMD_atanhf32 = "";
+pub const __DECL_SIMD_atanhf64 = "";
+pub const __DECL_SIMD_atanhf128 = "";
+pub const __DECL_SIMD_atanhf32x = "";
+pub const __DECL_SIMD_atanhf64x = "";
+pub const __DECL_SIMD_atanhf128x = "";
+pub const __DECL_SIMD_acosh = "";
+pub const __DECL_SIMD_acoshf = "";
+pub const __DECL_SIMD_acoshl = "";
+pub const __DECL_SIMD_acoshf16 = "";
+pub const __DECL_SIMD_acoshf32 = "";
+pub const __DECL_SIMD_acoshf64 = "";
+pub const __DECL_SIMD_acoshf128 = "";
+pub const __DECL_SIMD_acoshf32x = "";
+pub const __DECL_SIMD_acoshf64x = "";
+pub const __DECL_SIMD_acoshf128x = "";
+pub const __DECL_SIMD_erf = "";
+pub const __DECL_SIMD_erff = "";
+pub const __DECL_SIMD_erfl = "";
+pub const __DECL_SIMD_erff16 = "";
+pub const __DECL_SIMD_erff32 = "";
+pub const __DECL_SIMD_erff64 = "";
+pub const __DECL_SIMD_erff128 = "";
+pub const __DECL_SIMD_erff32x = "";
+pub const __DECL_SIMD_erff64x = "";
+pub const __DECL_SIMD_erff128x = "";
+pub const __DECL_SIMD_tanh = "";
+pub const __DECL_SIMD_tanhf = "";
+pub const __DECL_SIMD_tanhl = "";
+pub const __DECL_SIMD_tanhf16 = "";
+pub const __DECL_SIMD_tanhf32 = "";
+pub const __DECL_SIMD_tanhf64 = "";
+pub const __DECL_SIMD_tanhf128 = "";
+pub const __DECL_SIMD_tanhf32x = "";
+pub const __DECL_SIMD_tanhf64x = "";
+pub const __DECL_SIMD_tanhf128x = "";
+pub const __DECL_SIMD_asinh = "";
+pub const __DECL_SIMD_asinhf = "";
+pub const __DECL_SIMD_asinhl = "";
+pub const __DECL_SIMD_asinhf16 = "";
+pub const __DECL_SIMD_asinhf32 = "";
+pub const __DECL_SIMD_asinhf64 = "";
+pub const __DECL_SIMD_asinhf128 = "";
+pub const __DECL_SIMD_asinhf32x = "";
+pub const __DECL_SIMD_asinhf64x = "";
+pub const __DECL_SIMD_asinhf128x = "";
+pub const __DECL_SIMD_erfc = "";
+pub const __DECL_SIMD_erfcf = "";
+pub const __DECL_SIMD_erfcl = "";
+pub const __DECL_SIMD_erfcf16 = "";
+pub const __DECL_SIMD_erfcf32 = "";
+pub const __DECL_SIMD_erfcf64 = "";
+pub const __DECL_SIMD_erfcf128 = "";
+pub const __DECL_SIMD_erfcf32x = "";
+pub const __DECL_SIMD_erfcf64x = "";
+pub const __DECL_SIMD_erfcf128x = "";
+pub const __DECL_SIMD_tan = "";
+pub const __DECL_SIMD_tanf = "";
+pub const __DECL_SIMD_tanl = "";
+pub const __DECL_SIMD_tanf16 = "";
+pub const __DECL_SIMD_tanf32 = "";
+pub const __DECL_SIMD_tanf64 = "";
+pub const __DECL_SIMD_tanf128 = "";
+pub const __DECL_SIMD_tanf32x = "";
+pub const __DECL_SIMD_tanf64x = "";
+pub const __DECL_SIMD_tanf128x = "";
+pub const __DECL_SIMD_sinpi = "";
+pub const __DECL_SIMD_sinpif = "";
+pub const __DECL_SIMD_sinpil = "";
+pub const __DECL_SIMD_sinpif16 = "";
+pub const __DECL_SIMD_sinpif32 = "";
+pub const __DECL_SIMD_sinpif64 = "";
+pub const __DECL_SIMD_sinpif128 = "";
+pub const __DECL_SIMD_sinpif32x = "";
+pub const __DECL_SIMD_sinpif64x = "";
+pub const __DECL_SIMD_sinpif128x = "";
+pub const __DECL_SIMD_cospi = "";
+pub const __DECL_SIMD_cospif = "";
+pub const __DECL_SIMD_cospil = "";
+pub const __DECL_SIMD_cospif16 = "";
+pub const __DECL_SIMD_cospif32 = "";
+pub const __DECL_SIMD_cospif64 = "";
+pub const __DECL_SIMD_cospif128 = "";
+pub const __DECL_SIMD_cospif32x = "";
+pub const __DECL_SIMD_cospif64x = "";
+pub const __DECL_SIMD_cospif128x = "";
+pub const __DECL_SIMD_tanpi = "";
+pub const __DECL_SIMD_tanpif = "";
+pub const __DECL_SIMD_tanpil = "";
+pub const __DECL_SIMD_tanpif16 = "";
+pub const __DECL_SIMD_tanpif32 = "";
+pub const __DECL_SIMD_tanpif64 = "";
+pub const __DECL_SIMD_tanpif128 = "";
+pub const __DECL_SIMD_tanpif32x = "";
+pub const __DECL_SIMD_tanpif64x = "";
+pub const __DECL_SIMD_tanpif128x = "";
+pub const __DECL_SIMD_acospi = "";
+pub const __DECL_SIMD_acospif = "";
+pub const __DECL_SIMD_acospil = "";
+pub const __DECL_SIMD_acospif16 = "";
+pub const __DECL_SIMD_acospif32 = "";
+pub const __DECL_SIMD_acospif64 = "";
+pub const __DECL_SIMD_acospif128 = "";
+pub const __DECL_SIMD_acospif32x = "";
+pub const __DECL_SIMD_acospif64x = "";
+pub const __DECL_SIMD_acospif128x = "";
+pub const __DECL_SIMD_asinpi = "";
+pub const __DECL_SIMD_asinpif = "";
+pub const __DECL_SIMD_asinpil = "";
+pub const __DECL_SIMD_asinpif16 = "";
+pub const __DECL_SIMD_asinpif32 = "";
+pub const __DECL_SIMD_asinpif64 = "";
+pub const __DECL_SIMD_asinpif128 = "";
+pub const __DECL_SIMD_asinpif32x = "";
+pub const __DECL_SIMD_asinpif64x = "";
+pub const __DECL_SIMD_asinpif128x = "";
+pub const __DECL_SIMD_atanpi = "";
+pub const __DECL_SIMD_atanpif = "";
+pub const __DECL_SIMD_atanpil = "";
+pub const __DECL_SIMD_atanpif16 = "";
+pub const __DECL_SIMD_atanpif32 = "";
+pub const __DECL_SIMD_atanpif64 = "";
+pub const __DECL_SIMD_atanpif128 = "";
+pub const __DECL_SIMD_atanpif32x = "";
+pub const __DECL_SIMD_atanpif64x = "";
+pub const __DECL_SIMD_atanpif128x = "";
+pub const __DECL_SIMD_atan2pi = "";
+pub const __DECL_SIMD_atan2pif = "";
+pub const __DECL_SIMD_atan2pil = "";
+pub const __DECL_SIMD_atan2pif16 = "";
+pub const __DECL_SIMD_atan2pif32 = "";
+pub const __DECL_SIMD_atan2pif64 = "";
+pub const __DECL_SIMD_atan2pif128 = "";
+pub const __DECL_SIMD_atan2pif32x = "";
+pub const __DECL_SIMD_atan2pif64x = "";
+pub const __DECL_SIMD_atan2pif128x = "";
+pub const HUGE_VAL = @compileError("unable to translate macro: undefined identifier `__builtin_huge_val`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:48:10
+pub const HUGE_VALF = __builtin.huge_valf();
+pub const HUGE_VALL = @compileError("unable to translate macro: undefined identifier `__builtin_huge_vall`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:60:11
+pub const INFINITY = __builtin.inff();
+pub const NAN = __builtin.nanf("");
+pub const __GLIBC_FLT_EVAL_METHOD = __FLT_EVAL_METHOD__;
+pub const __FP_LOGB0_IS_MIN = @as(c_int, 1);
+pub const __FP_LOGBNAN_IS_MIN = @as(c_int, 1);
+pub const FP_ILOGB0 = -__helpers.promoteIntLiteral(c_int, 2147483647, .decimal) - @as(c_int, 1);
+pub const FP_ILOGBNAN = -__helpers.promoteIntLiteral(c_int, 2147483647, .decimal) - @as(c_int, 1);
+pub const __SIMD_DECL = @compileError("unable to translate macro: undefined identifier `__DECL_SIMD_`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/mathcalls-macros.h:19:9
+pub const __MATHCALL_VEC = @compileError("unable to translate macro: undefined identifier `__MATH_PRECNAME`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/mathcalls-macros.h:21:9
+pub const __MATHDECL_VEC = @compileError("unable to translate macro: undefined identifier `__MATH_PRECNAME`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/mathcalls-macros.h:25:9
+pub const __MATHCALLX = @compileError("unable to translate macro: undefined identifier `_Mdouble_`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/mathcalls-macros.h:34:9
+pub const __MATHDECLX = @compileError("unable to translate macro: undefined identifier `__MATHDECL_1`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/mathcalls-macros.h:36:9
+pub const __MATHREDIR = @compileError("unable to translate macro: undefined identifier `__MATH_PRECNAME`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/bits/mathcalls-macros.h:47:9
+pub const __MATH_DECLARE_LDOUBLE = @as(c_int, 1);
+pub const __MATH_TG_F32 = @compileError("unable to translate macro: undefined identifier `f`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:853:12
+pub const __MATH_TG_F64X = @compileError("unable to translate macro: undefined identifier `l`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:859:13
+pub const __MATH_TG = @compileError("unable to translate macro: undefined identifier `f`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:866:11
+pub const fpclassify = @compileError("unable to translate macro: undefined identifier `__builtin_fpclassify`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:936:11
+pub inline fn signbit(x: anytype) @TypeOf(__builtin.signbit(x)) {
+    _ = &x;
+    return __builtin.signbit(x);
+}
+pub const isfinite = @compileError("unable to translate macro: undefined identifier `__builtin_isfinite`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:963:11
+pub const isnormal = @compileError("unable to translate macro: undefined identifier `__builtin_isnormal`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:971:11
+pub const MATH_ERRNO = @as(c_int, 1);
+pub const MATH_ERREXCEPT = @as(c_int, 2);
+pub const math_errhandling = MATH_ERRNO | MATH_ERREXCEPT;
+pub const M_E = @as(f64, 2.7182818284590452354);
+pub const M_LOG2E = @as(f64, 1.4426950408889634074);
+pub const M_LOG10E = @as(f64, 0.43429448190325182765);
+pub const M_LN2 = @as(f64, 0.69314718055994530942);
+pub const M_LN10 = @as(f64, 2.30258509299404568402);
+pub const M_PI = @as(f64, 3.14159265358979323846);
+pub const M_PI_2 = @as(f64, 1.57079632679489661923);
+pub const M_PI_4 = @as(f64, 0.78539816339744830962);
+pub const M_1_PI = @as(f64, 0.31830988618379067154);
+pub const M_2_PI = @as(f64, 0.63661977236758134308);
+pub const M_2_SQRTPI = @as(f64, 1.12837916709551257390);
+pub const M_SQRT2 = @as(f64, 1.41421356237309504880);
+pub const M_SQRT1_2 = @as(f64, 0.70710678118654752440);
+pub const isgreater = @compileError("unable to translate macro: undefined identifier `__builtin_isgreater`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:1275:11
+pub const isgreaterequal = @compileError("unable to translate macro: undefined identifier `__builtin_isgreaterequal`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:1276:11
+pub const isless = @compileError("unable to translate macro: undefined identifier `__builtin_isless`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:1277:11
+pub const islessequal = @compileError("unable to translate macro: undefined identifier `__builtin_islessequal`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:1278:11
+pub const islessgreater = @compileError("unable to translate macro: undefined identifier `__builtin_islessgreater`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:1279:11
+pub const isunordered = @compileError("unable to translate macro: undefined identifier `__builtin_isunordered`"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/math.h:1280:11
+pub const TRUE = @as(c_int, 1);
+pub const FALSE = @as(c_int, 0);
+pub inline fn max(a: anytype, b: anytype) @TypeOf(if (__helpers.cast(bool, a > b)) a else b) {
+    _ = &a;
+    _ = &b;
+    return if (__helpers.cast(bool, a > b)) a else b;
+}
+pub inline fn min(a: anytype, b: anytype) @TypeOf(if (__helpers.cast(bool, a < b)) a else b) {
+    _ = &a;
+    _ = &b;
+    return if (__helpers.cast(bool, a < b)) a else b;
+}
+pub inline fn pow2(a: anytype) @TypeOf(a * a) {
+    _ = &a;
+    return a * a;
+}
+pub inline fn get_real(c: anytype) @TypeOf(c.real) {
+    _ = &c;
+    return c.real;
+}
+pub inline fn get_imag(c: anytype) @TypeOf(c.imag) {
+    _ = &c;
+    return c.imag;
+}
+pub const cadd = @compileError("unable to translate C expr: expected ')' instead got '='"); // src/benches/NPB_3_0_C_replaced_headers/common//npb-C.h:24:9
+pub const csub = @compileError("unable to translate C expr: expected ')' instead got '='"); // src/benches/NPB_3_0_C_replaced_headers/common//npb-C.h:25:9
+pub const cmul = @compileError("unable to translate C expr: expected ')' instead got '='"); // src/benches/NPB_3_0_C_replaced_headers/common//npb-C.h:26:9
+pub const crmul = @compileError("unable to translate C expr: expected ')' instead got '='"); // src/benches/NPB_3_0_C_replaced_headers/common//npb-C.h:28:9
+pub const wtime = wtime_;
+pub const r23 = (((((((((((((((((((((@as(f64, 0.5) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5)) * @as(f64, 0.5);
+pub const r46 = r23 * r23;
+pub const t23 = (((((((((((((((((((((@as(f64, 2.0) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0)) * @as(f64, 2.0);
+pub const t46 = t23 * t23;
+pub const _SYS_TIME_H = @as(c_int, 1);
+pub inline fn timerisset(tvp: anytype) @TypeOf((tvp.*.tv_sec != 0) or (tvp.*.tv_usec != 0)) {
+    _ = &tvp;
+    return (tvp.*.tv_sec != 0) or (tvp.*.tv_usec != 0);
+}
+pub const timerclear = @compileError("unable to translate C expr: expected ')' instead got '='"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/time.h:232:10
+pub inline fn timercmp(a: anytype, b: anytype, CMP: anytype) @TypeOf(if (__helpers.cast(bool, a.*.tv_sec == b.*.tv_sec)) a.*.tv_usec ++ CMP(b).*.tv_usec else a.*.tv_sec ++ CMP(b).*.tv_sec) {
+    _ = &a;
+    _ = &b;
+    _ = &CMP;
+    return if (__helpers.cast(bool, a.*.tv_sec == b.*.tv_sec)) a.*.tv_usec ++ CMP(b).*.tv_usec else a.*.tv_sec ++ CMP(b).*.tv_sec;
+}
+pub const timeradd = @compileError("unable to translate C expr: unexpected token 'do'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/time.h:237:10
+pub const timersub = @compileError("unable to translate C expr: unexpected token 'do'"); // /nix/store/29isvm6vfq10c528i31igdiy3fnvjcm3-glibc-2.42-67-dev/include/sys/time.h:247:10
+pub const NX_DEFAULT = @as(c_int, 512);
+pub const NY_DEFAULT = @as(c_int, 512);
+pub const NZ_DEFAULT = @as(c_int, 512);
+pub const NIT_DEFAULT = @as(c_int, 20);
+pub const LM = @as(c_int, 9);
+pub const LT_DEFAULT = @as(c_int, 9);
+pub const DEBUG_DEFAULT = @as(c_int, 0);
+pub const NDIM1 = @as(c_int, 9);
+pub const NDIM2 = @as(c_int, 9);
+pub const NDIM3 = @as(c_int, 9);
+pub const CONVERTDOUBLE = FALSE;
+pub const COMPILETIME = "18 Sep 2026";
+pub const NPBVERSION = "3.0 structured";
+pub const CS1 = "cc";
+pub const CS2 = "cc";
+pub const CS3 = "(none)";
+pub const CS4 = "-I../common";
+pub const CS5 = "-lm -O3 ";
+pub const CS6 = "(none)";
+pub const CS7 = "randdp";
+pub const NM = @as(c_int, 2) + (@as(c_int, 2) << (LM - @as(c_int, 1)));
+pub const NV = @as(c_int, 2) + (((@as(c_int, 2) << (NDIM1 - @as(c_int, 1))) * (@as(c_int, 2) + (@as(c_int, 2) << (NDIM2 - @as(c_int, 1))))) * (@as(c_int, 2) + (@as(c_int, 2) << (NDIM3 - @as(c_int, 1)))));
+pub const NR = __helpers.div(@as(c_int, 8) * (((NV + (NM * NM)) + (@as(c_int, 5) * NM)) + (@as(c_int, 7) * LM)), @as(c_int, 7));
+pub const NM2 = (@as(c_int, 2) * NM) * NM;
+pub const MAXLEVEL = @as(c_int, 11);
+pub const M = @as(c_int, 1037);
+pub const T_BENCH = @as(c_int, 1);
+pub const T_INIT = @as(c_int, 2);
+pub const MM = @as(c_int, 10);
+pub const A = pow(@as(f64, 5.0), @as(c_int, 13));
+pub const X = @as(f64, 314159265.e0);
+pub const _G_fpos_t = struct__G_fpos_t;
+pub const _G_fpos64_t = struct__G_fpos64_t;
+pub const _IO_marker = struct__IO_marker;
+pub const _IO_FILE = struct__IO_FILE;
+pub const _IO_codecvt = struct__IO_codecvt;
+pub const _IO_wide_data = struct__IO_wide_data;
+pub const _IO_cookie_io_functions_t = struct__IO_cookie_io_functions_t;
+pub const timeval = struct_timeval;
+pub const timespec = struct_timespec;
+pub const __pthread_internal_list = struct___pthread_internal_list;
+pub const __pthread_internal_slist = struct___pthread_internal_slist;
+pub const __pthread_mutex_s = struct___pthread_mutex_s;
+pub const __pthread_rwlock_arch_t = struct___pthread_rwlock_arch_t;
+pub const __pthread_cond_s = struct___pthread_cond_s;
+pub const random_data = struct_random_data;
+pub const drand48_data = struct_drand48_data;
+pub const timezone = struct_timezone;
+pub const __itimer_which = enum___itimer_which;
+pub const itimerval = struct_itimerval;

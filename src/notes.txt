@@ -1,0 +1,27 @@
+pub fn main(init: std.process.Init) !void {
+    const arena: std.mem.Allocator = init.arena.allocator();
+
+    // const io = std.Io.Threaded.global_single_threaded.io();
+    const args: []const [:0]const u8 = try init.minimal.args.toSlice(arena);
+
+    const argc: c_int = @intCast(args.len);
+    
+    const argv = try arena.alloc([*c]u8, args.len + 1);
+
+    for (args, 0..) |arg, i| {
+        argv[i] = @constCast(arg.ptr);
+    }
+    argv[args.len] = null;
+
+    const rc = c_main(argc, @constCast(argv.ptr));
+    if (rc != 0) std.process.exit(@intCast(rc));
+}
+
+
+// bt build and crash
+// cg working serial
+// ep no build  
+// ft broken at runtime fish: Job 1, './ft' terminated by signal SIGSEGV (Address boundary error)
+// is no build 
+// mg serial working  
+//
